@@ -132,10 +132,116 @@
       
 
       
-      ！这个文档已被加密！
-      
-      <a class="article-more-link" href="/2020/04/28/%E4%BB%98%E8%B4%B9%E6%96%87%E6%A1%A3/">More</a>
-      
+      <p>其实什么都没有呀~</p>
+<h1 id="1-依赖包npm"><a href="#1-依赖包npm" class="headerlink" title="1 依赖包npm"></a>1 依赖包npm</h1><h2 id="1-1-git推送"><a href="#1-1-git推送" class="headerlink" title="1.1 git推送"></a>1.1 git推送</h2><pre><code class="javascript">npm install hexo-deployer-git --save</code></pre>
+<h2 id="1-2-站内搜索"><a href="#1-2-站内搜索" class="headerlink" title="1.2  站内搜索"></a>1.2  站内搜索</h2><pre><code>npm install hexo-generator-searchdb --save</code></pre><pre><code># hexo-generator-searchdb
+search:
+  path: search.xml
+  field: post
+  format: html</code></pre><h2 id="1-3-RSS订阅"><a href="#1-3-RSS订阅" class="headerlink" title="1.3 RSS订阅"></a>1.3 RSS订阅</h2><pre><code>npm install hexo-generator-feed --save</code></pre><pre><code>feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+    hub:
+    content:
+    content_limit: 140
+    content_limit_delim: &#39; &#39;
+    order_by: -date</code></pre><h2 id="1-4-文章顶置"><a href="#1-4-文章顶置" class="headerlink" title="1.4 文章顶置"></a>1.4 文章顶置</h2><pre><code>$ npm uninstall hexo-generator-index --save
+$ npm install hexo-generator-index-pin-top --save</code></pre><pre><code>index_generator:
+  path: &#39;&#39;
+  per_page: 10
+  order_by: -date</code></pre><h1 id="1-5-文章加密"><a href="#1-5-文章加密" class="headerlink" title="1.5 文章加密"></a>1.5 文章加密</h1><pre><code>npm install --save hexo-blog-encrypt</code></pre><p><strong>快速使用</strong></p>
+<pre><code class="——">---
+title: Hello World
+date: 2016-03-30 21:18:02
+password: mikemessi
+---</code></pre>
+<p><strong>配置_config.yml文件</strong></p>
+<pre><code># Security
+encrypt: # hexo-blog-encrypt
+  abstract: 有东西被加密了, 请输入密码查看.
+  message: 您好, 这里需要密码.
+  tags:
+  - {name: tagName, password: 密码A}
+  - {name: tagName, password: 密码B}
+  template: &lt;div id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;{{hbeWrongPassMessage}}&quot; data-whm=&quot;{{hbeWrongHashMessage}}&quot;&gt;&lt;div class=&quot;hbe-input-container&quot;&gt;&lt;input type=&quot;password&quot; id=&quot;hbePass&quot; placeholder=&quot;{{hbeMessage}}&quot; /&gt;&lt;label&gt;{{hbeMessage}}&lt;/label&gt;&lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;{{hbeHmacDigest}}&quot;&gt;{{hbeEncryptedData}}&lt;/script&gt;&lt;/div&gt;
+  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</code></pre><h2 id="1-6-页内音乐播放器"><a href="#1-6-页内音乐播放器" class="headerlink" title="1.6 页内音乐播放器"></a>1.6 页内音乐播放器</h2><pre><code>pm install --save hexo-tag-aplayer</code></pre><p><strong>公式</strong></p>
+<pre><code>&lt;!-- 简单示例 (id, server, type)  --&gt;
+{% meting "60198" "netease" "playlist" %}
+
+&lt;!-- 进阶示例 --&gt;
+{% meting "60198" "netease" "playlist" "autoplay" "mutex:false" "listmaxheight:340px" "preload:none" "theme:#ad7a86"%}</code></pre><p><strong>配置_config.yml文件</strong></p>
+<pre><code>aplayer:
+  meting: true</code></pre><h1 id="1-7-看板娘"><a href="#1-7-看板娘" class="headerlink" title="1.7 看板娘"></a>1.7 看板娘</h1><pre><code>npm install --save hexo-helper-live2d</code></pre><pre><code>##看板娘
+live2d:
+  enable: true
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-hijiki  #模板目录，在node_modules里
+  display:
+    position: left
+    width: 150 
+    height: 300
+    hOffset: 80
+    vOffset: -70
+  mobile:
+    show: true #是否在手机进行显示
+    scale: 0.5  </code></pre><h1 id="2-代码高亮"><a href="#2-代码高亮" class="headerlink" title="2 代码高亮"></a>2 代码高亮</h1><h2 id="2-1-Highlight-js"><a href="#2-1-Highlight-js" class="headerlink" title="2.1 Highlight.js"></a>2.1 Highlight.js</h2><pre><code>&lt;!-- Highlight.js --&gt;
+&lt;link href=&quot;https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/highlight.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;</code></pre><h2 id="2-2-封面标题闪烁"><a href="#2-2-封面标题闪烁" class="headerlink" title="2.2 封面标题闪烁"></a>2.2 封面标题闪烁</h2><p>【\themes\ayer\layout_partial\head.ejs】添加</p>
+<pre><code>&lt;!-- 封面标闪烁 --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/zhyBlogTitle.css&quot;&gt;</code></pre><p>【\themes\ayer\source\css文件夹】添加【zhyBlogTitle.css】</p>
+<pre><code class="css">/*网站标题鼠标停留闪烁*/    
+.center-text{margin:auto;font-family:&#39;Ubuntu&#39;,sans-serif;font-size:80px; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+.glitch{position:relative;color:#fff;mix-blend-mode:lighten}
+.glitch:before,.glitch:after{content:attr(data-text);position:absolute;top:0;width:100%;background:rgba(0,0,0,0);clip:rect(0,0,0,0)}
+.glitch:before{left:-1px;text-shadow:1px 0 #ff3f1a}
+.glitch:after{left:1px;text-shadow:-1px 0 #00a7e0}
+.glitch:hover:before{text-shadow:4px 0 #ff3f1a;animation:glitch-loop-1 .8s infinite ease-in-out alternate-reverse}
+.glitch:hover:after{text-shadow:-5px 0 #00a7e0;animation:glitch-loop-2 .8s infinite ease-in-out alternate-reverse}
+@-webkit-keyframes glitch-loop-1{0%{clip:rect(36px,9999px,9px,0)}25%{clip:rect(25px,9999px,99px,0)}50%{clip:rect(50px,9999px,102px,0)}75%{clip:rect(30px,9999px,92px,0)}100%{clip:rect(91px,9999px,98px,0)}}
+@keyframes glitch-loop-1{0%{clip:rect(36px,9999px,9px,0)}25%{clip:rect(25px,9999px,99px,0)}50%{clip:rect(50px,9999px,102px,0)}75%{clip:rect(30px,9999px,92px,0)}100%{clip:rect(91px,9999px,98px,0)}}
+@-webkit-keyframes glitch-loop-2{0%{top:-1px;left:1px;clip:rect(65px,9999px,119px,0)}25%{top:-6px;left:4px;clip:rect(79px,9999px,19px,0)}50%{top:-3px;left:2px;clip:rect(68px,9999px,11px,0)}75%{top:0;left:-4px;clip:rect(95px,9999px,53px,0)}100%{top:-1px;left:-1px;clip:rect(31px,9999px,149px,0)}}
+@keyframes glitch-loop-2{0%{top:-1px;left:1px;clip:rect(65px,9999px,119px,0)}25%{top:-6px;left:4px;clip:rect(79px,9999px,19px,0)}50%{top:-3px;left:2px;clip:rect(68px,9999px,11px,0)}75%{top:0;left:-4px;clip:rect(95px,9999px,53px,0)}100%{top:-1px;left:-1px;clip:rect(31px,9999px,149px,0)}}</code></pre>
+<p>【\themes\ayer\layout_partial\ayer.ejs】添加</p>
+<pre><code>&lt;!-- 特效标题 &lt;h1&gt;&lt;a href=&quot;&lt;%- url_for() %&gt;&quot;&gt;&lt;%= config.title %&gt;&lt;/a&gt;&lt;/h1&gt; --&gt;
+&lt;h1 class=&quot;center-text glitch&quot; data-text=&quot;Zhy丶Blog&quot;&gt;&lt;%= config.title %&gt;&lt;/h1&gt;</code></pre><h1 id="3-百度推送"><a href="#3-百度推送" class="headerlink" title="3 百度推送"></a>3 百度推送</h1><h2 id="3-1-自动推送"><a href="#3-1-自动推送" class="headerlink" title="3.1 自动推送"></a>3.1 自动推送</h2><p>【\themes\ayer\layout_partial\head.ejs】添加</p>
+<pre><code>&lt;script&gt;
+(function(){
+    var bp = document.createElement(&#39;script&#39;);
+    var curProtocol = window.location.protocol.split(&#39;:&#39;)[0];
+    if (curProtocol === &#39;https&#39;) {
+        bp.src = &#39;https://zz.bdstatic.com/linksubmit/push.js&#39;;        
+    }
+    else {
+        bp.src = &#39;http://push.zhanzhang.baidu.com/push.js&#39;;
+    }
+    var s = document.getElementsByTagName(&quot;script&quot;)[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+&lt;/script&gt;</code></pre><h2 id="3-2-主动推送"><a href="#3-2-主动推送" class="headerlink" title="3.2 主动推送"></a>3.2 主动推送</h2><p>作者：<a href="https://github.com/huiwang/hexo-baidu-url-submit" target="_blank" rel="noopener">https://github.com/huiwang/hexo-baidu-url-submit</a></p>
+<h3 id="3-2-1-npm"><a href="#3-2-1-npm" class="headerlink" title="3.2.1 npm"></a>3.2.1 npm</h3><pre><code class="undefined">npm install hexo-baidu-url-submit --save</code></pre>
+<h3 id="3-2-2-配置-config-yml文件"><a href="#3-2-2-配置-config-yml文件" class="headerlink" title="3.2.2 配置_config.yml文件"></a>3.2.2 配置_config.yml文件</h3><pre><code>baidu_url_submit:
+  count: 2 ## 提交最新的一个链接
+  host: www.blogzhy.top ## 在百度站长平台中注册的域名
+  token: XXXXXXXXXX ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里</code></pre><h3 id="3-3-3-检查url"><a href="#3-3-3-检查url" class="headerlink" title="3.3.3 检查url"></a>3.3.3 检查url</h3><p>其次，记得查看<code>_config.yml</code>文件中url的值， 必须包含是百度站长平台注册的域名（一般有www）， 比如:</p>
+<pre><code># URL
+## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
+url: https://www.blogzhy.top
+root: / #gitee用：/blog/
+permalink: :year/:month/:day/:title/
+permalink_defaults:</code></pre><h3 id="3-3-4-加入deployer"><a href="#3-3-4-加入deployer" class="headerlink" title="3.3.4 加入deployer"></a>3.3.4 加入deployer</h3><pre><code>deploy:
+- type: git
+  repo: git@xxx.xxx.xxx:/www/repo/hexoBlog.git
+  branch: master
+- type: baidu_url_submitter</code></pre><h3 id="3-3-5-实现原理"><a href="#3-3-5-实现原理" class="headerlink" title="3.3.5 实现原理"></a>3.3.5 实现原理</h3><p>推送功能的实现，分为两部分：</p>
+<p>新链接的产生，<code>hexo generate</code>会产生一个文本文件，里面包含最新的链接<br>新链接的提交，<code>hexo deploy</code>会从上述文件中读取链接，提交至百度搜索引擎。</p>
+
       
       <!-- reward -->
       
