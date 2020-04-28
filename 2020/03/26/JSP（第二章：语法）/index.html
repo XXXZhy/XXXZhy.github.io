@@ -142,17 +142,17 @@
 <p><a href="/2020/03/26/JSP（第二章：语法）/#2">2. JSP注释</a></p>
 <p><a href="/2020/03/26/JSP（第二章：语法）/#3">3. 脚本元素</a></p>
 </blockquote>
-<h2 id="1-JSP是如何执行的？"><a href="#1-JSP是如何执行的？" class="headerlink" title="1. JSP是如何执行的？"></a><span id="1">1. JSP是如何执行的？</span></h2><img src="/2020/03/26/JSP%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AF%AD%E6%B3%95%EF%BC%89/1.png" class="">
+<h1 id="1-JSP是如何执行的？"><a href="#1-JSP是如何执行的？" class="headerlink" title="1. JSP是如何执行的？"></a><span id="1">1. JSP是如何执行的？</span></h1><img src="/2020/03/26/JSP%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AF%AD%E6%B3%95%EF%BC%89/1.png" class="">
 
 <p>（1）客户端请求<br>（2）Web容器将jsp页面转译成servlet的源代码.java<br>（3）Web容器将产生的源代码经过编译.class<br>（4）Web容器加载编译后的代码并执行<br>（5）把执行结果响应至客户端</p>
-<h2 id="2-JSP注释"><a href="#2-JSP注释" class="headerlink" title="2. JSP注释"></a><span id="2">2. JSP注释</span></h2><pre><code class="jsp">&lt;!--html注释--&gt;
+<h1 id="2-JSP注释"><a href="#2-JSP注释" class="headerlink" title="2. JSP注释"></a><span id="2">2. JSP注释</span></h1><pre><code class="jsp">&lt;!--html注释--&gt;
 &lt;%-- 隐藏注释 --%&gt;
 &lt;% //JAVA的单行注释 %&gt;
 &lt;% /*JAVA的多行注释*/ %&gt;</code></pre>
 <p>其中注释在客户端查看源代码时可以看到，而隐藏注释是看不到的。</p>
 <a id="more"></a>
 
-<h2 id="3-脚本元素"><a href="#3-脚本元素" class="headerlink" title="3. 脚本元素"></a><span id="3">3. 脚本元素</span></h2><h2 id="3-1-JAVA脚本"><a href="#3-1-JAVA脚本" class="headerlink" title="3.1 JAVA脚本"></a>3.1 JAVA脚本</h2><p><font color="red">格式：&lt;%  任意的JAVA代码   %&gt;</font></p>
+<h1 id="3-脚本元素"><a href="#3-脚本元素" class="headerlink" title="3. 脚本元素"></a><span id="3">3. 脚本元素</span></h1><h2 id="3-1-JAVA脚本"><a href="#3-1-JAVA脚本" class="headerlink" title="3.1 JAVA脚本"></a>3.1 JAVA脚本</h2><p><font color="red">格式：&lt;%  任意的JAVA代码   %&gt;</font></p>
 <h2 id="3-2-表达式"><a href="#3-2-表达式" class="headerlink" title="3.2 表达式"></a>3.2 表达式</h2><p><font color="red">格式：&lt;%=   %&gt;</font></p>
 <p>=后面必须是字符串变量或者被转换成字符串的表达式，不需要以；结束，只有一行。</p>
 <p>如：</p>
