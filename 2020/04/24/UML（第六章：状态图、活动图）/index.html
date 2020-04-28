@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    UML（第六章：状态图、活动图） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+  
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-UML（第六章：状态图、活动图）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  UML（第六章：状态图、活动图）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/" class="article-date">
+  <time datetime="2020-04-24T05:31:34.000Z" itemprop="datePublished">2020-04-24</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UML/">UML</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">13 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="6-1-行为模型概述"><a href="#6-1-行为模型概述" class="headerlink" title="6.1 行为模型概述"></a>6.1 行为模型概述</h1><h2 id="6-1-1-行为模型"><a href="#6-1-1-行为模型" class="headerlink" title="6.1.1 行为模型"></a>6.1.1 行为模型</h2><p><strong>行为模型包括：</strong>状态模型、活动模型、交互模型</p>
+<p><strong>状态模型</strong>——关注一个对象的生命周期内的状态及状态变迁，以及引起状态变迁的事件和对象在状态中的动作等。（状态图）</p>
+<p><strong>活动模型</strong>——用于描述对象的一个活动到另一个活动的控制流、活动的序列、工作的流程和并发的处理行为等。（活动图）</p>
+<p><strong>交互模型</strong>——强调对象间的合作关系与时间顺序，通过对象间的消息传递来完成系统的交互。（顺序图、协作图）</p>
+<p><strong>状态模型涉及一个对象，活动模型和交互模型涉及多个对象</strong></p>
+<a id="more"></a>
+
+<h2 id="6-1-2-事件驱动"><a href="#6-1-2-事件驱动" class="headerlink" title="6.1.2 事件驱动"></a>6.1.2 事件驱动</h2><p>根据当前事件及对以前事件的响应结果决定对当前事件的响应的软件对象的动态行为，称为事件驱动。</p>
+<p>最适合描述这类动态行为的建模手段是<strong>状态图</strong>。</p>
+<p><strong>状态图</strong>是展示状态与状态转换的图模型。</p>
+<h1 id="6-2-状态图"><a href="#6-2-状态图" class="headerlink" title="6.2 状态图"></a>6.2 状态图</h1><p>例子：电话机</p>
+<img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/1.png" class="">
+
+<p>例子：借书证</p>
+<img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/2.png" class="">
+
+<h2 id="6-2-1-状态图的概念"><a href="#6-2-1-状态图的概念" class="headerlink" title="6.2.1 状态图的概念"></a>6.2.1 状态图的概念</h2><p><strong>UML中的状态图(statechart diagram)</strong>主要用于描述一个对象在其生存期间的动态行为，表现一个对象所经历的状态序列，引起状态转移的事件，以及因状态转移而伴随的动作。</p>
+<p><strong>状态图</strong>描述了一个实体基于事件反应的动态行为，显示了该实体是如何根据当前所处的状态对不同的事件做出反应的。</p>
+<p><strong>状态图中，动作可以与状态相关也可以与转移相关。</strong></p>
+<p>如果动作与状态相关，则对象在进入一个状态时将触发某一动作，而不管是从哪个状态转入这个状态的。</p>
+<p>如果动作与转移相关，则对象在不同的状态之间转移时，将触发相应的动作。</p>
+<p><strong>状态图所描述的对象往往具有多个属性，</strong>一般状态图应该在具有以下两个特性的属性上建模：</p>
+<ol>
+<li>属性拥有较少的可能取值；</li>
+<li>属性在这些值之间的转移有一定的限制。</li>
+</ol>
+<h2 id="6-2-2-状态图的建模元素"><a href="#6-2-2-状态图的建模元素" class="headerlink" title="6.2.2 状态图的建模元素"></a>6.2.2 状态图的建模元素</h2><p>状态图中的建模元素：<strong>状态、转移、事件、动作</strong></p>
+<p><strong>状态</strong>指在对象的生命期中的某个条件或状况。状态具有一定的时间稳定性，在此期间对象将满足某些条件、执行某些活动或等待某些事件。<strong>可以认为“状态”对应某些变量或属性取了特定值。</strong> <strong>状态</strong>描述了一个对象在其生命周期中的一个时间段。</p>
+<p><strong>转移</strong>是两个状态之间的一种关系，表示在指定的事件发生后，在特定的<strong>警戒条件</strong>满足时，对象执行指定的动作，并从起始状态进入目标状态。</p>
+<p><strong>事件</strong>是对一个可观察的事情的类型描述。事件产生的原因有调用、满足条件的状态的出现、到达时间点或经历某一时间段、发送信号等。</p>
+<h3 id="1-状态"><a href="#1-状态" class="headerlink" title="1 状态"></a>1 状态</h3><blockquote>
+<p>可以用3种附加的方式进行进一步的说明：</p>
+<ol>
+<li>在某些方面相似的一组对象值；</li>
+<li>对象执行持续活动时的一段时间；</li>
+<li>一个对象等待事件发生时的一段时间。</li>
+</ol>
+</blockquote>
+<p>所有对象都具有状态，状态是对象执行了一系列活动的结果，当某个事件发生后，对象的状态将发生变化。<br>处于相同状态的对象对同一事件做出相同的反应。<br>处于不同状态的对象会通过不同的动作对同一个事件做出不同的反应。</p>
+<blockquote>
+<p>一个状态有以下几个部分：</p>
+<ol>
+<li>状态名(name)</li>
+<li>状态变量(state variable)</li>
+<li>进入/退出动作(entry/exit action)</li>
+<li>内部转移(internal transition)</li>
+<li>子状态(substate)</li>
+<li>延迟事件(deferred event)</li>
+</ol>
+</blockquote>
+<p>可以细分为不同的类型：初态、终态、中间状态、组合状态、历史状态等。<br>一个状态图只能有一个初态，终态可以有一个或多个，也可以没有终态。<br><strong>初态：</strong>代表状态图的起始位置，是一个伪状态，仅表示一个和中间状态有连接的假状态。对象不可能保持在初态，要有一个输出转移(无触发转移)。<strong>在UML规范中，初态用实心圆表示。</strong></p>
+<p><strong>终态：</strong>一个状态图的终点。可以保持在终态，不可能有任何形式的转出转移，目的是描述对象的状态变化的结束。<strong>在UML规范中，终态用实心圆的圆圈表示。</strong></p>
+<p>其余的状态都是<strong>中间状态</strong>。包括3个区域：名字域、变量域、内部转移域。</p>
+<h3 id="2-状态的组成"><a href="#2-状态的组成" class="headerlink" title="2 状态的组成"></a>2 状态的组成</h3><img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/4.png" class="">
+
+<h4 id="（1）状态名"><a href="#（1）状态名" class="headerlink" title="（1）状态名"></a>（1）状态名</h4><p>状态名——状态的标识符。由一个字符串构成，每个单词的首字母大写，用以标识不同的状态。<br>可省略(匿名状态)</p>
+<h4 id="（2）-状态变量"><a href="#（2）-状态变量" class="headerlink" title="（2） 状态变量"></a>（2） 状态变量</h4><p>状态变量——进行计数的内部变量</p>
+<h4 id="（3）入口-出口动作-进入-退出动作"><a href="#（3）入口-出口动作-进入-退出动作" class="headerlink" title="（3）入口/出口动作(进入/退出动作)"></a>（3）入口/出口动作(进入/退出动作)</h4><p>入口/出口动作(进入/退出动作)——转入状态时必须执行的动作/转出状态时必须执行的动作</p>
+<p>进入一个状态时执行的操作称为入口动作。常用来进行状态所需要的内部初始化。<br>离开一个状态时执行的操作称为出口动作。常用来进行状态所需的善后处理。<br>将入口/出口动作声明为特殊的动作，可以使状态的定义不依赖于状态的转移，起到封装的作用</p>
+<p>入口/出口动作(进入/退出动作)——转入状态时必须执行的动作/转出状态时必须执行的动作<br><font color="red">入口：entry/动作</font><br><font color="red">出口：exit/动作</font></p>
+<h4 id="（4）内部转移"><a href="#（4）内部转移" class="headerlink" title="（4）内部转移"></a>（4）内部转移</h4><p>内部转移——不导致状态发生变化的动作<br>有一个起始状态，但没有目标状态。<br>其激发规则同改变状态的转移的激发规则。<br>转移激发的结果不改变本状态。<br>如果一个内部转移带有动作，它也要被执行，但没有状态发生改变，不需要执行入口和出口动作。</p>
+<h4 id="（5）自身转移"><a href="#（5）自身转移" class="headerlink" title="（5）自身转移"></a>（5）自身转移</h4><p>一个自身转移会激发状态上的入口和出口动作的执行。<br>自身转移从一个状态出发后又回到自身状态。<br>自身转移不等价于内部转移。<br>自身转移可以强制地从嵌套状态中退出，但内部转移不能。</p>
+<h3 id="3-组成状态-子状态"><a href="#3-组成状态-子状态" class="headerlink" title="3 组成状态/子状态"></a>3 组成状态/子状态</h3><p>状态图中的有些状态，它们所要执行的一系列动作，和/或要响应的一些事件，可以进一步地描述成若干更小规模的(内部)状态。这些状态称为<strong>子状态，用以描述一个状态内部的状态变化过程。</strong></p>
+<h4 id="（1）子状态"><a href="#（1）子状态" class="headerlink" title="（1）子状态"></a>（1）子状态</h4><p>子状态——包含在某一个状态内部的状态</p>
+<h4 id="（2）组合状态"><a href="#（2）组合状态" class="headerlink" title="（2）组合状态"></a>（2）组合状态</h4><p>组合状态——一个状态内部存在一个子状态的变化过程</p>
+<p>如图：汽车行驶的状态,更加容易识别出这些子状态的串行/并行情况</p>
+<img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/6.png" class="">
+
+<h4 id="（3）简单状态"><a href="#（3）简单状态" class="headerlink" title="（3）简单状态"></a>（3）简单状态</h4><p>简单状态——不包含子状态的状态</p>
+<h4 id="（4）串行子状态"><a href="#（4）串行子状态" class="headerlink" title="（4）串行子状态"></a>（4）串行子状态</h4><p>串行子状态——or关系。说明在某一时刻仅可到达一个子状态。具有or关系的子状态称为串行子状态。</p>
+<h4 id="（5）并行子状态"><a href="#（5）并行子状态" class="headerlink" title="（5）并行子状态"></a>（5）并行子状态</h4><p>并行子状态——and关系。说明在某一时刻可同时到达多个子状态。具有and关系的子状态称为并行子状态。</p>
+<h4 id="（6）历史状态"><a href="#（6）历史状态" class="headerlink" title="（6）历史状态"></a>（6）历史状态</h4><p>历史状态——是一个特殊的子状态（伪状态），记录了组合状态被转出时的活跃子状态。其目的是当再次进入组合状态时，可直接进入这个子状态，而不是在此组合从状态的初态开始。</p>
+<p>历史状态——注意转入转移的箭头所指的部位。如果指向整个组合状态的外沿，则表示进入初态。如果指向历史状态的符号，则表示进入上次转出时的子状态。<br>在UML中，历史状态用H，H*<br>H：浅历史状态的符号，表示只记住最外层组合状态的历史；<br>H*：深历史状态的符号，表示可记住任何深度的组合状态的历史。<br>如果一个组合状态到达了其终态，则会丢失历史状态中的信息，就好像没有进入过这个组合状态一样。</p>
+<img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/5.png" class="">
+
+<h3 id="4-转移"><a href="#4-转移" class="headerlink" title="4 转移"></a>4 转移</h3><p>转移是两个状态之间的一种关系，表示在指定的事件发生后，在特定的警戒条件满足时，对象执行指定的动作，并从起始状态进入目标状态。<br>起始状态和目标状态相同的转移称为<strong>自身转移</strong>；<br>否则，称为<strong>一般转移</strong>。<br>在UML中，转移是<strong>一条带箭头的实线</strong>，箭头指向目标状态。</p>
+<blockquote>
+<p>转移的语法格式:<br>event-signature ‘[‘guard-condition’]’ ‘/’ action<br>单引号引起来的是字符，必须出现在转移的描述中。<br>event-signature——事件特征标记<br>guard-condition——警戒条件<br>action——要执行的动作</p>
+<p>event-signature——事件特征标记<br>event-name ‘(‘comma-separated-parameter-list ‘)’</p>
+</blockquote>
+<p>一般状态之间的转移是由事件触发的，因此应该在转移上标出触发转移的事件表达式。<br>如果转移尚未表明事件，则表示在起始状态的内部活动执行完毕后自动触发转移。<br>对于一个给定的状态，最终只能产生一个转移，因此，从相同的状态出来的、事件相同的几个转移之间的条件应该是互斥的。</p>
+<h3 id="5-转移的组成"><a href="#5-转移的组成" class="headerlink" title="5 转移的组成"></a>5 转移的组成</h3><p>转移由五个部分组成：起始状态、目标状态、触发事件、警戒条件和转移动作</p>
+<img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/4.png" class="">
+
+<h4 id="（1）起始状态"><a href="#（1）起始状态" class="headerlink" title="（1）起始状态"></a>（1）起始状态</h4><p>转移被激发前对象所处的状态是转移的<strong>起始状态</strong>，起始状态也是被转移影响的状态。</p>
+<h4 id="（2）目标状态"><a href="#（2）目标状态" class="headerlink" title="（2）目标状态"></a>（2）目标状态</h4><p>转移完成后对象所处的状态是转移的<strong>目标状态</strong>。目标状态是转移完成后被激活的状态。</p>
+<h4 id="（3）触发事件"><a href="#（3）触发事件" class="headerlink" title="（3）触发事件"></a>（3）触发事件</h4><p><strong>触发事件</strong>是状态在某个转移的起始状态下能接受的一个事件，此事件的发生使得转移的激发成为可能。事件发生在时间的一个点上。描述的是引发状态所在对象的动作的事件。</p>
+<p>如果对象没有空闲时间处理事件，就将事件保存起来。</p>
+<p>对象一次只处理一个事件。</p>
+<p>如果事件有参数，则这些参数可以被转移所用，也可以被警戒条件或动作的表达式所用。</p>
+<p>触发事件可以是信号、调用或时间段等。</p>
+<h4 id="（4）警戒条件"><a href="#（4）警戒条件" class="headerlink" title="（4）警戒条件"></a>（4）警戒条件</h4><p><strong>警戒条件</strong>是一个布尔表达式，只有当转移的触发事件发生后，此表达式才被求值，并且在其值为真时，转移才被激发。</p>
+<p>从一个状态引起的多个转移可以有同样的触发事件，但是每个转移必须具有不同的警戒条件。</p>
+<p>当其中一个警戒条件满足时，触发事件才会引起相应的转移。</p>
+<h4 id="（5）转移的分叉"><a href="#（5）转移的分叉" class="headerlink" title="（5）转移的分叉"></a>（5）转移的分叉</h4><p>对于一个给定的状态，最终只能产生一个转移，因此从相同的状态出来的、事件相同的几个转移之间的条件应该是互斥的</p>
+<img src="/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/3.png" class="">
+
+<h3 id="5-事件"><a href="#5-事件" class="headerlink" title="5  事件"></a>5  事件</h3><p>事件是对一个在时间和空间上占有一定位置的有意义的事情的详细说明。<br>事件是对一个可观察的事情的类型描述，这种事情的发送可以引发状态的转移。<br>事件是一种类型，而不是这种类型的实例。<br>事件产生的原因有调用、满足条件的状态的出现、到达时间点或经历某一时间段、发送信号等。</p>
+<h4 id="（1）调用事件"><a href="#（1）调用事件" class="headerlink" title="（1）调用事件"></a>（1）调用事件</h4><p>表示的是对操作的调用，指的是一个对象对调用的接收，这个对象用状态的转移而不是用固定的处理过程实现操作。<br>格式：event-name ‘(‘comma-separated-parameter-list ‘)’</p>
+<h4 id="（2）变化事件"><a href="#（2）变化事件" class="headerlink" title="（2）变化事件"></a>（2）变化事件</h4><p>一个布尔表达式变量的值发生变化，使得布尔表达式的值相应地变化，从而满足某些条件，则这种事件称为变化事件。<br>无论布尔表达式的值何时由假变为真，变化事件都发生。<br>变化事件隐含一个对条件的连续测试。<br>变化事件用when表示。</p>
+<h4 id="（3）时间事件"><a href="#（3）时间事件" class="headerlink" title="（3）时间事件"></a>（3）时间事件</h4><p>满足某一时间表达式的情况的出现。<br>时间事件关键字：after   或 when</p>
+<h4 id="（4）信号事件"><a href="#（4）信号事件" class="headerlink" title="（4）信号事件"></a>（4）信号事件</h4><p>信号：就是由一个对象异步地发送、并由另一个对象（即状态图所对应的对象）接收的已命名的实体。<br>信号事件：表示一个对象接收到了另一个对象显示信号这种情况。</p>
+<p>信号，可以作为两个对象之间的通信媒介。发生对象明确地创建并初始化一个信号实例。并把它发送到一个对象或者对象集合。<br>信号可以在类图中被声明为类元，并用构造型&lt;&lt;signal&gt;&gt;表示。<br>信号有明确的参数列表，信号的参数被声明为属性。</p>
+<h4 id="（5）信号事件与调用事件比较"><a href="#（5）信号事件与调用事件比较" class="headerlink" title="（5）信号事件与调用事件比较"></a>（5）信号事件与调用事件比较</h4><p>信号事件，是异步事件。<br>调用事件，是同步事件。<br>信号事件对应一个已命名的实体，这个实体不是状态图所对象的对象，调用事件对应状态图所对应的对象的一个操作的调用。<br>作为一个命名的实体，信号可以有属性，可以被继承(即泛化)</p>
+<h3 id="6-信号"><a href="#6-信号" class="headerlink" title="6 信号"></a>6 信号</h3><p>在接收对象的状态图中，能够触发一个状态转移的消息称为信号。<br>在面向对象领域中，发送一个信号就等于创建一个信号实例，并将这个信号实例传送给接收对象。</p>
+<p>信号为分异步单路通信和双路通信。<br>异步单路通信模型中，发送者是独立的，不用等待接收者如何处理信号。<br>在双路通信模型中，需要用到多少路信号，至少要在每个方向上有一个信号。</p>
+<p>发送一个信号等同于初始化一个信号对象，然后把它发送到目标对象的集合。目标对象集合里的每个对象可能被独立地激发零个或多个转移。<br>信号也有自己的属性。所有的信号共享隐式的操作：发送。如果将信号看成是一个类，则可以建立信号之间的泛化关系。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/04/24/UML%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E7%8A%B6%E6%80%81%E5%9B%BE%E3%80%81%E6%B4%BB%E5%8A%A8%E5%9B%BE%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/04/26/JSP%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9AJSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JSP（第三章：JSP内置对象）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/23/Python%EF%BC%88%E5%88%97%E8%A1%A8%E3%80%81%E5%85%83%E7%BB%84%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Python（列表、元组）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+    <ul>
+     
+    </ul>
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    HTML基础（二）基本标签 |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+  
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-HTML基础（二）基本标签" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  HTML基础（二）基本标签
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/" class="article-date">
+  <time datetime="2020-03-10T13:08:37.000Z" itemprop="datePublished">2020-03-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="/2020/03/10/HTML基础（二）基本标签/#1">基本标签</a></p>
+<p><a href="/2020/03/10/HTML基础（二）基本标签/#2">字体样式标签</a></p>
+<p><a href="/2020/03/10/HTML基础（二）基本标签/#3">文本格式化标签</a></p>
+<p><a href="/2020/03/10/HTML基础（二）基本标签/#4">图片标签</a></p>
+<p><a href="/2020/03/10/HTML基础（二）基本标签/#5">超链接、锚链接</a></p>
+<p><a href="/2020/03/10/HTML基础（二）基本标签/#6">列表</a></p>
+<hr>
+<h2 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a><span id="1">基本标签</span></h2><pre><code class="HTML">&lt;body&gt;
+ &lt;!--
+    h1~h6：标题
+    H1标题只能在当前页面中出现一个，除非它包含在hgroup，在hgroup中不识别H1，但有H1的样式
+    H1谁在最前面就解析谁
+    html大小写不敏感，H1和h1没区别，但是规范“小写”
+
+    br:    换行标签
+    hr:    水平线
+    pre:预定义文本
+--&gt;
+    &lt;h1&gt;一级标签&lt;/h1&gt;
+    &lt;h2&gt;二级标签&lt;/h2&gt;
+    &lt;h3&gt;三级标签&lt;/h3&gt;
+    &lt;h4&gt;四级标签&lt;/h4&gt;
+    &lt;h5&gt;五级标签&lt;/h5&gt;
+    &lt;h6&gt;六级标签&lt;/h6&gt;
+    &lt;br /&gt;
+    &lt;p&gt;好好学习&lt;br /&gt;天天向上&lt;/p&gt;
+    &lt;hr /&gt;
+    &lt;p&gt;
+        我
+        是
+        好
+        人
+    &lt;/p&gt;
+    &lt;hr /&gt;
+    &lt;pre&gt;
+            我
+                是
+                    坏
+                        人
+        &lt;/pre&gt;
+&lt;/body&gt;</code></pre>
+<p><strong>效果图</strong>：<img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/1.png" class=""></p>
+<a id="more"></a>
+
+<h2 id="字体样式标签"><a href="#字体样式标签" class="headerlink" title="字体样式标签"></a><span id="2">字体样式标签</span></h2><pre><code class="html">&lt;body&gt;
+&lt;!--
+    &lt;font face=&quot;设置字体样式&quot; size=&quot;字体大小&quot; color=&quot;字体颜色&quot;&gt;&lt;/font&gt;
+--&gt;
+    &lt;p&gt;默认字体&lt;/p&gt;
+    &lt;p&gt;&lt;font face=&quot;微软雅黑&quot; size=&quot;1&quot; color=&quot;#FF0000&quot;&gt;我是微软湘雅黑&lt;/font&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;font face=&quot;宋体&quot;&gt;我是宋体&lt;/font&gt;&lt;/p&gt;
+    &lt;br /&gt;
+    &lt;p&gt;&lt;font&gt;默认字体为2&lt;/font&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;font size=&quot;+2&quot;&gt;字体+2&lt;/font&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;font size=&quot;-2&quot;&gt;字体-2&lt;/font&gt;&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+<p><strong>效果图</strong>：<img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/2.png" class=""></p>
+<h2 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a><span id="3">文本格式化标签</span></h2><pre><code class="HTML">&lt;body&gt;
+    &lt;!--
+        b和string：     文本加粗，b被淘汰了，建议使用strong
+        i和em：         斜体，建议使用em
+        u:             下划线
+        s:            删除线
+        small：        字体缩小
+        big:        字体放大
+        sup:        上标
+        sub:        下标
+        del和ins：    删除和增加    注释：请与 &lt;ins&gt; 标签配合使用，来描述文档中的更新和修正。
+
+        *** 这些都是行内元素：不独占一行，宽度根据内容计算    ***
+    --&gt;
+    &lt;b&gt;这是一个b粗体&lt;/b&gt;&lt;br /&gt;
+    &lt;strong&gt;这也是一个strong粗体&lt;/strong&gt;&lt;br /&gt;
+    &lt;i&gt;这是一个i斜体&lt;/i&gt;&lt;br /&gt;
+    &lt;em&gt;这是一个em斜体&lt;/em&gt;&lt;br /&gt;
+    &lt;u&gt;这是一个下划线&lt;/u&gt;&lt;br /&gt;
+    &lt;s&gt;这是一个删除线&lt;/s&gt;&lt;br /&gt;
+    &lt;small&gt;字体缩小&lt;/small&gt;&lt;br /&gt;
+    &lt;big&gt;字体放大&lt;/big&gt;&lt;br /&gt;
+    这个字体包含了&lt;sup&gt;上标&lt;/sup&gt;&lt;br /&gt;
+    这个字体包含了&lt;sub&gt;下标&lt;/sub&gt;&lt;br /&gt;
+    Zhy不是一个&lt;del&gt;女生&lt;/del&gt;，而是一个&lt;ins&gt;男生&lt;/ins&gt;&lt;br /&gt;
+&lt;/body&gt;</code></pre>
+<p><strong>效果图</strong>：<img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/3.png" class=""></p>
+<h2 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a><span id="4">图片标签</span></h2><pre><code class="html">&lt;body&gt;
+    &lt;!--
+        img:    图片标签,是一 行内元素
+        src:    图片路径，尽量使用&quot;绝对路径&quot;
+        title:    当鼠标放在图片上时，给我一个提示文本
+        alt:    当图片加载失败时，执行该属性
+        height：    设置图片的高度
+        width：    设置图片的宽度
+        border:    设置图片的边框，默认0为无边框
+    --&gt;
+    &lt;img src=&quot;../img/logo.jpg&quot;    
+         title=&quot;百度logo&quot;
+         height=&quot;100&quot;
+         width=&quot;100&quot;
+         alt=&quot;加载失败&quot;
+         border=&quot;1&quot;/&gt;
+&lt;/body&gt;</code></pre>
+<p><strong>效果图</strong>：<img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/4.png" class=""></p>
+<h2 id="超链接、锚链接"><a href="#超链接、锚链接" class="headerlink" title="超链接、锚链接"></a><span id="5">超链接、锚链接</span></h2><pre><code class="HTML">&lt;body&gt;
+    &lt;!--
+        &lt;a&gt;超链接标签&lt;/a&gt;
+        支持  HTTP , FTP ,Emai
+        href:    链接地址
+        target:    窗口打开方式，有两种常用取值
+            _self:    在当前页面打开链接内容，默认值
+            _blank:    在浏览器新建一个窗口打开链接内容
+
+            _parent：在父窗口打开
+            _top:    取消当前框架，在当前窗口打开
+
+        titles：    当鼠标放在链接文本时，给我一个提示文本
+    --&gt;
+    &lt;!--style=&quot;text-decoration: none  去掉下划线--&gt;
+    &lt;a href=&quot;http://www.baidu.com&quot; style=&quot;text-decoration: none;&quot; title=&quot;提示百度&quot;&gt;百度超链接&lt;/a&gt;
+    &lt;a href=&quot;http://www.sohu.com&quot; target=&quot;_blank&quot;&gt;搜狐超链接&lt;/a&gt;
+    &lt;br /&gt;
+    &lt;!--图像中的超链接--&gt;
+    &lt;a href=&quot;5 html_图片.html&quot;&gt;&lt;img src=&quot;../img/logo.jpg&quot; /&gt;&lt;/a&gt;
+    &lt;br /&gt;
+    &lt;!--
+        锚链接:链接到当前web的资源
+        1.给资源取一个唯一的id名称
+        2.href=&quot;#名称&quot;，以#开头+id名称
+    --&gt;
+    &lt;a href=&quot;#p1&quot; style=&quot;text-decoration: none;&quot;&gt;第一章&lt;/a&gt;    
+    &lt;p id=&quot;p1&quot;&gt;第一章详细&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+<p><strong>效果图</strong>：<img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/5.png" class=""></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a><span id="6">列表</span></h2><pre><code class="HTML">&lt;body&gt;
+    &lt;!--
+        无序列表ul
+        ul标签：代表无序列表
+        li标签：无序列表内容
+
+        type：
+            disc：默认值，实心圆
+            square：实心正方形
+            circle：空心圆
+
+        style:    
+            比type更灵活，可设置各种各样的样式
+            list-style-type 列表的样式
+            同样disc、square、circl,
+            但多一个  none：不设置
+    --&gt;
+    &lt;ul&gt;
+        &lt;li&gt;吃饭&lt;/li&gt;
+        &lt;li&gt;吃饭&lt;/li&gt;
+        &lt;li&gt;吃饭&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul style=&quot;list-style-type: none; color: blue;&quot; &gt; 
+        &lt;li&gt;睡觉&lt;/li&gt;
+        &lt;li&gt;睡觉&lt;/li&gt;
+        &lt;li&gt;睡觉&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;!--
+        有序列表
+        ol标签：代表有序列表
+        li标签：有序列表的内容
+
+        type有5种标签样式
+    --&gt;
+    &lt;ol type=&quot;1&quot;&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;ol type=&quot;i&quot;&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+        &lt;li&gt;打豆豆&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;!--
+        自定义列表
+        dl:代表自定义列表
+        dt:代表词条（标题）
+        dd:代表词条的解释（内容）
+    --&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;Boy&lt;/dt&gt;
+        &lt;dd&gt;男生，帅气&lt;/dd&gt;
+        &lt;dt&gt;girl&lt;/dt&gt;
+        &lt;dd&gt;女生，漂亮&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/body&gt;</code></pre>
+<p><strong>效果图</strong>：<img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/6.png" class=""></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            HTML基础（三）表格、表单
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/02/Hexo%E5%86%99%E5%8D%9A%E5%AE%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8D%A1%E9%A1%BF%E5%B4%A9%E6%BA%83%E6%97%A0%E5%93%8D%E5%BA%94/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hexo写博客浏览器卡顿崩溃无响应</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+    <ul>
+     
+    </ul>
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

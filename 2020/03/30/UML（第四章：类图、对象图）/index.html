@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    UML（第四章：类图、对象图） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+  
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-UML（第四章：类图、对象图）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  UML（第四章：类图、对象图）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/" class="article-date">
+  <time datetime="2020-03-30T07:43:51.000Z" itemprop="datePublished">2020-03-30</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UML/">UML</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">9.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">33 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#1">4.1 类与对象</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#2">4.2 识别类与对象</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#3">4.3 类之间的关系</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#4">4.4 类之间关系的识别</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#5">4.5 派生属性和派生关联</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#6">4.6 抽象类和接口</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#7">4.7 类的版型</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#8">4.8 类图</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#9">4.9 对象图</a></p>
+<p><a href="/2020/03/30/UML（第四章：类图、对象图）/#10">4.10 类图例子</a>    </p>
+</blockquote>
+<h2 id="4-1-类与对象"><a href="#4-1-类与对象" class="headerlink" title="4.1 类与对象"></a><span id="1">4.1 类与对象</span></h2><h3 id="4-1-1-对象"><a href="#4-1-1-对象" class="headerlink" title="4.1.1 对象"></a>4.1.1 对象</h3><p>对象是构成世界的一个独立单位，它具有自己的静态特征和动态特征。</p>
+<p><strong>静态特征</strong>是可以用某种数据来描述的属性</p>
+<p><strong>动态特征</strong>是对象所表现的行为或对象所具有的功能</p>
+<p><strong>对象的命名规则：</strong>和类的命名规则一样。</p>
+<p>无需特别指出对象名字时，对象的名字和类的名字相同。否则就需要指出对象的名字。</p>
+<p><font color="red">对象名:类名&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;:类名</font></p>
+<p>如：   Course:课程</p>
+<a id="more"></a>
+
+<h3 id="4-1-2-类"><a href="#4-1-2-类" class="headerlink" title="4.1.2 类"></a>4.1.2 类</h3><p>类是具有相似结构、行为和关系的一组对象的描述符。</p>
+<p>类是具有相同属性、操作、关系和语义的对象的描述</p>
+<p>类是具有相同属性和服务的一组对象的集合，它为属于该类的全部提供了统一的抽象描述，其内部包括属性和服务两个主要部分。</p>
+<p>在UML中，使用划分为<strong>3行格子的矩形图来表示类或对象</strong>，从上往下一次是<strong>类名、属性、方法</strong>。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/1.png" class="">
+
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/2.png" class="">
+
+<p><strong>类的命名规则：</strong>类的命名应尽量使用问题域中的术语，明确、无歧义。类的名字首字母应当大写，多个单词组合的，每个单词首字母应大写。</p>
+<p><font color="red">简单类名&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;包名::类名</font></p>
+<h3 id="4-1-3-类和对象的关系"><a href="#4-1-3-类和对象的关系" class="headerlink" title="4.1.3 类和对象的关系"></a>4.1.3 类和对象的关系</h3><p>模具和铸件的关系</p>
+<p>类给出了属于该类的全部对象的抽象定义，而对象则是符合这种定义的一个实体；</p>
+<p>一个对象又称为类的一个实例（instance），也可以把类作为对象的模板（template）</p>
+<h3 id="4-1-4-类的符号"><a href="#4-1-4-类的符号" class="headerlink" title="4.1.4 类的符号"></a>4.1.4 类的符号</h3><p>注意：名称分栏是必须出现的分栏，属性分栏和操作分栏可以出现或不出现。当隐藏某个分栏时，并不一定表示某个分栏不存在。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/3.png" class="">
+
+<h3 id="4-1-5-类的属性"><a href="#4-1-5-类的属性" class="headerlink" title="4.1.5 类的属性"></a>4.1.5 类的属性</h3><p>属性用来描述该类的对象所具有的静态特征</p>
+<p>一个类可以有一个或多个属性或者根本没有属</p>
+<p><strong>属性的值可以描述对象的状态</strong></p>
+<p>类的属性分为两种：一种属性值可以被其他对象存取；另一种属性值只能被本对象的操作所存取</p>
+<p><strong>属性必须命名</strong></p>
+<p>在需求分析阶段，只抽取那些系统中需要使用的特征作为类的属性</p>
+<hr>
+<p><strong>语法格式：</strong></p>
+<pre><code>[可见性] 属性名 [:类型] [&#39;[&#39;多重性[次序]&#39;]&#39; ][初始值][{约束特性}]</code></pre><img src="/2020/03/30/UML（第四章：类图、对象图）/4.png" >
+
+<p><strong>属性名：</strong>按照UML的约定，单字属性名小写。如果属性名包含多个单词，这些单词要合并，且除了第一个单词外其余单词的首字母要大写。</p>
+<p><strong>类型：</strong>说明属性的数据类型。<strong>类型包括</strong> 字符串（string）、浮点型（float）、整型（int）和布尔型（boolean）（以及其他的枚举类型）、自定义的数据类型。</p>
+<p><strong>可见性：</strong>用来控制外部事件对类中属性的操作方式。类中属性的可见性主要包括公有（public）、私有（private）和受保护（protected）。</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>可见性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>public</td>
+<td>在任何类内部和外界都能访问</td>
+</tr>
+<tr>
+<td>#</td>
+<td>protected</td>
+<td>能在定义该成员的类或者其子类中使用，不能被外界访问</td>
+</tr>
+<tr>
+<td>-</td>
+<td>private</td>
+<td>只能在定义成员的类的内部使用，不能被外界访问，也不能被子类访问</td>
+</tr>
+</tbody></table>
+<p><strong>多重性：</strong>多重性为可选项，它表达该类的每个实例的属性值的个数。可以像应用于类之间的关系中那样把多重性应用于属性。同时这些值之间可以是有序的。<strong>通常与关联关系配合使用。</strong></p>
+<p><strong>初始值：</strong>为了保护系统的完整性，防止漏掉取值或被非法的值破坏系统的完整性，可以设定属性的初始值。</p>
+<p><strong>约束特性：</strong>约束特性用于描述属性的可变性。可变性描述了对属性取值的修改的限制。</p>
+<p>3种预定义的属性可变性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可变的(changeable)</td>
+<td>属性取值没有限制，可以被随意修改</td>
+</tr>
+<tr>
+<td>只可加(addOnly)</td>
+<td>对多重性&gt;1的属性,可以增加,但一旦被创建,就不可消除或改变</td>
+</tr>
+<tr>
+<td>冻结的(frozen)</td>
+<td>它表明属性所在的类的对象一旦被初始化，它的取值就不能再改变</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>例子：</p>
+<p>+size: Area=(100,100)</p>
+<p>#visibility: Boolean=false</p>
+<p>+default-size:Rectangle</p>
+<p>colors:Colors[3]</p>
+<p>points:Point[2..* ordered]</p>
+<p>name: String[0..1]</p>
+</blockquote>
+<h3 id="4-1-6-类的操作"><a href="#4-1-6-类的操作" class="headerlink" title="4.1.6 类的操作"></a>4.1.6 类的操作</h3><p>操作用来描述该类的对象所具有的<strong>动态特征</strong></p>
+<p><strong>一个类可以有一个或多个操作或者根本没有操作</strong></p>
+<p>操作描述对数据的具体处理方法，存取或改变属性值或执行某个动作都是操作。</p>
+<p>类的操作所提供的服务分为两种：一种是操作的结果引起了对象状态的改变；另一种是为服务的请求者提供返回结果。</p>
+<p>操作用于修改、检索类的属性或执行某些动作，操作通常也成为功能。</p>
+<p>它们被约束在类的内部，只能作用到该类的对象上。</p>
+<hr>
+<p><strong>语法格式：</strong></p>
+<pre><code>[可见性] 操作名 [（参数表）] [:返回类型] [{约束特性}]</code></pre><p><strong>操作名：</strong>指示类可提供的功能服务，它后跟圆括号中的参数列表是可选项，即一个操作可以有参数，也可以没有参数。</p>
+<p><strong>参数列表：</strong>由逗号分隔的操作的形式参数组成，其格式为： <font color="red">参数名：类型=缺省值，…</font></p>
+<p><strong>返回类型：</strong>是返回给调用者的单个变量值，它可以表示该操作程序运行的一个成功标志或者计算的值。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/5.png" class="">
+
+<h3 id="4-1-7-类的作用域"><a href="#4-1-7-类的作用域" class="headerlink" title="4.1.7 类的作用域"></a>4.1.7 类的作用域</h3><p>类的作用域分为两种：<strong>对象作用域和类作用域</strong></p>
+<p><strong>对象作用域：</strong>指的是此类的每个对象都有一个自己的副本，彼此不共享属性值</p>
+<p><strong>类作用域：</strong>指的是只有一个副本，类的所有对象共享此副本。即共享属性值</p>
+<blockquote>
+<p>如：<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/6.png" class=""></p>
+<p>mcount属性具有类作用域，title属性具有对象作用域</p>
+<p>getCount()操作具有类作用域，getTitle()操作具有对象作用域</p>
+<p><font color="red">类作用域加“下划线”</font></p>
+</blockquote>
+<h3 id="4-1-8-类的职责"><a href="#4-1-8-类的职责" class="headerlink" title="4.1.8 类的职责"></a>4.1.8 类的职责</h3><p>类的职责指的是对该类的所有对象所具备的那些相同的属性和操作共同组成的功能或服务的抽象。</p>
+<p>类的属性和操作是对类的具体结构特征和行为特征的<strong>形式化描述</strong>；而类的职责是对类的功能和作用的<strong>非形式化描述</strong>。</p>
+<p>类的职责是一段或多段文本描述。</p>
+<p>一个类可以有多种职责。</p>
+<p>设计好的类一般至少有一种职责。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/7.png" class="">
+
+<h2 id="4-2-识别类与对象"><a href="#4-2-识别类与对象" class="headerlink" title="4.2 识别类与对象"></a><span id="2">4.2 识别类与对象</span></h2><h3 id="4-2-1-类的识别"><a href="#4-2-1-类的识别" class="headerlink" title="4.2.1 类的识别"></a>4.2.1 类的识别</h3><h4 id="1-考虑问题域："><a href="#1-考虑问题域：" class="headerlink" title="1.考虑问题域："></a>1.考虑问题域：</h4><p>客观存在的事物与系统中对象的映射</p>
+<h4 id="2-名词短语识别法："><a href="#2-名词短语识别法：" class="headerlink" title="2.名词短语识别法："></a>2.名词短语识别法：</h4><p>对用户需求的陈述进行构词分析相关类、模糊类、无关类</p>
+<h4 id="3-系统实体识别方法："><a href="#3-系统实体识别方法：" class="headerlink" title="3.系统实体识别方法："></a>3.系统实体识别方法：</h4><p>从通用的对象分类理论中导出候选类。大多数客观事物分为五类：</p>
+<ol>
+<li>可感知的物理实体；</li>
+<li>人或组织的参与者；</li>
+<li>应该记忆的事件；</li>
+<li>两个或多个对象的相互作用；</li>
+<li>需要说明的概念。</li>
+</ol>
+<h4 id="4-CRC方法："><a href="#4-CRC方法：" class="headerlink" title="4.CRC方法："></a>4.CRC方法：</h4><p>类-责任-协作者(class-responsibility-collaborator,CRC)，表示类的索引卡片，每张卡片分成三部分：<strong>类名、类的责任、类的协作者</strong>。</p>
+<p><strong>责任</strong>是与类相关的属性和操作，即类知道要做的事；<strong>协作者</strong>是为某个类提供完成责任所需要的信息的类，即协作类。通常蕴含着对信息的请求或对某动作的请求。</p>
+<p><strong>CRC方法：</strong>不仅可以发现类，还是一种用来进行对象的解释、理解的工具。</p>
+<p><strong>步骤：</strong></p>
+<p>（1）创建CRC卡片，标识出类</p>
+<p>将类名、责任、协作者写入卡片；当需要的服务没有被存在的类覆盖时就创建一个新类，并赋予适当的责任和协作者。如果这个类太忙了，可以把它分为几个小类。</p>
+<p>类的<font color="red">责任</font>是通过用例以面向对象的方式产生的。通过对用例的分析，产生了系统的交互，分析在交互中完成某任务所需的步骤及完成步骤的主体，产生合力的对象职责划分。类应具备的属性和操作是根据类的<font color="red">责任</font>给出的。</p>
+<p><font color="red">协作</font>表示类间的关系。检索类间的关系，如果两个类具有泛化关系，或一个类必须从另一个类获得信息，或者一个类依赖另一个类，则他们之间往往存在协作关系。</p>
+<p>（2）CRC复审</p>
+<p>复审由用户和开发人员共同参与。</p>
+<p>例子：<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/8.png" class=""></p>
+<h4 id="5-审查与筛选："><a href="#5-审查与筛选：" class="headerlink" title="5.审查与筛选："></a>5.审查与筛选：</h4><p>筛选掉不正确或不必要的对象。</p>
+<h4 id="6-精简与调整："><a href="#6-精简与调整：" class="headerlink" title="6.精简与调整："></a>6.精简与调整：</h4><p>只有一个属性的对象</p>
+<p>只有一个操作的对象</p>
+<p>类的属性和操作不适合该类的全部对象</p>
+<p>属性和操作相同的类</p>
+<p>属性和操作相似的类</p>
+<h4 id="7-类的命名："><a href="#7-类的命名：" class="headerlink" title="7.类的命名："></a>7.类的命名：</h4><p><strong>遵循以下原则：</strong></p>
+<ol>
+<li>类的名字应恰好符合这个类和它的特殊类所包含的每一个对象；</li>
+<li>类的名字应该反映每个对象个体，而不是整个群体；</li>
+<li>采用名词或带定语的名词，并使用规范的词汇；</li>
+<li>使用适当的语言文字对类命名；</li>
+<li>简单名、路径名（包名：：类名）。</li>
+</ol>
+<h3 id="4-2-2-属性的识别"><a href="#4-2-2-属性的识别" class="headerlink" title="4.2.2 属性的识别"></a>4.2.2 属性的识别</h3><h4 id="1-分析"><a href="#1-分析" class="headerlink" title="1.分析"></a>1.分析</h4><p>需求陈述中通常用名词、名词词组表示属性；</p>
+<p>属性的确定与问题域有关，也和系统的责任有关，应该仅考虑与具体应用直接相关的属性；</p>
+<p>在类与对象中，必须给每个属性一个唯一的名字，指明属性的类型；</p>
+<h4 id="2-识别属性"><a href="#2-识别属性" class="headerlink" title="2.识别属性"></a>2.识别属性</h4><p><strong>一些启发性策略：</strong></p>
+<ul>
+<li>按一般常识这个对象具有哪些属性？</li>
+<li>在当前问题域中，这个对象应该具有哪些属性?</li>
+<li>根据系统的责任要求，这个对象应该具有哪些属性？</li>
+<li>建立的这个对象是为了保存和管理哪些信息？</li>
+<li>为了在对象的操作中实现特定的功能，需要增设哪些属性？</li>
+<li>对象有哪些需要区别的状态？</li>
+<li>用什么属性表示聚合和关联？</li>
+<li>寻找在用户给出的需求陈述中作为定于的词汇。</li>
+</ul>
+<h4 id="3-审查与筛选"><a href="#3-审查与筛选" class="headerlink" title="3.审查与筛选"></a>3.审查与筛选</h4><p><strong>确定属性时应注意：</strong></p>
+<ul>
+<li>误把对象当做属性；</li>
+<li>误把关联类的属性当作对象的属性；</li>
+<li>误把内部状态当作属性；</li>
+<li>过于细化；</li>
+<li>存在不一致的属性；</li>
+<li>属性不能包含一个内部结构；</li>
+<li>属性在任何时候只能有一个在其允许范围内的确切的值；</li>
+<li>派生属性。派生属性是冗余的。</li>
+</ul>
+<h4 id="4-属性的定位"><a href="#4-属性的定位" class="headerlink" title="4.属性的定位"></a>4.属性的定位</h4><p>属性应放置到由它直接描述的那个对象的类中。</p>
+<p>在泛化结构中，通用的属性应放在一般类中，专用的属性应放特殊类中。</p>
+<p>一个类的属性必须适合这个类和它的全部特殊类的所有对象，并在此前提下充分地运用继承。</p>
+<h4 id="5-描述属性"><a href="#5-描述属性" class="headerlink" title="5.描述属性"></a>5.描述属性</h4><p>描述属性包括对属性命名和对属性的详细描述。</p>
+<p>属性的命名：名词或带定语的名词。</p>
+<p>属性的详细描述包括属性的解释、数据类型和具体限制。</p>
+<h3 id="4-2-2-操作的识别"><a href="#4-2-2-操作的识别" class="headerlink" title="4.2.2 操作的识别"></a>4.2.2 操作的识别</h3><h4 id="1-识别操作"><a href="#1-识别操作" class="headerlink" title="1.识别操作"></a>1.识别操作</h4><p>类操作的识别可以依据需求陈述、用例描述和系统的上下文环境来进行。</p>
+<p><strong>通过回答以下问题进行识别：</strong></p>
+<ul>
+<li>有哪些类会与该类交互？</li>
+<li>所有与该类具有交互行为的对象会发送哪些消息给该类？该类又会发送哪些消息给这些类？</li>
+<li>该类如何响应别的类发送来的消息？在发送前，需要作何准备？</li>
+<li>该类应该有哪些操作来维持其信息的更新、一致性和完整性？</li>
+<li>系统是否要求该类具有另外的一些职责？</li>
+</ul>
+<h4 id="2-审查与调整"><a href="#2-审查与调整" class="headerlink" title="2.审查与调整"></a>2.审查与调整</h4><p>审查每个操作是否真正有用；</p>
+<p>检查每个操作是不是高内聚的；</p>
+<p><font color="red"><strong>高内聚是指一个操作只完成一项明确定义的、完整而单一的功能。</strong></font></p>
+<p><strong>需注意一下几种类：</strong></p>
+<ul>
+<li>只有一个或很少操作的类；</li>
+<li>没有操作的类；</li>
+<li>太多操作的类。</li>
+</ul>
+<h4 id="3-操作的定位"><a href="#3-操作的定位" class="headerlink" title="3.操作的定位"></a>3.操作的定位</h4><p>操作放置在哪个对象，应和问题域中拥有这种行为的事物相一致。</p>
+<p>在继承中，和属性的定位原则一样，通用的操作放在一般类，专用的操作放在特殊类，一个类中的操作应适合这个类及其所有特殊类的每一个对象实例。</p>
+<h4 id="4-描述操作"><a href="#4-描述操作" class="headerlink" title="4.描述操作"></a>4.描述操作</h4><p>描述操作包括对操作命名和对操作的详细描述。</p>
+<p>操作的命名应采用动词或动词加名词所构成的动宾结构。</p>
+<p>操作名应尽可能准确地反映该操作的职能。</p>
+<p>每个对象的操作都应该填写在相应的类符号中。</p>
+<hr>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/9.png" class="">
+
+<h2 id="4-3-类之间的关系"><a href="#4-3-类之间的关系" class="headerlink" title="4.3 类之间的关系"></a><span id="3">4.3 类之间的关系</span></h2><p>单个对象可以说是无意义的。对象之间存在着一定的关系，对象之间的交互和合作构成更高级的（系统级）行为。</p>
+<p>对象之间的关系可分为<strong>静态关系和动态关系</strong>。</p>
+<p><strong>静态关系</strong>指最终可通过对象属性来表示的对象之间在语义上的联系。（与系统责任无关）</p>
+<p><strong>动态关系</strong>指对象之间在行为上的联系。</p>
+<h3 id="4-3-1-关联关系"><a href="#4-3-1-关联关系" class="headerlink" title="4.3.1 关联关系"></a>4.3.1 关联关系</h3><p><strong>关联</strong>是模型元素间的一种语义联系，它是对具有共同的结构特性、行为特性、关系和语义的链的描述。<strong>链</strong>是关联的实例。</p>
+<p><strong>关联</strong>表示的是类与类之间的语义关系，而链表示的是一个类的对象与另一个类的对象之间的语义关系。</p>
+<p>一旦在两个对象之间建立了链，一个对象就可以访问另一个<strong>对象</strong>：它可以访问另一个对象的属性，或启动另一个对象的操作。</p>
+<p>一个类的实例与另一个类的实例在结构上的静态联系</p>
+<p>特征：</p>
+<ul>
+<li>一个类的属性的数据类型是另一个类的定义</li>
+<li>一个类的部分对象与另一个类的部分对象存在属性值上的联系</li>
+<li>关联关系一旦建立，系统运行与否它都存在</li>
+</ul>
+<hr>
+<p>在UML规范中，关联用<font color="red">（不）带箭头的实线</font>表示。如果带箭头，箭头指向被依赖的类。</p>
+<p><font color="red">一个关联可以有多个关联端，每个关联端连接到一个类。</font></p>
+<p>有方向，可以是单向关联或双向关。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/10.png" class="">
+
+<p><font color="blue">一个类的属性的数据类型是另一个类的定义</font></p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/11.png" class="">
+
+<p><font color="blue">一个类的部分对象与另一个类的部分对象存在属性值上的联系</font></p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/13.png" class="">
+
+<p><font color="blue">一个类的部分对象与另一个类的部分对象存在结构上的联系</font></p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/12.png" class="">
+
+<p>两个类之间有关联，一定能在他们的某些对象之间找到连接；同理，一定能够在他们的另外一些对象之间找不到连接。</p>
+<p>这是区别类之间的<strong>关联关系和依赖关系</strong>的关键。</p>
+<p>考虑<strong>对象之间</strong>的连接时，作为类之间的<strong>关联关系</strong>处理。</p>
+<p>考虑<strong>类之间</strong>的连接时，作为类之间的<strong>依赖关系</strong>处理。</p>
+<h4 id="（1）关联名"><a href="#（1）关联名" class="headerlink" title="（1）关联名"></a>（1）关联名</h4><p>一般来说，关联名通常是动词或动词短语，用<font color="red">斜体</font>表示。</p>
+<p>在一个类图中，并不需要给每个关联都加上关联名，给关联命名的原则是有助于理解该模型。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/14.png" class="">
+
+<h4 id="（2）关联角色"><a href="#（2）关联角色" class="headerlink" title="（2）关联角色"></a>（2）关联角色</h4><p>在UML中，关联两端的类的对象在对方的类里的标识称为<font color="red">角色</font>。关联两端的类可以某种角色参与关联。</p>
+<p>当关联关系里的类被映射到程序设计语言时，角色名字就成为类的一个<font color="red">成员变量</font>的名字。此成员变量的类型将是另一个类的对象或指向另一个类的指针。</p>
+<p>角色还有<font color="red">多重性</font>，表示可以有多少个对象参与该关联。<font color="red">多重性</font>用一个<font color="red">非负整数的一个子集</font>表示。如果没有表明关联的多重性，意味着是1。</p>
+<p>下图：雇主（公司）可以雇佣多个雇员，表示为0..n；雇员只能被一家雇主雇佣，表示为1。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/15.png" class="">
+
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/28.png" class="">
+
+<h4 id="（3）关联类"><a href="#（3）关联类" class="headerlink" title="（3）关联类"></a>（3）关联类</h4><p>如果在具有关联关系的类中，存在一个属性放在哪个类中都不合适的情况，就可以考虑使用关联类。</p>
+<p>关联有可能具有自己的属性或操作，对此需要引入一个关联类来进行记录。</p>
+<p>关联类通过一条<font color="red">虚线</font>与关联连接。</p>
+<p><strong>例如：</strong>Contract类是一个关联类，Contract类中有属性salary，该属性不是Company类或Person类的属性。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/16.png" class="">
+
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/17.png" class="">
+
+<h4 id="（4）关联约束"><a href="#（4）关联约束" class="headerlink" title="（4）关联约束"></a>（4）关联约束</h4><p><font color="blue">ordered:有序约束</font>。表示多端的对象是一个有序的对象集。</p>
+<p><font color="blue">mplicit:概念性约束</font>。表示在模型的详细规划中不再使用。</p>
+<p><font color="blue">changeable:可变约束</font>。表示关联对象的连接是可变的，可被任意添加、删除、修改。</p>
+<p><font color="blue">addonly:添加约束</font>。表示在任何时候可用源对象添加新的连接。</p>
+<p><font color="blue">frozen:冻结约束</font>。表示源对象一经创建和初始化后就被冻结。</p>
+<p><font color="blue">xor:异或约束</font>。表示一组互斥的关联。</p>
+<p>例如：Account类或者与Person类有关联，或者与Corporation类有关联，但不能同时与Person类和Corporation类都有关联</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/18.png" class="">
+
+<h4 id="（5）限定约束"><a href="#（5）限定约束" class="headerlink" title="（5）限定约束"></a>（5）限定约束</h4><p><strong>限定符的作用：就是在给定关联一端的一个对象和限定符值以后，可确定另一端的一个对象或对象集。</strong></p>
+<p><strong>限定符</strong>是<font color="red">关联的属性</font>，而不是类的属性。</p>
+<p>限定符可以理解为一种关键字，用关键字把所有对象分开，有利于提高查询效率。一个应用系统需要根据关键字对一个数据集做查询操作，则经常会用到限定关联。</p>
+<p>限定关联常用于一对多或多对多的关联关系中，利用限定关联可以把模型中的多重性<font color="red">从一对多变成一对一</font>。</p>
+<p>在限定关联中，限定符的表示法是<font color="red">在关联线靠近源类一段绘制一个小方框</font>。</p>
+<p><strong>例如：</strong>一个person可以在bank中有多个account，但给定了一个account值后，就可以对应一个person值</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/19.png" class="">
+
+<h4 id="（6）关联的种类"><a href="#（6）关联的种类" class="headerlink" title="（6）关联的种类"></a>（6）关联的种类</h4><p>按照关联所连接的类的数量，类之间的关联可以分为：自然关联、二元关联、N元关联</p>
+<h6 id="1）自然关联"><a href="#1）自然关联" class="headerlink" title="1）自然关联"></a>1）自然关联</h6><p>又称为递归关联，是一个类与自身的关联。即同一个类两个对象之间语义上的连接。</p>
+<p>自返关联虽然只有一个被关联的类，但有两个关联端，每个关联端的角色不同。</p>
+<p><strong>例如：</strong>“人”类的自返关联“结婚”。一个人与另一个人结婚，必然一个扮演丈夫角色，另一个扮演妻子角色。</p>
+<h6 id="2）二元关联"><a href="#2）二元关联" class="headerlink" title="2）二元关联"></a>2）二元关联</h6><p>在两个类之间的关联</p>
+<h6 id="3）N元关联"><a href="#3）N元关联" class="headerlink" title="3）N元关联"></a>3）N元关联</h6><p>3个或者3个以上类之间的关联。在同一时刻，每个类必须确定一个对象。</p>
+<p>在UML的规范说明中，有N元关联这个建模元素，用<font color="red">菱形表示，画在N条关联线的交汇点</font>。</p>
+<p>N元关联中多重性的意义是：在其他<strong>N-1</strong>个实例值确定的情况下，关联实例元组的个数。</p>
+<p><strong>例如：</strong>一个运动员（player）在某一个年份（year）中在某一个运动队（team）中服役</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/20.png" class="">
+
+<blockquote>
+<p>例如：</p>
+<p>“考试”端的多重性为“多”，说明每个学生和课程对象可以被链接到零个或多个考试，即允许一个学生多次考一门课程。</p>
+<p>“课程”端的多重性0..1 ， 说明任何给定的一对“学生”和“考试”对象将被链接到一个课程对象，即一个考试对象只存在一门课程的分数。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/21.png" class="">
+</blockquote>
+<h3 id="4-3-2-聚合（聚集）关系"><a href="#4-3-2-聚合（聚集）关系" class="headerlink" title="4.3.2 聚合（聚集）关系"></a>4.3.2 聚合（聚集）关系</h3><p>聚合是一种特殊形式的关联。聚合表示类之间整体与部分的关系。<strong>整体与部分没有相同的生存期。</strong>整体不存在了，部分仍能存在。</p>
+<p>在UML中，聚合的图形表示方法是在关联关系的<font color="red">直线末端加一个空心小菱形</font>，空心菱形指向具有整体性质的类。</p>
+<p>聚合可以进一步分为<font color="red">共享聚合和组合</font>。部分可以参加多个整体，称为<font color="red">共享聚合</font>。</p>
+<p>共享聚合可以通过聚合的<font color="red">多重性</font>反映出来，如果作为整体方的类的重数不是<font color="red">1</font>，则该聚合就是共享聚合。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/22.png" class="">
+
+<h3 id="4-3-3-组成关系"><a href="#4-3-3-组成关系" class="headerlink" title="4.3.3 组成关系"></a>4.3.3 组成关系</h3><p>整体拥有各个组成部分，部分与整体共存。<strong>整体与部分有相同的生存期。</strong>整体不存在了，部分也不能存在。这种聚合称为组成或复合聚合。</p>
+<p><strong>组成</strong>是指整体和部分之间具有很强的属于关系，而且他们的生存期是一致的。</p>
+<p>组成是一种特殊形式的聚合关联。组成表示类之间整体与部分的关系。</p>
+<p>在UML中，组成的图形表示为<font color="red">实心菱形</font>，指向具有整体性质的类。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/23.png" class="">
+
+<h3 id="4-3-4-依赖关系"><a href="#4-3-4-依赖关系" class="headerlink" title="4.3.4 依赖关系"></a>4.3.4 依赖关系</h3><p>定义了两个模型元素之间的语义连接。<strong>独立模型元素的变化会影响依赖元素。</strong>一个类的结构上的变化会影响到另一个类（代码级）。</p>
+<p><strong>特征：</strong></p>
+<ul>
+<li>一个类的方法的参数的数据类型是另一个类的定义</li>
+<li>一个类的方法使用了另一个类的属性</li>
+<li>一个类的方法调用了另一个类的方法</li>
+<li>一个类的方法实例化了另一个类的对象</li>
+<li>一个类的每一个对象与另一个类的所有（或部分）对象存在操作运行上的联系</li>
+<li>依赖关系只有在系统运行时它存在，系统不运行时它不存在</li>
+</ul>
+<p>在UML中，依赖用带箭头的虚线表示，箭头指向被依赖的类（独立的模型元素）。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/24.png" class="">
+
+<hr>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/25.png" class="">
+
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/26.png" class="">
+
+<h3 id="4-3-5-泛化关系"><a href="#4-3-5-泛化关系" class="headerlink" title="4.3.5 泛化关系"></a>4.3.5 泛化关系</h3><p>一般类与特殊类之间的继承（代码级）,分为单继承和多继承。</p>
+<p><strong>特殊类还可以定义自己的属性和方法。</strong></p>
+<p><strong>特征：</strong></p>
+<ul>
+<li>一般类定义了共同的属性和方法</li>
+<li>特殊类继承了一般类的属性和方法</li>
+<li>特殊类还可以定义自己的属性和方法</li>
+<li>泛化关系只有在系统运行时它存在，系统不运行时它不存在，<font color="red">除非要将两类对象永久保存</font></li>
+</ul>
+<p>UML中用一头为空心三角形的连接表示，<font color="red">空心三角形指向父类</font>。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/27.png" class="">
+
+<h3 id="4-3-6-关联关系与依赖关系的对比"><a href="#4-3-6-关联关系与依赖关系的对比" class="headerlink" title="4.3.6 关联关系与依赖关系的对比"></a>4.3.6 关联关系与依赖关系的对比</h3><table>
+<thead>
+<tr>
+<th>关联关系</th>
+<th>依赖关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态的</td>
+<td>动态的</td>
+</tr>
+<tr>
+<td>数据（指属性值）级别上的</td>
+<td>代码级别上的</td>
+</tr>
+<tr>
+<td>部分的</td>
+<td>全体的</td>
+</tr>
+<tr>
+<td>有多重性</td>
+<td>无多重性</td>
+</tr>
+<tr>
+<td>实体类之间存在关联关系</td>
+<td>{边界类|控制类}和{边界类|控制类|实体类}之间存在依赖关系</td>
+</tr>
+</tbody></table>
+<h2 id="4-4-类之间关系的识别"><a href="#4-4-类之间关系的识别" class="headerlink" title="4.4 类之间关系的识别"></a><span id="4">4.4 类之间关系的识别</span></h2><h3 id="4-4-1-识别关联关系"><a href="#4-4-1-识别关联关系" class="headerlink" title="4.4.1 识别关联关系"></a>4.4.1 识别关联关系</h3><h4 id="1-识别关联"><a href="#1-识别关联" class="headerlink" title="1. 识别关联"></a>1. 识别关联</h4><p>策略：</p>
+<ol>
+<li>认识各类对象之间的静态联系</li>
+<li>识别关联属性和操作</li>
+<li>分析关联多重性</li>
+</ol>
+<h4 id="2-调整对象层"><a href="#2-调整对象层" class="headerlink" title="2. 调整对象层"></a>2. 调整对象层</h4><p>在建立关联关系的过程中，可增加一些<font color="red">新的类</font>，要把这些新增的类补充到类图的对象层中，并建立他们的类描述模板。</p>
+<p>对于每一个关联，要在描述模板中给出其有关性质的<font color="red">详细说明</font>，至少说明它所代表的实际意义</p>
+<h3 id="4-4-2-识别聚合关系"><a href="#4-4-2-识别聚合关系" class="headerlink" title="4.4.2 识别聚合关系"></a>4.4.2 识别聚合关系</h3><h4 id="1-识别聚合"><a href="#1-识别聚合" class="headerlink" title="1. 识别聚合"></a>1. 识别聚合</h4><p>策略：</p>
+<ol>
+<li>物理上为整体的事物和它的部分；</li>
+<li>组织机构或它的下级组织部门；</li>
+<li>团体（组织）与成员；</li>
+<li>空间上的包容关系；</li>
+<li>抽象事物的整体与部分：如学科与学科分支，法律与法律条文</li>
+<li>具体事物和它的某个抽象方面；</li>
+<li>材料上的组成关系。</li>
+</ol>
+<h4 id="2-审查与筛选"><a href="#2-审查与筛选" class="headerlink" title="2. 审查与筛选"></a>2. 审查与筛选</h4><p>策略：</p>
+<ol>
+<li>是否属于问题域？是否符合系统责任的需要？对于不属于问题域的聚合关系应该去掉。</li>
+<li>部分对象是否有一个以上的属性？如果部分对象只有一个属性，应该考虑把它取消，并合并到整体对象中去，变成整体对象的一个属性。</li>
+<li>是否有明显的聚合关系？如果两个对象之间不能明显的分出谁是部分，谁是整体，则不应该用聚合关系表示。</li>
+</ol>
+<h4 id="3-调整对象层和属性层"><a href="#3-调整对象层和属性层" class="headerlink" title="3. 调整对象层和属性层"></a>3. 调整对象层和属性层</h4><p>定义聚合关系的活动可能会发现一些新的对象与类，或者从整体类定义中分割出一些部分类的定义，应把它们加入到对象层中，并给出他们的详细说明。</p>
+<p>对于后者，可能有一些整体类的属性与操作被划分出去作为部分类。</p>
+<h3 id="4-4-3-识别泛化关系"><a href="#4-4-3-识别泛化关系" class="headerlink" title="4.4.3 识别泛化关系"></a>4.4.3 识别泛化关系</h3><h4 id="1-识别泛化"><a href="#1-识别泛化" class="headerlink" title="1. 识别泛化"></a>1. 识别泛化</h4><p>策略：</p>
+<ol>
+<li>理解问题域的分类学知识；</li>
+<li>依据常识考虑事物的分类；</li>
+<li>考虑类之间的语义关系；</li>
+<li>考察类的属性和操作。<ol>
+<li>从一个类中划分出一些特殊类；</li>
+<li>检查是否有两个（或更多）类含有一些共同的属性和操作。</li>
+</ol>
+</li>
+<li>考虑领域范围内的重用</li>
+</ol>
+<h4 id="2-审查与筛选-1"><a href="#2-审查与筛选-1" class="headerlink" title="2. 审查与筛选"></a>2. 审查与筛选</h4><p>策略：</p>
+<ol>
+<li>问题域、系统责任是否需要这样的分类？</li>
+<li>特殊类没有自己特殊的属性或操作；</li>
+<li>某些特殊类之间的差别可以由一般类的某个或某些属性值来体现，而且除此之外，没有更多的不同。</li>
+<li>如果一个一般类下只有唯一的特殊类，并且这个特殊类不用于创建对象，也不打算进行复制。可以取消此一般类，并把它的属性和操作放到特殊类中。</li>
+<li>通常，系统中的一般类应符合下述条件之一才有存在的价值。<ol>
+<li>它有两个或两个以上的特殊类；</li>
+<li>需要用它创建对象实例；</li>
+<li>它的存在有助于软件重用；</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-4-4-识别依赖关系"><a href="#4-4-4-识别依赖关系" class="headerlink" title="4.4.4 识别依赖关系"></a>4.4.4 识别依赖关系</h3><h4 id="1-识别依赖"><a href="#1-识别依赖" class="headerlink" title="1. 识别依赖"></a>1. 识别依赖</h4><p>策略：</p>
+<ol>
+<li><font color="red">优先考虑关联关系和泛化关系</font>；当类之间不宜于用这两种关系描述时，再考虑用依赖关系。</li>
+<li><font color="red">考察类的改变</font>；一个独立类的改变将影响另一个不独立的类，则建立它们之间的依赖关系。</li>
+<li><font color="red">考察多重性</font>；类之间有关联关系，就有了依赖关系。关联关系中会出现多重性；但在依赖关系中一定不会出现多重性。</li>
+</ol>
+<h4 id="2-依赖的变体"><a href="#2-依赖的变体" class="headerlink" title="2.依赖的变体"></a>2.依赖的变体</h4><p>UML中，对依赖关系设置了<strong>12</strong>种变体，以描述软件对象之间的各种相互依赖的情形。</p>
+<p>根据连接对象不同：</p>
+<ol>
+<li>Usage（使用依赖）</li>
+<li>Abstraction（抽象依赖）</li>
+<li>Permission（授权依赖）</li>
+<li>Binding（绑定依赖）</li>
+</ol>
+<h5 id="1-Usage（使用依赖）："><a href="#1-Usage（使用依赖）：" class="headerlink" title="1 Usage（使用依赖）："></a>1 Usage（使用依赖）：</h5><p><font color='red'>&lt;&lt;use&gt;&gt;依赖、&lt;&lt;call&gt;&gt;依赖、&lt;&lt;parameter&gt;&gt;依赖、&lt;&lt;send&gt;&gt;依赖、&lt;&lt;instantiate&gt;&gt;依赖</font></p>
+<p>使用依赖表示客户使用提供者的服务，以实现它的行为。</p>
+<p>服务形式有3种：</p>
+<ol>
+<li>客户类的操作者需要提供者的参数；</li>
+<li>客户类的操作返回提供者类的值；</li>
+<li>客户类的操作在实现中使用提供者类的对象；</li>
+</ol>
+<h5 id="2-Abstraction（抽象依赖）"><a href="#2-Abstraction（抽象依赖）" class="headerlink" title="2 Abstraction（抽象依赖）:"></a>2 Abstraction（抽象依赖）:</h5><p><font color='red'>&lt;&lt;trace&gt;&gt;依赖、&lt;&lt;refine&gt;&gt;依赖、&lt;&lt;derive&gt;&gt;依赖</font></p>
+<p>抽象依赖表示客户和提供者之间的关系，依赖于在不同抽象层次上的事物。</p>
+<h5 id="3-Permission（授权依赖）"><a href="#3-Permission（授权依赖）" class="headerlink" title="3 Permission（授权依赖）:"></a>3 Permission（授权依赖）:</h5><p><font color='red'>&lt;&lt;access&gt;&gt;依赖、&lt;&lt;import&gt;&gt;依赖、&lt;&lt;friend&gt;&gt;依赖</font></p>
+<p>授权依赖表示一个事物访问另一个事物的能力，提供者通过规定客户的权限，可以控制和限制客户对其内访问的方法。</p>
+<h5 id="4-Binding（绑定依赖）"><a href="#4-Binding（绑定依赖）" class="headerlink" title="4 Binding（绑定依赖）:"></a>4 Binding（绑定依赖）:</h5><p><font color='red'>&lt;&lt;bind&gt;&gt;依赖</font></p>
+<p>绑定依赖是较高级的依赖类型，它用于绑定模板，以创建新的模型元素。</p>
+<h2 id="4-5-派生属性和派生关联"><a href="#4-5-派生属性和派生关联" class="headerlink" title="4.5 派生属性和派生关联"></a><span id="5">4.5 派生属性和派生关联</span></h2><p>派生属性和派生关联是指可以从其他属性和关联计算推演得到的属性和关联。</p>
+<p>在类图中，派生属性和派生关联的名字前需要加一个斜杠<font color="red">“/”</font>。</p>
+<p>生成代码时，派生属性和派生关联不产生相应代码。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/29.png" class="">
+
+<h2 id="4-6-抽象类和接口"><a href="#4-6-抽象类和接口" class="headerlink" title="4.6 抽象类和接口"></a><span id="6">4.6 抽象类和接口</span></h2><h3 id="4-6-1-抽象类"><a href="#4-6-1-抽象类" class="headerlink" title="4.6.1 抽象类"></a>4.6.1 抽象类</h3><p>抽象类（abstract class）是不能直接产生实例的类。</p>
+<p>抽象类一般作为超类（或基类、父类）存在，用于描述其他类的公共属性和操作。</p>
+<p>抽象类中一般都带有抽象操作。</p>
+<p>抽象操作用于描述该抽象类的子类应有什么样的行为。</p>
+<p>抽象操作只标记出返回值、操作名称和参数表；</p>
+<p>抽象操作的具体实现细节由继承抽象类的子类实现。</p>
+<p>UML通过把类名写成<font color="red">斜体字</font>来表示抽象类。</p>
+<h3 id="4-6-2-接口"><a href="#4-6-2-接口" class="headerlink" title="4.6.2 接口"></a>4.6.2 接口</h3><p>接口（interface）定义为一个类的对外可见的一组操作的规范，它定义了类对外提供的服务。</p>
+<p>对接口操作的描述包括操作的语法和操作的语义。</p>
+<p>对于简单接口，只需罗列出接口包括的操作及其名称就可以使得接口的应用开发人员了解接口的用法；对于复杂的接口，必须详细表述正常使用接口必须具备的各种条件。</p>
+<p>通过接口，软件系统中的类的集合构成了一个相对封闭的子系统或组件，其服务以接口的形式规定。</p>
+<p>接口是类的变体，接口的操作的描述遵循类的操作的描述规则。</p>
+<h4 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h4><p><strong>实现关系</strong>将一种模型元素与另一种模型元素连接起来，其中接口只是行为的说明而不是接口或实现。</p>
+<p>实现关系是两个分类符之间的语义关系，表明其中的一个分类符为另一个分类符规定了应执行的动态行为。实现关系可以连接的分类符包括<font color="red">接口和类、接口和组件、用例和协作</font>。接口规定了类或组件的动态行为，用例规定了协作的动态行为。</p>
+<p>一个类提供了另一个类对外公布的操作规范的实现代码。接口是一个特殊的类（无属性，有操作），实现接口操作的类（称为<font color="red">实现类</font>）与接口之间存在实现关系。调用接口操作的类（称为<font color="red">使用类</font>）与接口之间存在依赖关系。</p>
+<p>UML规范中，实现用<font color="red">带空心三角形箭头的虚线</font>表示，箭头指向接口，另一端的类实现了接口。</p>
+<p><strong>例如：</strong>“定价”是接口，“目录项”是实现类，“零件”是使用类。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/30.png" class="">
+
+<h3 id="4-6-3-抽象类和接口的差别"><a href="#4-6-3-抽象类和接口的差别" class="headerlink" title="4.6.3 抽象类和接口的差别"></a>4.6.3 抽象类和接口的差别</h3><p><strong>共同点：</strong></p>
+<ul>
+<li>两者都有方法没有提供实现代码</li>
+<li>提供实现代码的其他类，实现的算法不同，会导致两者具有不同的行为。因此，很容易扩展软件系统的功能。</li>
+</ul>
+<p><strong>不同点：</strong></p>
+<ul>
+<li>抽象类有些方法可以提供实现代码，接口所有的方法都没有提供实现代码</li>
+<li>接口不能含有属性，而抽象类可以含有属性</li>
+<li>抽象类只能被继承，接口只能被实现</li>
+</ul>
+<h2 id="4-7-类的版型"><a href="#4-7-类的版型" class="headerlink" title="4.7 类的版型"></a><span id="7">4.7 类的版型</span></h2><p>UML中有3种主要的类版型，即<font color="red">实体类（entity class）、边界类（boundary class）、控制类（control class）</font></p>
+<p>引入边界类、控制类和实体类的概念，有助于分析人员和设计人员确定系统中的类</p>
+<h3 id="4-7-1-实心类"><a href="#4-7-1-实心类" class="headerlink" title="4.7.1 实心类"></a>4.7.1 实心类</h3><p><strong>实体类</strong>用于保存需要放进持久存储体的信息，是问题域中的核心类。</p>
+<p>所谓持久存储体就是数据库、文件等可以永久存储数据的介质。</p>
+<p><strong>实体类的对象是永久性的，它的生存时间长于会话生命周期。</strong></p>
+<p>实体类的识别一般在<font color="red">需求分析阶段</font>。</p>
+<p>可以通过事件流和交互图发现，实体类通常用领域术语命名。每个实体类在数据库中有相应的表，实体类中的属性对应数据库中表的字段。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/31.png" class="">
+
+<h3 id="4-7-2-边界类"><a href="#4-7-2-边界类" class="headerlink" title="4.7.2 边界类"></a>4.7.2 边界类</h3><p><strong>边界类</strong>位于系统与外界的交界处，它是系统内的对象和系统外的参与者的联系媒介。外界的消息只有通过边界类的对象实例才能发送给系统。</p>
+<p>边界类一般在<font color="red">系统设计阶段</font>进行</p>
+<p><strong>例如：</strong>窗体（form）、对话框（dialog box）、报表（report）、表示通讯协议（TCP/IP）的类、直接与外部设备（如打印机、扫描仪）交互的类、直接与外部系统交互的类</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/32.png" class="">
+
+<h3 id="4-7-3-控制类"><a href="#4-7-3-控制类" class="headerlink" title="4.7.3 控制类"></a>4.7.3 控制类</h3><p><strong>控制类</strong>是负责其他类工作的类。根据业务规则，执行相应脚本流，以委托责任的形式向其他类发出消息，由其他类来实现具体的功能。</p>
+<p>控制类的一个主要用途是协调边界类和实体类之间的交互。</p>
+<p>控制类一般在<font color="red">系统设计阶段</font>。</p>
+<p>每个用例通常有一个控制类，控制用例中的事件顺序，也可以在多个用例间共用。其他类并不向控制类发送很多消息，而是由控制类发出很多消息。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/33.png" class="">
+
+<h3 id="4-7-4-用户自定义版型"><a href="#4-7-4-用户自定义版型" class="headerlink" title="4.7.4 用户自定义版型"></a>4.7.4 用户自定义版型</h3><img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/34.png" class="">
+
+<h2 id="4-8-类图"><a href="#4-8-类图" class="headerlink" title="4.8 类图"></a><span id="8">4.8 类图</span></h2><p>类加上它们之间的关系就构成了类图，可以包含接口、包、关系等建模元素，也可以包含对象、链等实例。</p>
+<p>类图是UML中的核心。</p>
+<p>类图描述的是类和类之间的静态关系。</p>
+<p>与数据模型不同，类图不仅显示了信息的结构，同时还描述了系统的行为。</p>
+<h3 id="4-8-1-类图的抽象层次"><a href="#4-8-1-类图的抽象层次" class="headerlink" title="4.8.1 类图的抽象层次"></a>4.8.1 类图的抽象层次</h3><p>一般可将类图分为3个层次：概念层、说明层、实现层。</p>
+<p><font color="red">概念层类图</font>描述应用领域中的概念。一般这些概念和类有很自然的联系，但两者没有直接的映射关系。绘制概念层类图时，很少考虑或不考虑实现问题。</p>
+<p><font color="red">说明层类图</font>描述软件的接口部分，而不是软件的实现部分。这个接口可能因为实现环境、运行特性或开发商的不同而有多种不同的实现。</p>
+<p><font color="red">实现层类图</font>才真正考虑类的实现问题，提供类的实现细节。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/35.png" class="">
+
+<h3 id="4-8-2-构造类图"><a href="#4-8-2-构造类图" class="headerlink" title="4.8.2 构造类图"></a>4.8.2 构造类图</h3><p><strong>建立类图的步骤：</strong></p>
+<ol>
+<li>研究分析问题领域，确定系统的需求。</li>
+<li>确定类，明确类的含义和职责，确定属性和操作。</li>
+<li>确定类之间的关系。把类之间的关系用关联、泛化、聚合、组成、依赖等关系表达出来。</li>
+<li>调整和细化已得到的类和类之间的关系，解决诸如命名冲突、功能重复等问题。</li>
+<li>绘制类图并增加相应的说明。</li>
+</ol>
+<h2 id="4-9-对象图"><a href="#4-9-对象图" class="headerlink" title="4.9 对象图"></a><span id="9">4.9 对象图</span></h2><p>对象图（object diagram）描述的是参与交互的各个对象在交互过程中某一时刻的状态。它是系统在某一个特定时间点上的静态结构，是类图的实例和快照，即类图中的各个类在某一个时间点上的实例及其关联关系的静态写照。</p>
+<p>对象图（object diagram）的<strong>作用</strong>：表示快照的行为。通过一系列的快照，可以有效表达事物的行为。说明复杂的数据结构。</p>
+<p>对象图所建立的对象模型描述的是<strong>某种特定的情况</strong>，而类图所建立的模型描述的是<strong>通用的情况</strong>。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/36.png" class="">
+
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/37.png" class="">
+
+<h3 id="4-9-1-对象的表示"><a href="#4-9-1-对象的表示" class="headerlink" title="4.9.1 对象的表示"></a>4.9.1 对象的表示</h3><p>对象是类的实例，创建一个对象时通常可以从两种情况来观察：第一种情况是将对象作为一个实体，它在某个时刻有明确的值。另一种情况是作为一个身份持有者，不同时刻有不同的值。</p>
+<p>一个对象在系统的某一个时刻应当有其自身的状态。通常<font color="red">这个状态使用属性的赋值或分布式系统中的位置来描述</font>。对象通过链和其他对象相联系。</p>
+<p><strong>命名语法：</strong><font color="blue">对象名：类型</font></p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/38.png" class="">
+
+<h3 id="4-9-2-链的表示"><a href="#4-9-2-链的表示" class="headerlink" title="4.9.2 链的表示"></a>4.9.2 链的表示</h3><p>链是两个或多个对象之间的独立连接，是关联的实例。通过链可以将多个对象连接起来，形成一个有序列表，称为<font color="red">元组</font>。</p>
+<p>在UML中，链的图标是符号是<font color="red">一个或多个相连的实线或实线圆弧</font>。</p>
+<img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/39.png" class="">
+
+<h3 id="4-9-2-类图与对象图区别"><a href="#4-9-2-类图与对象图区别" class="headerlink" title="4.9.2 类图与对象图区别"></a>4.9.2 类图与对象图区别</h3><table>
+<thead>
+<tr>
+<th><strong>类图</strong></th>
+<th><strong>对象图</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>在类图中，每个类包含三部分：类名、类的属性和类的操作</td>
+<td>在对象图中，每个对象包含二部分：对象名、对象属性</td>
+</tr>
+<tr>
+<td>类的名称栏只包含类名</td>
+<td>对象的名称栏包含对象名和类名</td>
+</tr>
+<tr>
+<td>类的属性栏定义了所有属性的特征</td>
+<td>对象的属性栏定义了属性的当前值</td>
+</tr>
+<tr>
+<td>类中列出了操作</td>
+<td>对象图中的对象不包含操作，因为对于属于同一个类的对象，其操作是相同的</td>
+</tr>
+<tr>
+<td>类中使用了关联连接，关联中使用关联名、角色以及约束等特征定义</td>
+<td>对象使用链进行连接，链中包含名称、角色</td>
+</tr>
+<tr>
+<td>类是对象的抽象</td>
+<td>对象是客观存在的抽象，对象是类的实例</td>
+</tr>
+</tbody></table>
+<h2 id="4-10-类图例子"><a href="#4-10-类图例子" class="headerlink" title="4.10 类图例子"></a><span id="10">4.10 类图例子</span></h2><img src="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/40.png" class="">
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/04/01/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%B2%9F%E9%80%9A%E7%AE%A1%E7%90%86%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            软件项目管理（第九章：项目的沟通管理）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">UML（第三章：参与者、用例）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+    <ul>
+     
+    </ul>
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>
