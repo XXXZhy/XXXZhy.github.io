@@ -45,7 +45,7 @@
 <p>在JSP页面引入核心标签库的代码为：</p>
 <pre><code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</code></pre><p>需要将两个文件拷贝到lib目录下面：</p>
 <p>文件下载地址 <a href="http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/" target="_blank" rel="noopener">http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/</a></p>
-{% asset_img 1.png %}
+<img src="/2020/04/29/JSP（第七章：JSTL）/1.png">
 
 <h1 id="2-表达式控制标签"><a href="#2-表达式控制标签" class="headerlink" title="2 表达式控制标签"></a><span id="2">2 表达式控制标签</span></h1><p>表达式控制分类中包括&lt;c:out&gt;、&lt;c:set&gt;、&lt;c:remove&gt;、&lt;c:catch&gt;4个标签。</p>
 <h1 id="2-1-lt-c-out-gt"><a href="#2-1-lt-c-out-gt" class="headerlink" title="2.1 &lt;c:out&gt;"></a>2.1 &lt;c:out&gt;</h1><p>&lt;c:out&gt;标签用来显示一个表达式的结果，与&lt;%= %&gt;作用相似，它们的区别就是&lt;c:out&gt;标签可以直接通过”.”操作符来访问属性。</p>
