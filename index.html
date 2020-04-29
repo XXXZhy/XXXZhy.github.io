@@ -186,6 +186,105 @@
 
 </article>
     
+    <article id="post-JSP（第八章：Struts2）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/"
+    >JSP（第八章：Struts2）</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/" class="article-date">
+  <time datetime="2020-04-29T14:19:14.000Z" itemprop="datePublished">2020-04-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JSP/">JSP</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>Struts官方网站：<a href="https://struts.apache.org/" target="_blank" rel="noopener">https://struts.apache.org/</a></p>
+<h2 id="1-第一个Struts2页面"><a href="#1-第一个Struts2页面" class="headerlink" title="1 第一个Struts2页面"></a>1 第一个Struts2页面</h2><p>【导入jar包】:</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/1.png" class="">
+
+<p>【WEB-INF/web.xml】：<strong>struts2实质就是过滤器实现</strong></p>
+<pre><code class="jsp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;4.0&quot;&gt;
+  &lt;display-name&gt;JSPStruts2&lt;/display-name&gt;
+  &lt;filter&gt;
+        &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+      &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+      &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+
+  &lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+&lt;/web-app&gt;</code></pre>
+      
+      <a class="article-more-link" href="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/">More</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-JSP（第七章：JSTL）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -841,93 +940,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-UML（第五章：顺序图、协作图）" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/17/UML%EF%BC%88%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%9B%BE%E3%80%81%E5%8D%8F%E4%BD%9C%E5%9B%BE%EF%BC%89/"
-    >UML（第五章：顺序图、协作图）</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/17/UML%EF%BC%88%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%9B%BE%E3%80%81%E5%8D%8F%E4%BD%9C%E5%9B%BE%EF%BC%89/" class="article-date">
-  <time datetime="2020-04-17T05:34:30.000Z" itemprop="datePublished">2020-04-17</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/UML/">UML</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#1">5.1 交互模型概述</a></p>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#2">5.2 顺序图</a></p>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#3">5.3 顺序图中的消息</a></p>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#4">5.4 建立顺序图概述</a></p>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#5">5.5 协作图</a></p>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#6">5.6 建立协作图概述</a></p>
-<p><a href="/2020/04/17/UML（第五章：顺序图、协作图）/#7">5.7 交互建模中常见的问题</a></p>
-</blockquote>
-<h1 id="5-1-交互模型概述"><a href="#5-1-交互模型概述" class="headerlink" title="5.1 交互模型概述"></a><span id="1">5.1 交互模型概述</span></h1><h2 id="5-1-1-静态结构和动态结构"><a href="#5-1-1-静态结构和动态结构" class="headerlink" title="5.1.1 静态结构和动态结构"></a>5.1.1 静态结构和动态结构</h2><p>所有系统均可表示为两个方面：<font color="red">静态结构</font>和<font color="red">态行为</font></p>
-<p>静态结构——使用<font color="red">类图</font>，说明系统包含哪些对象类以及它们之间的关系。</p>
-<p>动态行为——使用<font color="red">顺序图、协作图、状态图、活动图</font>，说明系统中的各个对象是如何交互协作来实现系统的功能，每个对象的状态变化规律。</p>
-<h2 id="5-1-2-交互模型"><a href="#5-1-2-交互模型" class="headerlink" title="5.1.2 交互模型"></a>5.1.2 交互模型</h2><p>软件系统中的任务是通过对象之间的<font color="red">合作</font>来完成的。对象之间的合作是通过<font color="red">息的传递</font>实现的。</p>
-<p>对象之间的合作在UML中被称为<font color="red">交互</font>。即<font color="red">交互是一组对象之间为完成某一任务（操作）而进行的一系列信息交互的行为说明</font>。</p>
-      
-      <a class="article-more-link" href="/2020/04/17/UML%EF%BC%88%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E9%A1%BA%E5%BA%8F%E5%9B%BE%E3%80%81%E5%8D%8F%E4%BD%9C%E5%9B%BE%EF%BC%89/">More</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
 
     </footer>

@@ -14,6 +14,75 @@
       </tags>
   </entry>
   <entry>
+    <title>JSP（第八章：Struts2）</title>
+    <url>/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Struts官方网站：<a href="https://struts.apache.org/" target="_blank" rel="noopener">https://struts.apache.org/</a></p>
+<h2 id="1-第一个Struts2页面"><a href="#1-第一个Struts2页面" class="headerlink" title="1 第一个Struts2页面"></a>1 第一个Struts2页面</h2><p>【导入jar包】:</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/1.png" class="">
+
+<p>【WEB-INF/web.xml】：<strong>struts2实质就是过滤器实现</strong></p>
+<pre><code class="jsp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;4.0&quot;&gt;
+  &lt;display-name&gt;JSPStruts2&lt;/display-name&gt;
+  &lt;filter&gt;
+        &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+      &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+      &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+
+  &lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+  &lt;/welcome-file-list&gt;
+&lt;/web-app&gt;</code></pre>
+<a id="more"></a>
+
+<p>【src/struts.xml】：</p>
+<pre><code class="jsp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&gt;
+&lt;struts&gt;
+&lt;package name=&quot;mypack&quot; namespace=&quot;/test&quot; extends=&quot;struts-default&quot;&gt;
+&lt;action name=&quot;helloworld&quot; class=&quot;my.example.HelloWorldAction&quot; method=&quot;execute&quot;&gt;
+&lt;result name=&quot;success&quot;&gt;/WEB-INF/page/hello.jsp&lt;/result&gt;
+&lt;/action&gt;
+&lt;/package&gt;
+&lt;/struts&gt;</code></pre>
+<p>【src/my.example/HelloWorldAction.java】：</p>
+<pre><code class="java">package my.example;
+
+public class HelloWorldAction {
+
+    private String message;
+       public String getMessage() {
+        return message;
+    }
+
+    public String execute(){
+           message=&quot;my first page&quot;;
+           return &quot;success&quot;;
+       }
+}</code></pre>
+<p>【运行结果】：启动服务器，访问地址：<a href="http://localhost:8080/JSPStruts2/test/helloworld" target="_blank" rel="noopener">http://localhost:8080/JSPStruts2/test/helloworld</a></p>
+<p>显示：  my first page </p>
+]]></content>
+      <categories>
+        <category>JSP</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>JSP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JSP（第七章：JSTL核心标签库）</title>
     <url>/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-04-29T13:01:01.837Z</updated>
+  <updated>2020-04-29T16:08:23.639Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSP（第八章：Struts2）</title>
+    <link href="https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/"/>
+    <id>https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/</id>
+    <published>2020-04-29T14:19:14.000Z</published>
+    <updated>2020-04-29T16:08:23.639Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Struts官方网站：&lt;a href=&quot;https://struts.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://struts.apache.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-第一个Struts2页面&quot;&gt;&lt;a href=&quot;#1-第一个Struts2页面&quot; class=&quot;headerlink&quot; title=&quot;1 第一个Struts2页面&quot;&gt;&lt;/a&gt;1 第一个Struts2页面&lt;/h2&gt;&lt;p&gt;【导入jar包】:&lt;/p&gt;
+&lt;img src=&quot;/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/1.png&quot; class=&quot;&quot;&gt;
+
+&lt;p&gt;【WEB-INF/web.xml】：&lt;strong&gt;struts2实质就是过滤器实现&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;jsp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;web-app xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xmlns=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee&amp;quot; xsi:schemaLocation=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&amp;quot; id=&amp;quot;WebApp_ID&amp;quot; version=&amp;quot;4.0&amp;quot;&amp;gt;
+  &amp;lt;display-name&amp;gt;JSPStruts2&amp;lt;/display-name&amp;gt;
+  &amp;lt;filter&amp;gt;
+        &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
+        &amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&amp;lt;/filter-class&amp;gt;
+  &amp;lt;/filter&amp;gt;
+  &amp;lt;filter-mapping&amp;gt;
+      &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
+      &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
+  &amp;lt;/filter-mapping&amp;gt;
+
+  &amp;lt;welcome-file-list&amp;gt;
+    &amp;lt;welcome-file&amp;gt;index.html&amp;lt;/welcome-file&amp;gt;
+    &amp;lt;welcome-file&amp;gt;index.htm&amp;lt;/welcome-file&amp;gt;
+    &amp;lt;welcome-file&amp;gt;index.jsp&amp;lt;/welcome-file&amp;gt;
+    &amp;lt;welcome-file&amp;gt;default.html&amp;lt;/welcome-file&amp;gt;
+    &amp;lt;welcome-file&amp;gt;default.htm&amp;lt;/welcome-file&amp;gt;
+    &amp;lt;welcome-file&amp;gt;default.jsp&amp;lt;/welcome-file&amp;gt;
+  &amp;lt;/welcome-file-list&amp;gt;
+&amp;lt;/web-app&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="JSP" scheme="https://www.blogzhy.top/categories/JSP/"/>
+    
+    
+      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JSP" scheme="https://www.blogzhy.top/tags/JSP/"/>
+    
+  </entry>
   
   <entry>
     <title>JSP（第七章：JSTL核心标签库）</title>
@@ -663,47 +711,6 @@ filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
       <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="软件项目管理" scheme="https://www.blogzhy.top/tags/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UML（第四章：类图、对象图）</title>
-    <link href="https://www.blogzhy.top/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/"/>
-    <id>https://www.blogzhy.top/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/</id>
-    <published>2020-03-30T07:43:51.000Z</published>
-    <updated>2020-04-12T04:00:38.755Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#1&quot;&gt;4.1 类与对象&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#2&quot;&gt;4.2 识别类与对象&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#3&quot;&gt;4.3 类之间的关系&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#4&quot;&gt;4.4 类之间关系的识别&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#5&quot;&gt;4.5 派生属性和派生关联&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#6&quot;&gt;4.6 抽象类和接口&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#7&quot;&gt;4.7 类的版型&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#8&quot;&gt;4.8 类图&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#9&quot;&gt;4.9 对象图&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/30/UML（第四章：类图、对象图）/#10&quot;&gt;4.10 类图例子&lt;/a&gt;    &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;4-1-类与对象&quot;&gt;&lt;a href=&quot;#4-1-类与对象&quot; class=&quot;headerlink&quot; title=&quot;4.1 类与对象&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;4.1 类与对象&lt;/span&gt;&lt;/h2&gt;&lt;h3 id=&quot;4-1-1-对象&quot;&gt;&lt;a href=&quot;#4-1-1-对象&quot; class=&quot;headerlink&quot; title=&quot;4.1.1 对象&quot;&gt;&lt;/a&gt;4.1.1 对象&lt;/h3&gt;&lt;p&gt;对象是构成世界的一个独立单位，它具有自己的静态特征和动态特征。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;静态特征&lt;/strong&gt;是可以用某种数据来描述的属性&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;动态特征&lt;/strong&gt;是对象所表现的行为或对象所具有的功能&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;对象的命名规则：&lt;/strong&gt;和类的命名规则一样。&lt;/p&gt;
-&lt;p&gt;无需特别指出对象名字时，对象的名字和类的名字相同。否则就需要指出对象的名字。&lt;/p&gt;
-&lt;p&gt;&lt;font color=&quot;red&quot;&gt;对象名:类名&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;&amp;nbsp;&amp;nbsp;:类名&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;如：   Course:课程&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="UML" scheme="https://www.blogzhy.top/categories/UML/"/>
-    
-    
-      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="UML" scheme="https://www.blogzhy.top/tags/UML/"/>
     
   </entry>
   
