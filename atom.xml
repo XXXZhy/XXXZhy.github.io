@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-04-29T16:08:23.639Z</updated>
+  <updated>2020-04-29T16:10:43.684Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/"/>
     <id>https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/</id>
     <published>2020-04-29T14:19:14.000Z</published>
-    <updated>2020-04-29T16:08:23.639Z</updated>
+    <updated>2020-04-29T16:10:43.684Z</updated>
     
     <summary type="html">
     
@@ -34,8 +34,10 @@
 &amp;lt;web-app xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xmlns=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee&amp;quot; xsi:schemaLocation=&amp;quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&amp;quot; id=&amp;quot;WebApp_ID&amp;quot; version=&amp;quot;4.0&amp;quot;&amp;gt;
   &amp;lt;display-name&amp;gt;JSPStruts2&amp;lt;/display-name&amp;gt;
   &amp;lt;filter&amp;gt;
-        &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
-        &amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&amp;lt;/filter-class&amp;gt;
+    &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;
+       &amp;lt;filter-class&amp;gt;
+            org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+      &amp;lt;/filter-class&amp;gt;
   &amp;lt;/filter&amp;gt;
   &amp;lt;filter-mapping&amp;gt;
       &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;

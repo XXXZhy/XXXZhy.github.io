@@ -25,8 +25,10 @@
 &lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot; id=&quot;WebApp_ID&quot; version=&quot;4.0&quot;&gt;
   &lt;display-name&gt;JSPStruts2&lt;/display-name&gt;
   &lt;filter&gt;
-        &lt;filter-name&gt;struts2&lt;/filter-name&gt;
-        &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+    &lt;filter-name&gt;struts2&lt;/filter-name&gt;
+       &lt;filter-class&gt;
+            org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+      &lt;/filter-class&gt;
   &lt;/filter&gt;
   &lt;filter-mapping&gt;
       &lt;filter-name&gt;struts2&lt;/filter-name&gt;
