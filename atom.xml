@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-04-29T12:30:15.256Z</updated>
+  <updated>2020-04-29T12:34:34.694Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -21,12 +21,18 @@
     <link href="https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/"/>
     <id>https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/</id>
     <published>2020-04-29T02:25:29.000Z</published>
-    <updated>2020-04-29T12:30:15.256Z</updated>
+    <updated>2020-04-29T12:34:34.694Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;1-JSTL标签库分类&quot;&gt;&lt;a href=&quot;#1-JSTL标签库分类&quot; class=&quot;headerlink&quot; title=&quot;1 JSTL标签库分类&quot;&gt;&lt;/a&gt;1 JSTL标签库分类&lt;/h1&gt;&lt;p&gt;JSTL标签库的使用是为了弥补html表示的不足，规范自定义标签的使用而诞生的。在告别modle1模式开发应用程序后，人们开始注重软件的分层设计，不希望在JSP页面中出现java逻辑代码，同时也由于自定义标签的开发难度较大和不利于技术标准化产生了自定义标签库。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/29/JSP（第七章：JSTL）/#1&quot;&gt;1 JSTL标签库分类&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/29/JSP（第七章：JSTL）/#2&quot;&gt;2 表达式控制标签&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/29/JSP（第七章：JSTL）/#3&quot;&gt;3 流程控制标签&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/29/JSP（第七章：JSTL）/#4&quot;&gt;4 循环标签&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/29/JSP（第七章：JSTL）/#5&quot;&gt;5 URL操作标签&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-JSTL标签库分类&quot;&gt;&lt;a href=&quot;#1-JSTL标签库分类&quot; class=&quot;headerlink&quot; title=&quot;1 JSTL标签库分类&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1 JSTL标签库分类&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;JSTL标签库的使用是为了弥补html表示的不足，规范自定义标签的使用而诞生的。在告别modle1模式开发应用程序后，人们开始注重软件的分层设计，不希望在JSP页面中出现java逻辑代码，同时也由于自定义标签的开发难度较大和不利于技术标准化产生了自定义标签库。&lt;/p&gt;
 &lt;p&gt;JSTL标签库可分为5类：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;核心标签库&lt;/li&gt;

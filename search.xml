@@ -16,8 +16,14 @@
   <entry>
     <title>JSP（第七章：JSTL核心标签库）</title>
     <url>/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>[TOC]</p>
-<h1 id="1-JSTL标签库分类"><a href="#1-JSTL标签库分类" class="headerlink" title="1 JSTL标签库分类"></a>1 JSTL标签库分类</h1><p>JSTL标签库的使用是为了弥补html表示的不足，规范自定义标签的使用而诞生的。在告别modle1模式开发应用程序后，人们开始注重软件的分层设计，不希望在JSP页面中出现java逻辑代码，同时也由于自定义标签的开发难度较大和不利于技术标准化产生了自定义标签库。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
+<p><a href="/2020/04/29/JSP（第七章：JSTL）/#1">1 JSTL标签库分类</a></p>
+<p><a href="/2020/04/29/JSP（第七章：JSTL）/#2">2 表达式控制标签</a></p>
+<p><a href="/2020/04/29/JSP（第七章：JSTL）/#3">3 流程控制标签</a></p>
+<p><a href="/2020/04/29/JSP（第七章：JSTL）/#4">4 循环标签</a></p>
+<p><a href="/2020/04/29/JSP（第七章：JSTL）/#5">5 URL操作标签</a></p>
+</blockquote>
+<h1 id="1-JSTL标签库分类"><a href="#1-JSTL标签库分类" class="headerlink" title="1 JSTL标签库分类"></a><span id="1">1 JSTL标签库分类</span></h1><p>JSTL标签库的使用是为了弥补html表示的不足，规范自定义标签的使用而诞生的。在告别modle1模式开发应用程序后，人们开始注重软件的分层设计，不希望在JSP页面中出现java逻辑代码，同时也由于自定义标签的开发难度较大和不利于技术标准化产生了自定义标签库。</p>
 <p>JSTL标签库可分为5类：</p>
 <ul>
 <li>核心标签库</li>
@@ -41,7 +47,7 @@
 <p>文件下载地址 <a href="http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/" target="_blank" rel="noopener">http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/</a></p>
 {% asset_img 1.png %}
 
-<h1 id="2-表达式控制标签"><a href="#2-表达式控制标签" class="headerlink" title="2 表达式控制标签"></a>2 表达式控制标签</h1><p>表达式控制分类中包括&lt;c:out&gt;、&lt;c:set&gt;、&lt;c:remove&gt;、&lt;c:catch&gt;4个标签。</p>
+<h1 id="2-表达式控制标签"><a href="#2-表达式控制标签" class="headerlink" title="2 表达式控制标签"></a><span id="2">2 表达式控制标签</span></h1><p>表达式控制分类中包括&lt;c:out&gt;、&lt;c:set&gt;、&lt;c:remove&gt;、&lt;c:catch&gt;4个标签。</p>
 <h1 id="2-1-lt-c-out-gt"><a href="#2-1-lt-c-out-gt" class="headerlink" title="2.1 &lt;c:out&gt;"></a>2.1 &lt;c:out&gt;</h1><p>&lt;c:out&gt;标签用来显示一个表达式的结果，与&lt;%= %&gt;作用相似，它们的区别就是&lt;c:out&gt;标签可以直接通过”.”操作符来访问属性。</p>
 <p>举例来说，如果想要访问customer.address.street，只需要这样写：&lt;c:out value=”customer.address.street”&gt;。</p>
 <p>&lt;c:out&gt;标签会自动忽略XML标记字符，所以它们不会被当做标签来处理。</p>
@@ -248,7 +254,7 @@
 &lt;/html&gt;</code></pre>
 <p>【运行结果】：</p>
 <pre><code>异常为 : java.lang.ArithmeticException: / by zero 
-发生了异常: / by zero</code></pre><h1 id="3-流程控制标签"><a href="#3-流程控制标签" class="headerlink" title="3 流程控制标签"></a>3 流程控制标签</h1><p>流程控制标签主要用于对页面简单业务逻辑进行控制。流程控制标签包含有4个：&lt;c:if&gt;标签、&lt;c:choose&gt;标签、&lt;c:when&gt;标签和&lt;c:otherwise&gt;标签。</p>
+发生了异常: / by zero</code></pre><h1 id="3-流程控制标签"><a href="#3-流程控制标签" class="headerlink" title="3 流程控制标签"></a><span id="3">3 流程控制标签</span></h1><p>流程控制标签主要用于对页面简单业务逻辑进行控制。流程控制标签包含有4个：&lt;c:if&gt;标签、&lt;c:choose&gt;标签、&lt;c:when&gt;标签和&lt;c:otherwise&gt;标签。</p>
 <h2 id="3-1-lt-c-if-gt-标签"><a href="#3-1-lt-c-if-gt-标签" class="headerlink" title="3.1 &lt;c:if&gt;标签"></a>3.1 &lt;c:if&gt;标签</h2><p>&lt;c:if&gt;同程序中的if作用相同，用来实现条件控制。</p>
 <p>【语法格式】：</p>
 <pre><code class="jsp">&lt;c:if test=&quot;条件1&quot; var=&quot;name&quot; [scope=&quot;page|request|session|application&quot;]&gt;&lt;/c:if&gt;</code></pre>
@@ -325,7 +331,7 @@ ${adminchock}
 <p>【运行结果】：</p>
 <img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/3.png" class="">
 
-<h1 id="4-循环标签"><a href="#4-循环标签" class="headerlink" title="4 循环标签"></a>4 循环标签</h1><p>循环标签主要实现迭代操作。主要包含两个标签：&lt;c:forEach&gt;和&lt;c:forTokens&gt;标签，接下来将详细介绍这两个标签的用法。</p>
+<h1 id="4-循环标签"><a href="#4-循环标签" class="headerlink" title="4 循环标签"></a><span id="4">4 循环标签</span></h1><p>循环标签主要实现迭代操作。主要包含两个标签：&lt;c:forEach&gt;和&lt;c:forTokens&gt;标签，接下来将详细介绍这两个标签的用法。</p>
 <h2 id="4-1-lt-c-forEach-gt-标签"><a href="#4-1-lt-c-forEach-gt-标签" class="headerlink" title="4.1&lt;c:forEach&gt;标签"></a>4.1&lt;c:forEach&gt;标签</h2><p>该标签根据循环条件遍历集合（Collection）中的元素。</p>
 <p>【语法格式】：</p>
 <pre><code class="JSP">&lt;c:forEach var=”name” items=”Collection” varStatus=”StatusName” begin=”begin” end=”end” step=”step”&gt;本体内容&lt;/c:forEach&gt;</code></pre>
@@ -493,7 +499,7 @@ ${adminchock}
 <p>【运行结果】：</p>
 <img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/5.png" class="">
 
-<h1 id="5-URL操作标签"><a href="#5-URL操作标签" class="headerlink" title="5 URL操作标签"></a>5 URL操作标签</h1><h2 id="5-1-lt-c-url-gt"><a href="#5-1-lt-c-url-gt" class="headerlink" title="5.1 &lt;c:url&gt;"></a>5.1 &lt;c:url&gt;</h2><p>&lt;c:url&gt;    使用可选的查询参数来创造一个URL</p>
+<h1 id="5-URL操作标签"><a href="#5-URL操作标签" class="headerlink" title="5 URL操作标签"></a><span id="5">5 URL操作标签</span></h1><h2 id="5-1-lt-c-url-gt"><a href="#5-1-lt-c-url-gt" class="headerlink" title="5.1 &lt;c:url&gt;"></a>5.1 &lt;c:url&gt;</h2><p>&lt;c:url&gt;    使用可选的查询参数来创造一个URL</p>
 <p>【语法格式】：</p>
 <pre><code class="jsp">&lt;c:url
   var=&quot;&lt;string&gt;&quot;
