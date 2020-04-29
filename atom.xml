@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-04-29T02:14:38.630Z</updated>
+  <updated>2020-04-29T12:30:15.256Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSP（第七章：JSTL核心标签库）</title>
+    <link href="https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/"/>
+    <id>https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/</id>
+    <published>2020-04-29T02:25:29.000Z</published>
+    <updated>2020-04-29T12:30:15.256Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;1-JSTL标签库分类&quot;&gt;&lt;a href=&quot;#1-JSTL标签库分类&quot; class=&quot;headerlink&quot; title=&quot;1 JSTL标签库分类&quot;&gt;&lt;/a&gt;1 JSTL标签库分类&lt;/h1&gt;&lt;p&gt;JSTL标签库的使用是为了弥补html表示的不足，规范自定义标签的使用而诞生的。在告别modle1模式开发应用程序后，人们开始注重软件的分层设计，不希望在JSP页面中出现java逻辑代码，同时也由于自定义标签的开发难度较大和不利于技术标准化产生了自定义标签库。&lt;/p&gt;
+&lt;p&gt;JSTL标签库可分为5类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;核心标签库&lt;/li&gt;
+&lt;li&gt;I18N格式化标签库&lt;/li&gt;
+&lt;li&gt;SQL标签库&lt;/li&gt;
+&lt;li&gt;XML标签库&lt;/li&gt;
+&lt;li&gt;函数标签库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1-1-核心标签库&quot;&gt;&lt;a href=&quot;#1-1-核心标签库&quot; class=&quot;headerlink&quot; title=&quot;1.1 核心标签库&quot;&gt;&lt;/a&gt;1.1 核心标签库&lt;/h2&gt;&lt;p&gt;JSTL的核心标签库标签共13个，从功能上可以分为4类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表达式控制标签：out标签、set标签、remove标签、catch标签&lt;/li&gt;
+&lt;li&gt;流程控制标签：if标签、choose标签、when标签、otherwise标签&lt;/li&gt;
+&lt;li&gt;循环标签：forEach标签、forTokens标签&lt;/li&gt;
+&lt;li&gt;URL操作标签：import标签、url标签、redirect标签&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="JSP" scheme="https://www.blogzhy.top/categories/JSP/"/>
+    
+    
+      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JSP" scheme="https://www.blogzhy.top/tags/JSP/"/>
+    
+  </entry>
   
   <entry>
     <title>软件项目管理（第六章：IT项目成本管理）</title>
@@ -649,43 +688,6 @@ filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 &lt;p&gt;无需特别指出对象名字时，对象的名字和类的名字相同。否则就需要指出对象的名字。&lt;/p&gt;
 &lt;p&gt;&lt;font color=&quot;red&quot;&gt;对象名:类名&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;&amp;nbsp;&amp;nbsp;:类名&lt;/font&gt;&lt;/p&gt;
 &lt;p&gt;如：   Course:课程&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="UML" scheme="https://www.blogzhy.top/categories/UML/"/>
-    
-    
-      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="UML" scheme="https://www.blogzhy.top/tags/UML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UML（第三章：参与者、用例）</title>
-    <link href="https://www.blogzhy.top/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/"/>
-    <id>https://www.blogzhy.top/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/</id>
-    <published>2020-03-26T02:58:29.000Z</published>
-    <updated>2020-03-27T14:20:19.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/UML（第三章：参与者、用例）/#1&quot;&gt;&lt;strong&gt;3.1&lt;/strong&gt;  &lt;strong&gt;参与者&lt;/strong&gt; &lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/UML（第三章：参与者、用例）/#2&quot;&gt;&lt;strong&gt;3.2&lt;/strong&gt;  &lt;strong&gt;用例&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/UML（第三章：参与者、用例）/#3&quot;&gt;&lt;strong&gt;3.3&lt;/strong&gt;  &lt;strong&gt;用例描述&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/UML（第三章：参与者、用例）/#4&quot;&gt;&lt;strong&gt;3.4&lt;/strong&gt;  &lt;strong&gt;用例建模&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;3-1-参与者-actor&quot;&gt;&lt;a href=&quot;#3-1-参与者-actor&quot; class=&quot;headerlink&quot; title=&quot;3.1 参与者 actor&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;3.1 参与者 actor&lt;/span&gt;&lt;/h2&gt;&lt;h3 id=&quot;3-1-1-参与者的概念&quot;&gt;&lt;a href=&quot;#3-1-1-参与者的概念&quot; class=&quot;headerlink&quot; title=&quot;3.1.1 参与者的概念&quot;&gt;&lt;/a&gt;3.1.1 参与者的概念&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;参与者&lt;/strong&gt; actor，指系统以外的、需要使用系统或与系统交互的外部实体&lt;/p&gt;
-&lt;p&gt;可以分为：人、外部设备、外部系统&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意：参与者是一个集合概念。一个具体的外部实体仅代表同一类参与者的一个实例&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;*&lt;em&gt;例 *&lt;/em&gt;:在一个银行业务系统中，可能会有以下参与者&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;客户：&lt;/strong&gt;在银行业务系统中办理了账户的居民。他们通过银行业务系统进行金融交易&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;管理人员：&lt;/strong&gt;负责银行业务系统具体操作事务的办事人员。他们为客户办理存款、取款等金融交易&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Mail系统：&lt;/strong&gt;负责银行业务系统向个人发送电子邮件的软件系统&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     

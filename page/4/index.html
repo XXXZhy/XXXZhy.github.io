@@ -110,6 +110,135 @@
     
     
     
+    <article id="post-CSS基础（一）样式分类-选择器" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/10/CSS%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%B7%E5%BC%8F%E5%88%86%E7%B1%BB-%E9%80%89%E6%8B%A9%E5%99%A8/"
+    >CSS基础（一）样式分类+选择器</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/10/CSS%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%B7%E5%BC%8F%E5%88%86%E7%B1%BB-%E9%80%89%E6%8B%A9%E5%99%A8/" class="article-date">
+  <time datetime="2020-03-10T14:57:45.000Z" itemprop="datePublished">2020-03-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="/2020/03/10/CSS基础（一）样式分类-选择器/#1"><strong>CSS样式分类</strong></a></p>
+<p><a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2"><strong>CSS选择器</strong></a></p>
+<p>​        <a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2.1"><em>标签选择器</em></a></p>
+<p>​        <a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2.2"><em>id选择器</em></a></p>
+<p>​        <a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2.3"><em>class选择器</em></a></p>
+<p>​        <a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2.4"><em>通配符选择器</em></a></p>
+<p>​        <a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2.5"><em>后代选择器</em></a></p>
+<p>​        <a href="/2020/03/10/CSS基础（一）样式分类-选择器/#2.6"><em>选择器分组</em></a></p>
+<hr>
+<h1 id="CSS样式分类"><a href="#CSS样式分类" class="headerlink" title="CSS样式分类"></a><span id="1">CSS样式分类</span></h1><pre><code class="HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;CSS基础&lt;/title&gt;
+        &lt;!--
+            尽量少用属性设置CSS样式
+            CSS样式分为
+                1.行内样式：标签内
+                2.内部样式：头部head标签内
+                3.外部样式：引用css文件        （常用：内容和表现分离，方便搜索引擎加载）
+            元素分为：
+                块级元素：独占一行，对宽高的属性值生效；如果不给宽度，块级元素就默认为浏览器的宽度，即就是100%宽；
+                行内元素：可以多个标签存在一行，对宽高属性值不生效，完全靠内容撑开宽高！
+                        其中还有一种结合两种模式有点的显示模式：
+                行内块元素：结合的行内和块级的有点，不仅可以对宽高属性值生效，还可以多个标签存在一行显示；
+                行内标签：包含a、span、em、strong、b、i、u、label、br；
+                块标签：包含p、div、ul、ol、li、dl、dt、dd、h1~h6、form；
+                行内块标签：img,input,textarea
+        --&gt;
+        &lt;style&gt;
+            /**
+             * CSS分为：
+             *     1.内联式CSS样式：内联式css样式表就是把css代码直接写在现有的HTML标签中
+             *     2.嵌入式CSS样式：在HTML文档中的&lt; head &gt;中使用&lt; style &gt;标记，，被称为内嵌式。
+             *     3.外部式CSS样式：采用&lt; link &gt;标签。例如：&lt; link href = “a.css” type = “text/css” rel = “stylesheet” &gt;&lt; /link &gt;
+             * 
+             * css语法：
+             * 选择器{
+             *     样式属性1:属性值;
+             *     样式属性2:属性值;
+             * }
+             * 
+             * 我想把h1标签字体颜色编程红色，字体居中，字体大小为20像素，字体类型为“微软雅黑”
+             */
+            h1{
+                color: red;/*设置字体颜色*/
+                text-align: center;/*设置字体居中*/
+                font-size: 20px;/*设置字体大小*/
+                font-family: &quot;微软雅黑&quot;;/*设置字体类型*/
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;今天天气好晴朗&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <a class="article-more-link" href="/2020/03/10/CSS%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%B7%E5%BC%8F%E5%88%86%E7%B1%BB-%E9%80%89%E6%8B%A9%E5%99%A8/">More</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-HTML基础（三）表格、表单" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -957,90 +1086,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/" rel="tag">Eclipse</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-如何Git到GitHub上" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/02/25/%E5%A6%82%E4%BD%95Git%E5%88%B0GitHub%E4%B8%8A/"
-    >如何Git到GitHub上</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/02/25/%E5%A6%82%E4%BD%95Git%E5%88%B0GitHub%E4%B8%8A/" class="article-date">
-  <time datetime="2020-02-25T04:07:55.000Z" itemprop="datePublished">2020-02-25</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">常用操作</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p><a href="#1">基本方法</a></p>
-<p><a href="#2">快捷方法</a></p>
-</blockquote>
-<h1 id="前提步骤"><a href="#前提步骤" class="headerlink" title="前提步骤"></a>前提步骤</h1><p>1.安装了Git，注册了GitHub账号</p>
-<p>2.生成了SSH Key ，GitHub绑定了Key</p>
-<h1 id="GitHub新建仓库"><a href="#GitHub新建仓库" class="headerlink" title="GitHub新建仓库"></a>GitHub新建仓库</h1><p>右上角New repository</p>
-<img src="/2020/02/25/%E5%A6%82%E4%BD%95Git%E5%88%B0GitHub%E4%B8%8A/1.png" class="">
-
-<p>填写信息：</p>
-<img src="/2020/02/25/%E5%A6%82%E4%BD%95Git%E5%88%B0GitHub%E4%B8%8A/2.png" class="">
-      
-      <a class="article-more-link" href="/2020/02/25/%E5%A6%82%E4%BD%95Git%E5%88%B0GitHub%E4%B8%8A/">More</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li></ul>
 
 
     </footer>

@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    JSP（第七章：JSTL核心标签库） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+	
+	
+	<!-- 百度自动推送 -->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+</script>
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-JSP（第七章：JSTL）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  JSP（第七章：JSTL核心标签库）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/" class="article-date">
+  <time datetime="2020-04-29T02:25:29.000Z" itemprop="datePublished">2020-04-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JSP/">JSP</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">22 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>[TOC]</p>
+<h1 id="1-JSTL标签库分类"><a href="#1-JSTL标签库分类" class="headerlink" title="1 JSTL标签库分类"></a>1 JSTL标签库分类</h1><p>JSTL标签库的使用是为了弥补html表示的不足，规范自定义标签的使用而诞生的。在告别modle1模式开发应用程序后，人们开始注重软件的分层设计，不希望在JSP页面中出现java逻辑代码，同时也由于自定义标签的开发难度较大和不利于技术标准化产生了自定义标签库。</p>
+<p>JSTL标签库可分为5类：</p>
+<ul>
+<li>核心标签库</li>
+<li>I18N格式化标签库</li>
+<li>SQL标签库</li>
+<li>XML标签库</li>
+<li>函数标签库</li>
+</ul>
+<h2 id="1-1-核心标签库"><a href="#1-1-核心标签库" class="headerlink" title="1.1 核心标签库"></a>1.1 核心标签库</h2><p>JSTL的核心标签库标签共13个，从功能上可以分为4类：</p>
+<ul>
+<li>表达式控制标签：out标签、set标签、remove标签、catch标签</li>
+<li>流程控制标签：if标签、choose标签、when标签、otherwise标签</li>
+<li>循环标签：forEach标签、forTokens标签</li>
+<li>URL操作标签：import标签、url标签、redirect标签</li>
+</ul>
+<a id="more"></a>
+
+<p><strong>使用这些标签能够完成JSP页面的基本功能，减少编码工作。</strong></p>
+<p>在JSP页面引入核心标签库的代码为：</p>
+<pre><code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</code></pre><p>需要将两个文件拷贝到lib目录下面：</p>
+<p>文件下载地址 <a href="http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/" target="_blank" rel="noopener">http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/</a></p>
+{% asset_img 1.png %}
+
+<h1 id="2-表达式控制标签"><a href="#2-表达式控制标签" class="headerlink" title="2 表达式控制标签"></a>2 表达式控制标签</h1><p>表达式控制分类中包括&lt;c:out&gt;、&lt;c:set&gt;、&lt;c:remove&gt;、&lt;c:catch&gt;4个标签。</p>
+<h1 id="2-1-lt-c-out-gt"><a href="#2-1-lt-c-out-gt" class="headerlink" title="2.1 &lt;c:out&gt;"></a>2.1 &lt;c:out&gt;</h1><p>&lt;c:out&gt;标签用来显示一个表达式的结果，与&lt;%= %&gt;作用相似，它们的区别就是&lt;c:out&gt;标签可以直接通过”.”操作符来访问属性。</p>
+<p>举例来说，如果想要访问customer.address.street，只需要这样写：&lt;c:out value=”customer.address.street”&gt;。</p>
+<p>&lt;c:out&gt;标签会自动忽略XML标记字符，所以它们不会被当做标签来处理。</p>
+<p>【语法格式】：</p>
+<pre><code class="jsp">&lt;c:out value=&quot;&lt;string&gt;&quot; default=&quot;&lt;string&gt;&quot; escapeXml=&quot;&lt;true|false&gt;&quot;/&gt;</code></pre>
+<p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>属性</strong></th>
+<th align="left"><strong>描述</strong></th>
+<th align="left"><strong>是否必要</strong></th>
+<th align="left"><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">value</td>
+<td align="left">要输出的内容</td>
+<td align="left">是</td>
+<td align="left">无</td>
+</tr>
+<tr>
+<td align="left">default</td>
+<td align="left">输出的默认值</td>
+<td align="left">否</td>
+<td align="left">主体中的内容</td>
+</tr>
+<tr>
+<td align="left">escapeXml</td>
+<td align="left">是否忽略XML特殊字符</td>
+<td align="left">否</td>
+<td align="left">true</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:out 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;&amp;lt;c:out&amp;gt; 实例&lt;/h1&gt;
+        &lt;c:out value=&quot;&amp;lt要显示的数据对象（未使用转义字符）&amp;gt&quot; escapeXml=&quot;true&quot; default=&quot;默认值&quot;&gt;&lt;/c:out&gt;&lt;br/&gt;
+          &lt;c:out value=&quot;&amp;lt要显示的数据对象（使用转义字符）&amp;gt&quot; escapeXml=&quot;false&quot; default=&quot;默认值&quot;&gt;&lt;/c:out&gt;&lt;br/&gt;
+    &lt;c:out value=&quot;${null}&quot; escapeXml=&quot;false&quot;&gt;使用的表达式结果为null，则输出该默认值&lt;/c:out&gt;&lt;br/&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/8.png" class="">
+
+<h2 id="2-2-lt-c-set-gt"><a href="#2-2-lt-c-set-gt" class="headerlink" title="2.2 &lt;c:set&gt;"></a>2.2 &lt;c:set&gt;</h2><p>&lt;c:set&gt;标签用于设置变量值和对象属性。</p>
+<p>&lt;c:set&gt;标签就是&lt;jsp:setProperty&gt;行为标签的孪生兄弟。</p>
+<p>这个标签之所以很有用呢，是因为它会计算表达式的值，然后使用计算结果来设置 JavaBean 对象或 java.util.Map 对象的值。</p>
+<p>【语法格式】：</p>
+<pre><code class="JSP">&lt;c:set
+   var=&quot;&lt;string&gt;&quot;
+   value=&quot;&lt;string&gt;&quot;
+   target=&quot;&lt;string&gt;&quot;
+   property=&quot;&lt;string&gt;&quot;
+   scope=&quot;&lt;string&gt;&quot;/&gt;</code></pre>
+<p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>属性</strong></th>
+<th align="left"><strong>描述</strong></th>
+<th align="left"><strong>是否必要</strong></th>
+<th align="left"><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">value</td>
+<td align="left">要存储的值</td>
+<td align="left">否</td>
+<td align="left">主体的内容</td>
+</tr>
+<tr>
+<td align="left">target</td>
+<td align="left">要修改的属性所属的对象</td>
+<td align="left">否</td>
+<td align="left">无</td>
+</tr>
+<tr>
+<td align="left">property</td>
+<td align="left">要修改的属性</td>
+<td align="left">否</td>
+<td align="left">无</td>
+</tr>
+<tr>
+<td align="left">var</td>
+<td align="left">存储信息的变量</td>
+<td align="left">否</td>
+<td align="left">无</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">var属性的作用域</td>
+<td align="left">否</td>
+<td align="left">Page</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:set 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;c:set var=&quot;salary&quot; scope=&quot;session&quot; value=&quot;${2000*2}&quot;/&gt;
+&lt;c:out value=&quot;${salary}&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<pre><code>4000</code></pre><h2 id="2-3-lt-c-remove-gt"><a href="#2-3-lt-c-remove-gt" class="headerlink" title="2.3 &lt;c:remove&gt;"></a>2.3 &lt;c:remove&gt;</h2><p>&lt;c:remove&gt;标签用于移除一个变量，可以指定这个变量的作用域，若未指定，则默认为变量第一次出现的作用域。</p>
+<p>这个标签不是特别有用，不过可以用来确保JSP完成清理工作。</p>
+<p>【语法格式】：</p>
+<pre><code class="JSP">&lt;c:remove var=&quot;&lt;string&gt;&quot; scope=&quot;&lt;string&gt;&quot;/&gt;</code></pre>
+<p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>属性</strong></th>
+<th align="left"><strong>描述</strong></th>
+<th align="left"><strong>是否必要</strong></th>
+<th align="left"><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">var</td>
+<td align="left">要移除的变量名称</td>
+<td align="left">是</td>
+<td align="left">无</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">变量所属的作用域</td>
+<td align="left">否</td>
+<td align="left">所有作用域</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:remove 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;c:set var=&quot;salary&quot; scope=&quot;session&quot; value=&quot;${2000*2}&quot;/&gt;
+&lt;p&gt;salary 变量值: &lt;c:out value=&quot;${salary}&quot;/&gt;&lt;/p&gt;
+&lt;c:remove var=&quot;salary&quot;/&gt;
+&lt;p&gt;删除 salary 变量后的值: &lt;c:out value=&quot;${salary}&quot;/&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<pre><code>salary 变量值: 4000
+删除 salary 变量后的值:</code></pre><h2 id="2-3-lt-c-catch-gt"><a href="#2-3-lt-c-catch-gt" class="headerlink" title="2.3 &lt;c:catch&gt;"></a>2.3 &lt;c:catch&gt;</h2><p>&lt;c:catch&gt; 标签主要用来处理产生错误的异常状况，并且将错误信息储存起来。</p>
+<p>【语法格式】：</p>
+<pre><code>&lt;c:catch var=&quot;&lt;string&gt;&quot;&gt;
+...
+&lt;/c:catch&gt;</code></pre><p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+<th align="left">是否必要</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">var</td>
+<td align="left">用来储存错误信息的变量</td>
+<td align="left">否</td>
+<td align="left">None</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="JSP">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:catch 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;c:catch var =&quot;catchException&quot;&gt;
+   &lt;% int x = 5/0;%&gt;
+&lt;/c:catch&gt;
+
+&lt;c:if test = &quot;${catchException != null}&quot;&gt;
+   &lt;p&gt;异常为 : ${catchException} &lt;br /&gt;
+   发生了异常: ${catchException.message}&lt;/p&gt;
+&lt;/c:if&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<pre><code>异常为 : java.lang.ArithmeticException: / by zero 
+发生了异常: / by zero</code></pre><h1 id="3-流程控制标签"><a href="#3-流程控制标签" class="headerlink" title="3 流程控制标签"></a>3 流程控制标签</h1><p>流程控制标签主要用于对页面简单业务逻辑进行控制。流程控制标签包含有4个：&lt;c:if&gt;标签、&lt;c:choose&gt;标签、&lt;c:when&gt;标签和&lt;c:otherwise&gt;标签。</p>
+<h2 id="3-1-lt-c-if-gt-标签"><a href="#3-1-lt-c-if-gt-标签" class="headerlink" title="3.1 &lt;c:if&gt;标签"></a>3.1 &lt;c:if&gt;标签</h2><p>&lt;c:if&gt;同程序中的if作用相同，用来实现条件控制。</p>
+<p>【语法格式】：</p>
+<pre><code class="jsp">&lt;c:if test=&quot;条件1&quot; var=&quot;name&quot; [scope=&quot;page|request|session|application&quot;]&gt;&lt;/c:if&gt;</code></pre>
+<p>【参数说明】：<br>（1）test属性用于存放判断的条件，一般使用EL表达式来编写。<br>（2）var指定名称用来存放判断的结果类型为true或false。<br>（3）scope用来存放var属性存放的范围。</p>
+<p>【使用场景】：在开发中经常会出现不同用户的权限，首先对用户名进行判断（包括进行数据库验证，该功能可以由JavaBean实现，使用EL表达式得到一个布尔型的结果），把判断的结果存放在不同的JSP范围内（比如常用的session内），这样在每个页面都可以得到该用户的权限信息，根据不同权限的用户显示不同的结果。</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; pageEncoding=&quot;gbk&quot;%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: -- if标签示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;if标签示例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;uname&quot; value=&quot;${param.uname}&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+&lt;/form&gt;
+
+&lt;c:if test=&quot;${param.uname==&#39;admin&#39; }&quot; var=&quot;adminchock&quot;&gt;
+&lt;c:out value=&quot;管理员欢迎您！&quot;&gt;
+&lt;/c:out&gt;
+&lt;/c:if&gt;
+${adminchock}
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>提示：可以把adminchock的属性范围设置为session，可以在其他的页面中得到adminchock的值，使用&lt;c:if text=”${adminchock}”&gt; &lt;/c:if&gt;判断，实现不同的权限。</p>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/2.png" class="">
+
+<h2 id="3-2-lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#3-2-lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="3.2 &lt;c:choose&gt;&lt;c:when&gt;&lt;c:otherwise&gt;标签"></a>3.2 &lt;c:choose&gt;&lt;c:when&gt;&lt;c:otherwise&gt;标签</h2><p>这3个标签通常情况下是一起使用的，&lt;c:choose&gt;标签作为&lt;c:when&gt;和&lt;c:otherwise&gt;标签的父标签来使用。</p>
+<pre><code class="JSP">&lt;c:choose&gt;
+    &lt;c:when test=&quot;&lt;boolean&gt;&quot;&gt;
+        ...//业务逻辑1
+    &lt;/c:when&gt;
+    &lt;c:when test=&quot;&lt;boolean&gt;&quot;&gt;
+        ...//业务逻辑2
+    &lt;/c:when&gt;
+    ...
+    ...
+    &lt;c:otherwise&gt;
+        ...//业务逻辑N
+    &lt;/c:otherwise&gt;
+&lt;/c:choose&gt;</code></pre>
+<p>【参数说明】：<br>（1）语法1为3个标签的嵌套使用方式，&lt;c:choose&gt;标签只能和&lt;c:when&gt;标签共同使用。<br>（2）语法2为&lt;c:when&gt;标签的使用方式，该标签都条件进行判断，一般情况下和&lt;c:choose&gt;共同使用。<br>（3）&lt;c:otherwise&gt;不含有参数，只能跟&lt;c:when&gt;共同使用，并且在嵌套中<strong>只允许出现一次</strong>。</p>
+<p>【示例代码】：代码9设定一个score变量的值为85，使用嵌套标签进行判断，根据判断返回结果。</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; pageEncoding=&quot;gbk&quot;%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: -- choose及其嵌套标签标签示例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;choose及其嵌套标签示例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;c:set var=&quot;score&quot;&gt;85&lt;/c:set&gt;
+
+&lt;c:choose&gt;
+    &lt;c:when test=&quot;${score&gt;=90}&quot;&gt;
+    你的成绩为优秀！
+    &lt;/c:when&gt;
+    &lt;c:when test=&quot;${score&gt;=70&amp;&amp;score&lt;90}&quot;&gt;
+    您的成绩为良好!
+    &lt;/c:when&gt;
+    &lt;c:when test=&quot;${score&gt;60&amp;&amp;score&lt;70}&quot;&gt;
+    您的成绩为及格
+    &lt;/c:when&gt;
+    &lt;c:otherwise&gt;
+    对不起，您没有通过考试！
+    &lt;/c:otherwise&gt;
+&lt;/c:choose&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/3.png" class="">
+
+<h1 id="4-循环标签"><a href="#4-循环标签" class="headerlink" title="4 循环标签"></a>4 循环标签</h1><p>循环标签主要实现迭代操作。主要包含两个标签：&lt;c:forEach&gt;和&lt;c:forTokens&gt;标签，接下来将详细介绍这两个标签的用法。</p>
+<h2 id="4-1-lt-c-forEach-gt-标签"><a href="#4-1-lt-c-forEach-gt-标签" class="headerlink" title="4.1&lt;c:forEach&gt;标签"></a>4.1&lt;c:forEach&gt;标签</h2><p>该标签根据循环条件遍历集合（Collection）中的元素。</p>
+<p>【语法格式】：</p>
+<pre><code class="JSP">&lt;c:forEach var=”name” items=”Collection” varStatus=”StatusName” begin=”begin” end=”end” step=”step”&gt;本体内容&lt;/c:forEach&gt;</code></pre>
+<p>【参数解析】：<br>（1）var设定变量名用于存储从集合中取出元素。<br>（2）items指定要遍历的集合。<br>（3）varStatus设定变量名，该变量用于存放集合中元素的信息。<br>（4）begin、end用于指定遍历的起始位置和终止位置（可选）。<br>（5）step指定循环的步长。</p>
+<p>参数类型和相关说明见表：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th align="center">EL</th>
+<th align="left">类型</th>
+<th align="center">是否必须</th>
+<th align="center">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>var</td>
+<td align="center">N</td>
+<td align="left">String</td>
+<td align="center">是</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td>items</td>
+<td align="center">Y</td>
+<td align="left">Arrays  Collection  Iterator  Enumeration  Map  String []args</td>
+<td align="center">是</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td>begin</td>
+<td align="center">Y</td>
+<td align="left">int</td>
+<td align="center">否</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>end</td>
+<td align="center">Y</td>
+<td align="left">int</td>
+<td align="center">否</td>
+<td align="center">集合中最后一个元素</td>
+</tr>
+<tr>
+<td>step</td>
+<td align="center">y</td>
+<td align="left">int</td>
+<td align="center">否</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>varStatus</td>
+<td align="center">N</td>
+<td align="left">String</td>
+<td align="center">否</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p><strong>varStatus的4个状态：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>index</td>
+<td>int</td>
+<td>当前循环的索引值</td>
+</tr>
+<tr>
+<td>count</td>
+<td>int</td>
+<td>循环的次数</td>
+</tr>
+<tr>
+<td>frist</td>
+<td>boolean</td>
+<td>是否为第一个位置</td>
+</tr>
+<tr>
+<td>last</td>
+<td>boolean</td>
+<td>是否为第二个位置</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：实现了遍历的两种方式：设定起始位置、不设定起始位置。同时实现了获得原属的状态信息。</p>
+<pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=GBK&quot; %&gt;
+&lt;%@page import=&quot;java.util.List&quot;%&gt;
+&lt;%@page import=&quot;java.util.ArrayList&quot;%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JSTL: -- forEach标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h4&gt;&lt;c:out value=&quot;forEach实例&quot;/&gt;&lt;/h4&gt;
+    &lt;hr&gt;
+    &lt;%
+        List a=new ArrayList();
+        a.add(&quot;贝贝&quot;);
+        a.add(&quot;晶晶&quot;);
+        a.add(&quot;欢欢&quot;);
+        a.add(&quot;莹莹&quot;);
+        a.add(&quot;妮妮&quot;);
+        request.setAttribute(&quot;a&quot;,a);
+    %&gt;
+    &lt;B&gt;&lt;c:out value=&quot;不指定begin和end的迭代：&quot; /&gt;&lt;/B&gt;&lt;br&gt;
+    &lt;c:forEach var=&quot;fuwa&quot; items=&quot;${a}&quot;&gt;
+        &amp;nbsp;&lt;c:out value=&quot;${fuwa}&quot;/&gt;&lt;br&gt;
+    &lt;/c:forEach&gt;
+
+    &lt;B&gt;&lt;c:out value=&quot;指定begin和end的迭代：&quot; /&gt;&lt;/B&gt;&lt;br&gt;
+    &lt;c:forEach var=&quot;fuwa&quot; items=&quot;${a}&quot; begin=&quot;1&quot; end=&quot;3&quot; step=&quot;2&quot;&gt;
+        &amp;nbsp;&lt;c:out value=&quot;${fuwa}&quot; /&gt;&lt;br&gt;
+    &lt;/c:forEach&gt;
+
+    &lt;B&gt;&lt;c:out value=&quot;输出整个迭代的信息：&quot; /&gt;&lt;/B&gt;&lt;br&gt;
+    &lt;c:forEach var=&quot;fuwa&quot; items=&quot;${a}&quot; begin=&quot;3&quot; end=&quot;4&quot; step=&quot;1&quot; varStatus=&quot;s&quot;&gt;
+        &amp;nbsp;&lt;c:out value=&quot;${fuwa}&quot; /&gt;的四种属性：&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;所在位置，即索引：&lt;c:out value=&quot;${s.index}&quot; /&gt;&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;总共已迭代的次数：&lt;c:out value=&quot;${s.count}&quot; /&gt;&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;是否为第一个位置：&lt;c:out value=&quot;${s.first}&quot; /&gt;&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;是否为最后一个位置：&lt;c:out value=&quot;${s.last}&quot; /&gt;&lt;br&gt;
+    &lt;/c:forEach&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>提示：本例使用的list是在JSP页面中使用Java脚本创建的，是因为JSTL缺少创建集合的功能，在开发中一般不会如此，可通过访问数据库得到数据集合，和通过设定JavaBean的值得到数据集合</p>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/4.png" class="">
+
+<h2 id="4-2-lt-c-forTokens-gt"><a href="#4-2-lt-c-forTokens-gt" class="headerlink" title="4.2 &lt;c:forTokens&gt;"></a>4.2 &lt;c:forTokens&gt;</h2><p>该标签用于浏览字符串，并根据指定的字符将字符串截取。</p>
+<p>【语法格式】：</p>
+<pre><code class="JSP">&lt;c:forTokens items=”strigOfTokens” delims=””delimiters [var=”name” begin=”begin” end=”end” step=”len” varStatus=”statusName”] &gt;</code></pre>
+<p>【参数说明】<br>（1）items指定被迭代的字符串。<br>（2）delims指定使用的分隔符。<br>（3）var指定用来存放遍历到的成员。<br>（4）begin指定遍历的开始位置（int型从取值0开始）。<br>（5）end指定遍历结束的位置（int型，默认集合中最后一个元素）。<br>（6）step遍历的步长（大于0的整型）。<br>（7）varStatus存放遍历到的成员的状态信息。</p>
+<p>【示例代码】：代码11实现了遍历一个有符号的字符串，把指定的符号移除。指定begin和end值，并获得遍历到的元素的状态信息。</p>
+<pre><code class="jsp">&lt;%@ page contentType=&quot;text/html;charset=GBK&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+         &lt;title&gt;JSTL: -- forTokens标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h4&gt;&lt;c:out value=&quot;forToken实例&quot;/&gt;&lt;/h4&gt;
+&lt;hr&gt;
+    &lt;c:forTokens items=&quot;北、京、欢、迎、您&quot; delims=&quot;&quot; var=&quot;c1&quot;&gt;
+        &lt;c:out value=&quot;${c1}&quot;&gt;&lt;/c:out&gt;
+    &lt;/c:forTokens&gt;&lt;br&gt;
+
+    &lt;c:forTokens items=&quot;123-4567-8854&quot; delims=&quot;-&quot; var=&quot;t&quot;&gt;
+        &lt;c:out value=&quot;${t}&quot;&gt;&lt;/c:out&gt;
+    &lt;/c:forTokens&gt;&lt;br&gt;
+
+    &lt;c:forTokens items=&quot;1*2*3*4*5*6*7&quot; delims=&quot;*&quot; begin=&quot;1&quot; end=&quot;3&quot; var=&quot;n&quot; varStatus=&quot;s&quot;&gt;
+        &amp;nbsp;&lt;c:out value=&quot;${n}&quot; /&gt;的四种属性：&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;所在位置，即索引：&lt;c:out value=&quot;${s.index}&quot; /&gt;&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;总共已迭代的次数：&lt;c:out value=&quot;${s.count}&quot; /&gt;&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;是否为第一个位置：&lt;c:out value=&quot;${s.first}&quot; /&gt;&lt;br&gt;
+        &amp;nbsp;&amp;nbsp;是否为最后一个位置：&lt;c:out value=&quot;${s.last}&quot; /&gt;&lt;br&gt;
+    &lt;/c:forTokens&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/5.png" class="">
+
+<h1 id="5-URL操作标签"><a href="#5-URL操作标签" class="headerlink" title="5 URL操作标签"></a>5 URL操作标签</h1><h2 id="5-1-lt-c-url-gt"><a href="#5-1-lt-c-url-gt" class="headerlink" title="5.1 &lt;c:url&gt;"></a>5.1 &lt;c:url&gt;</h2><p>&lt;c:url&gt;    使用可选的查询参数来创造一个URL</p>
+<p>【语法格式】：</p>
+<pre><code class="jsp">&lt;c:url
+  var=&quot;&lt;string&gt;&quot;
+  scope=&quot;&lt;string&gt;&quot;
+  value=&quot;&lt;string&gt;&quot;
+  context=&quot;&lt;string&gt;&quot;/&gt;</code></pre>
+<p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>基础URL</th>
+<th>是</th>
+<th>无</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>context</td>
+<td>本地网络应用程序的名称</td>
+<td>否</td>
+<td>当前应用程序</td>
+</tr>
+<tr>
+<td>var</td>
+<td>代表URL的变量名</td>
+<td>否</td>
+<td>Print to page</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>var属性的作用域</td>
+<td>否</td>
+<td>Page</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:url 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;&amp;lt;c:url&amp;gt实例 Demo&lt;/h1&gt;
+    &lt;a href=&quot;&lt;c:url value=&quot;http://www.runoob.com&quot;/&gt;&quot;&gt;
+     这个链接通过 &amp;lt;c:url&amp;gt; 标签生成。
+    &lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/7.png" class="">
+
+<h2 id="5-2-lt-c-param-gt"><a href="#5-2-lt-c-param-gt" class="headerlink" title="5.2 &lt;c:param&gt;"></a>5.2 &lt;c:param&gt;</h2><p>&lt;c:param&gt;    用来给包含或重定向的页面传递参数</p>
+<p>【语法格式】：</p>
+<pre><code class="jsp">&lt;c:param name=&quot;&lt;string&gt;&quot; value=&quot;&lt;string&gt;&quot;/&gt;</code></pre>
+<p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>URL中要设置的参数的名称</th>
+<th>是</th>
+<th>无</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>参数的值</td>
+<td>否</td>
+<td>Body</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:forTokens 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;&amp;lt;c:param&amp;gt; 实例&lt;/h1&gt;
+    &lt;c:url var=&quot;myURL&quot; value=&quot;main.jsp&quot;&gt;
+        &lt;c:param name=&quot;name&quot; value=&quot;Runoob&quot;/&gt;
+        &lt;c:param name=&quot;url&quot; value=&quot;www.runoob.com&quot;/&gt;
+    &lt;/c:url&gt;
+      &lt;a href=&quot;/&lt;c:out value=&quot;${myURL}&quot;/&gt;&quot;&gt;
+ 使用 &amp;lt;c:param&amp;gt; 为指定URL发送两个参数。&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/6.png" class="">
+
+<h2 id="5-3-lt-c-redirect-gt"><a href="#5-3-lt-c-redirect-gt" class="headerlink" title="5.3 &lt;c:redirect&gt;"></a>5.3 &lt;c:redirect&gt;</h2><p>&lt;c:redirect&gt;    重定向至一个新的URL</p>
+<p>【语法格式】：</p>
+<pre><code class="jsp">&lt;c:redirect url=&quot;&lt;string&gt;&quot; context=&quot;&lt;string&gt;&quot;/&gt;</code></pre>
+<p>【参数说明】：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>属性</strong></th>
+<th align="left"><strong>描述</strong></th>
+<th align="left"><strong>是否必要</strong></th>
+<th align="left"><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">url</td>
+<td align="left">目标URL</td>
+<td align="left">是</td>
+<td align="left">无</td>
+</tr>
+<tr>
+<td align="left">context</td>
+<td align="left">紧接着一个本地网络应用程序的名称</td>
+<td align="left">否</td>
+<td align="left">当前应用程序</td>
+</tr>
+</tbody></table>
+<p>【示例代码】：</p>
+<pre><code class="jsp">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;c:redirect 标签实例&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;c:redirect url=&quot;http://www.runoob.com&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>【运行结果】：</p>
+<p>浏览器打开以上页面将跳转至 <a href="http://www.runoob.com。" target="_blank" rel="noopener">http://www.runoob.com。</a></p>
+<hr>
+<p>参考：<a href="https://www.runoob.com/jsp/jsp-intro.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AJSTL%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/04/29/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">软件项目管理（第六章：IT项目成本管理）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+	<ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+	
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+   
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>
