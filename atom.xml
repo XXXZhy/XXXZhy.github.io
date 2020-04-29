@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-04-28T13:42:14.462Z</updated>
+  <updated>2020-04-29T01:56:33.410Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件项目管理（第六章：IT项目成本管理）</title>
+    <link href="https://www.blogzhy.top/2020/04/29/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86%EF%BC%89/"/>
+    <id>https://www.blogzhy.top/2020/04/29/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86%EF%BC%89/</id>
+    <published>2020-04-29T00:29:35.000Z</published>
+    <updated>2020-04-29T01:56:33.410Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="软件项目管理" scheme="https://www.blogzhy.top/categories/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="软件项目管理" scheme="https://www.blogzhy.top/tags/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>JSP（第六章：EL）</title>
@@ -665,41 +694,6 @@ filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
       <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="UML" scheme="https://www.blogzhy.top/tags/UML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JSP（第二章：语法）</title>
-    <link href="https://www.blogzhy.top/2020/03/26/JSP%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AF%AD%E6%B3%95%EF%BC%89/"/>
-    <id>https://www.blogzhy.top/2020/03/26/JSP%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AF%AD%E6%B3%95%EF%BC%89/</id>
-    <published>2020-03-26T02:08:23.000Z</published>
-    <updated>2020-04-28T13:05:39.412Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/JSP（第二章：语法）/#1&quot;&gt;1. JSP是如何执行的？&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/JSP（第二章：语法）/#2&quot;&gt;2. JSP注释&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/03/26/JSP（第二章：语法）/#3&quot;&gt;3. 脚本元素&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;1-JSP是如何执行的？&quot;&gt;&lt;a href=&quot;#1-JSP是如何执行的？&quot; class=&quot;headerlink&quot; title=&quot;1. JSP是如何执行的？&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1. JSP是如何执行的？&lt;/span&gt;&lt;/h1&gt;&lt;img src=&quot;/2020/03/26/JSP%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AF%AD%E6%B3%95%EF%BC%89/1.png&quot; class=&quot;&quot;&gt;
-
-&lt;p&gt;（1）客户端请求&lt;br&gt;（2）Web容器将jsp页面转译成servlet的源代码.java&lt;br&gt;（3）Web容器将产生的源代码经过编译.class&lt;br&gt;（4）Web容器加载编译后的代码并执行&lt;br&gt;（5）把执行结果响应至客户端&lt;/p&gt;
-&lt;h1 id=&quot;2-JSP注释&quot;&gt;&lt;a href=&quot;#2-JSP注释&quot; class=&quot;headerlink&quot; title=&quot;2. JSP注释&quot;&gt;&lt;/a&gt;&lt;span id=&quot;2&quot;&gt;2. JSP注释&lt;/span&gt;&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;jsp&quot;&gt;&amp;lt;!--html注释--&amp;gt;
-&amp;lt;%-- 隐藏注释 --%&amp;gt;
-&amp;lt;% //JAVA的单行注释 %&amp;gt;
-&amp;lt;% /*JAVA的多行注释*/ %&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其中注释在客户端查看源代码时可以看到，而隐藏注释是看不到的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JSP" scheme="https://www.blogzhy.top/categories/JSP/"/>
-    
-    
-      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="JSP" scheme="https://www.blogzhy.top/tags/JSP/"/>
     
   </entry>
   
