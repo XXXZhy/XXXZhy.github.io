@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    UML（第二章：9钟图+包图） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/styles/a11y-dark.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+	
+	
+	<!-- 百度自动推送 -->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+</script>
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-UML（第二章：9钟图-包图）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  UML（第二章：9钟图+包图）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/" class="article-date">
+  <time datetime="2020-03-21T11:22:53.000Z" itemprop="datePublished">2020-03-21</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UML/">UML</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p><a href="/2020/03/21/UML（第二章：9钟图-包图）/#1"><strong>UML图的分类</strong></a></p>
+<p><a href="/2020/03/21/UML（第二章：9钟图-包图）/#2"><strong>UML与软件工程</strong></a></p>
+<p><a href="/2020/03/21/UML（第二章：9钟图-包图）/#3"><strong>UML语法</strong></a></p>
+</blockquote>
+<h1 id="UML图的分类"><a href="#UML图的分类" class="headerlink" title="UML图的分类"></a><span id="1">UML图的分类</span></h1><p>如下图所示：UML图分为<font color="red">用例视图、设计视图、进程视图、实现视图和拓扑视图</font></p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/1.png" class="">
+
+<p>如下图所示：又可以静动分为静态视图和动态视图。</p>
+<p><strong>静态图</strong>分为：<font color="red">用例图，类图，对象图，构件图，部署图，包图。</font></p>
+<p><strong>动态图</strong>分为：<font color="red">序列图，协作图，状态图，活动图。</font></p>
+<a id="more"></a>
+
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/%E9%9D%99%E6%80%81%E5%9B%BE.png" class="">
+
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/%E5%8A%A8%E6%80%81%E5%9B%BE.png" class="">
+
+<h1 id="1-用例图（UseCase-Diagrams）"><a href="#1-用例图（UseCase-Diagrams）" class="headerlink" title="1 用例图（UseCase Diagrams）"></a>1 用例图（UseCase Diagrams）</h1><p>用例图主要回答了两个问题：1、是谁用软件    2、软件的功能</p>
+<p>从用户的角度描述了系统的功能，并指出各个功能的执行者，强调用户的使用者，系统为执行者完成哪些功能。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/2.png" class="">
+
+<h1 id="2-类图（Class-Diagrams）"><a href="#2-类图（Class-Diagrams）" class="headerlink" title="2 类图（Class Diagrams）"></a>2 类图（Class Diagrams）</h1><p>​        用户根据用例图抽象成类，描述类的内部结构和类与类之间的关系，是一种静态结构图。 在UML类图中，常见的有以下几种关系: 泛化（Generalization）, 实现（Realization），关联（Association)，聚合（Aggregation），组合(Composition)，依赖(Dependency)。</p>
+<p>各种关系的强弱顺序： <strong>泛化 = 实现 &gt; 组合 &gt; 聚合 &gt; 关联 &gt; 依赖</strong></p>
+<h2 id="2-1-泛化"><a href="#2-1-泛化" class="headerlink" title="2.1 泛化"></a>2.1 泛化</h2><p>【泛化关系】：是一种继承关系，表示一般与特殊的关系，它指定了子类如何继承父类的所有特征和行为。例如：老虎是动物的一种，即有老虎的特性也有动物的共性。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/3.png" class="">
+
+<h2 id="2-2-实现"><a href="#2-2-实现" class="headerlink" title="2.2 实现"></a>2.2 实现</h2><p>【实现关系】：是一种类与接口的关系，表示类是接口所有特征和行为的实现。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/4.png" class="">
+
+<h2 id="2-3-关联"><a href="#2-3-关联" class="headerlink" title="2.3 关联"></a>2.3 关联</h2><p>【关联关系】：是一种拥有的关系，它使一个类知道另一个类的属性和方法；如：老师与学生，丈夫与妻子关联可以是双向的，也可以是单向的。双向的关联可以有两个箭头或者没有箭头，单向的关联有一个箭头。</p>
+<p>【代码体现】：成员变量</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/5.png" class="">
+
+<h2 id="2-4-聚合（普通关联）"><a href="#2-4-聚合（普通关联）" class="headerlink" title="2.4 聚合（普通关联）"></a>2.4 聚合（普通关联）</h2><p>【聚合关系】：是整体与部分的关系，<strong>且部分可以离开整体而单独存在</strong>。如车和轮胎是整体和部分的关系，轮胎离开车仍然可以存在。</p>
+<p><strong>聚合关系是<font color="red">关联关系</font>的一种</strong>，是强的关联关系；关联和聚合在语法上无法区分，必须考察具体的逻辑关系。</p>
+<p>【代码体现】：成员变量</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/6.png" class="">
+
+<h2 id="2-5-组合（自身关联）"><a href="#2-5-组合（自身关联）" class="headerlink" title="2.5 组合（自身关联）"></a>2.5 组合（自身关联）</h2><p>【组合关系】：是<strong>整体与部分的关系，但部分不能离开整体而单独存在</strong>。如公司和部门是整体和部分的关系，没有公司就不存在部门。</p>
+<p><strong>组合关系是<font color="red">关联关系</font>的一种，是比聚合关系还要强的关系</strong>，它要求普通的聚合关系中代表整体的对象负责代表部分的对象的生命周期。</p>
+<p>【代码体现】：成员变量</p>
+<p>【箭头及指向】：带实心菱形的实线，菱形指向整体</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/7.png" class="">
+
+<h2 id="2-6-依赖"><a href="#2-6-依赖" class="headerlink" title="2.6 依赖"></a>2.6 依赖</h2><p>【依赖关系】：是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖.</p>
+<p>【代码表现】：<strong>局部变量、方法的参数或者对静态方法的调用</strong></p>
+<p>【箭头及指向】：带箭头的虚线，指向被使用者</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/8.png" class="">
+
+<h2 id="2-7-各类图的关系（例子）"><a href="#2-7-各类图的关系（例子）" class="headerlink" title="2.7 各类图的关系（例子）"></a>2.7 各类图的关系（例子）</h2><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/9.png" class="">
+
+<h1 id="3-对象图（Object-Diagrams）"><a href="#3-对象图（Object-Diagrams）" class="headerlink" title="3 对象图（Object Diagrams）"></a>3 对象图（Object Diagrams）</h1><p>描述的是参与<strong>交互的各个对象在交互过程中某一时刻的状态</strong>。对象图可以被看作是类图在某一时刻的实例。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/10.png" class="">
+
+<h1 id="4-构件图（Component-Diagrams）"><a href="#4-构件图（Component-Diagrams）" class="headerlink" title="4 构件图（Component Diagrams）"></a>4 构件图（Component Diagrams）</h1><p>构件图是用来表示系统中构件与构件之间，类或接口与构件之间的关系图。其中，构建图之间的关系表现为依赖关系，定义的类或接口与类之间的关系表现为依赖关系或实现关系。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/22.png" class="">
+
+<h1 id="5-部署图（Deployment-Diagrams）"><a href="#5-部署图（Deployment-Diagrams）" class="headerlink" title="5 部署图（Deployment Diagrams）"></a>5 部署图（Deployment Diagrams）</h1><p>描述了系统运行时进行处理的结点以及在结点上活动的构件的配置。强调了物理设备以及之间的连接关系。</p>
+<p><strong>部署模型的目的</strong>：描述一个具体应用的主要部署结构，通过对各种硬件，在硬件中的软件以及各种连接协议的显示，可以很好的描述系统是如何部署的；平衡系统运行时的计算资源分布；可以通过连接描述组织的硬件网络结构或者是嵌入式系统等具有多种硬件和软件相关的系统运行模型。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/23.png" class="">
+
+<h1 id="6-包图（Package-Diagrams）"><a href="#6-包图（Package-Diagrams）" class="headerlink" title="6 包图（Package Diagrams）"></a>6 包图（Package Diagrams）</h1><p>包图——描述组织系统的建模元素的分组机制（分层结构），以此表示系统总体结构模型。</p>
+<p>展现了控制软件系统复杂性的分解策略，使得开发人员更容易理解模型，以便控制修改模型元素的范围。</p>
+<hr>
+<h1 id="7-状态图（Statechart-Diagrams）"><a href="#7-状态图（Statechart-Diagrams）" class="headerlink" title="7 状态图（Statechart Diagrams）"></a>7 状态图（Statechart Diagrams）</h1><p>是一种由状态、变迁、事件和活动组成的状态机，用来描述类的对象所有可能的状态以及时间发生时状态的转移条件。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/11.png" class="">
+
+<h1 id="8-活动图（Activity-Diagrams）"><a href="#8-活动图（Activity-Diagrams）" class="headerlink" title="8 活动图（Activity Diagrams）"></a>8 活动图（Activity Diagrams）</h1><p>是状态图的一种特殊情况，这些状态大都处于活动状态。本质是一种流程图，它描述了活动到活动的控制流。　　　　</p>
+<p>交互图强调的是对象到对象的控制流，而活动图则强调的是从活动到活动的控制流。</p>
+<p>活动图是一种表述过程基理、业务过程以及工作流的技术。</p>
+<p>它可以用来对业务过程、工作流建模，也可以对用例实现甚至是程序实现来建模。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/12.png" class="">
+
+<h2 id="8-1带泳道的活动图"><a href="#8-1带泳道的活动图" class="headerlink" title="8.1带泳道的活动图"></a>8.1带泳道的活动图</h2><p>泳道表明每个活动是由哪些人或哪些部门负责完成。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/13.png" class="">
+
+<h2 id="8-2-带对象流的活动图"><a href="#8-2-带对象流的活动图" class="headerlink" title="8.2 带对象流的活动图"></a>8.2 带对象流的活动图</h2><p>用活动图描述某个对象时，可以把涉及到的对象放置在活动图中，并用一个依赖将其连接到进行创建、修改和撤销的动作状态或者活动状态上，对象的这种使用方法就构成了对象流。对象流用带有箭头的虚线表示。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/14.png" class="">
+
+<h1 id="9-协作图（Collaboration-Diagrams）"><a href="#9-协作图（Collaboration-Diagrams）" class="headerlink" title="9 协作图（Collaboration Diagrams）"></a>9 协作图（Collaboration Diagrams）</h1><p>交互图的一种，描述了收发消息的对象的组织关系，强调对象之间的合作关系。</p>
+<p><strong>时序图</strong>按照时间顺序布图，而<strong>协作图</strong>按照空间结构布图</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/20.png" class="">
+
+<h1 id="10-序列图-时序图（Sequence-Diagrams）"><a href="#10-序列图-时序图（Sequence-Diagrams）" class="headerlink" title="10 序列图-时序图（Sequence Diagrams）"></a>10 序列图-时序图（Sequence Diagrams）</h1><p>交互图的一种，描述了对象之间消息发送的先后顺序，强调时间顺序。</p>
+<p>序列图的主要用途是把用例表达的需求，转化为进一步、更加正式层次的精细表达。用例常常被细化为一个或者更多的序列图。同时序列图更有效地描述如何分配各个类的职责以及各类具有相应职责的原因。</p>
+<p>消息用从一个对象的生命线到另一个对象生命线的箭头表示。箭头以时间顺序在图中从上到下排列。 </p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/15.png" class="">
+
+<h2 id="1-1-生命线"><a href="#1-1-生命线" class="headerlink" title="1.1 生命线"></a>1.1 生命线</h2><p>生命线名称可带下划线。当使用下划线时，意味着序列图中的生命线代表一个类的特定实例。</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/16.png" class="">
+
+<h2 id="10-2-同步消息"><a href="#10-2-同步消息" class="headerlink" title="10.2 同步消息"></a>10.2 同步消息</h2><p>同步等待消息</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/17.png" class="">
+
+<h2 id="10-3异步消息"><a href="#10-3异步消息" class="headerlink" title="10.3异步消息"></a>10.3异步消息</h2><p>异步发送消息，不需等待</p>
+<img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/18.png" class="">
+
+<h2 id="10-4-注释"><a href="#10-4-注释" class="headerlink" title="10.4 注释"></a>10.4 注释</h2><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/19.png" class="">
+
+<h2 id="10-5-约束"><a href="#10-5-约束" class="headerlink" title="10.5 约束"></a>10.5 约束</h2><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/21.png" class="">
+
+<h2 id="10-6-组合"><a href="#10-6-组合" class="headerlink" title="10.6 组合"></a>10.6 组合</h2><p><strong>组合片段用来解决交互执行的条件及方式</strong>。它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。常用的组合片段有：抉择、选项、循环、并行。</p>
+<h1 id="11-图的差异比较"><a href="#11-图的差异比较" class="headerlink" title="11 图的差异比较"></a>11 图的差异比较</h1><h2 id="11-1-序列图-时序图-VS协作图"><a href="#11-1-序列图-时序图-VS协作图" class="headerlink" title="11.1 序列图(时序图)VS协作图"></a>11.1 序列图(时序图)VS协作图</h2><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/26.png" class="">
+
+<p>序列图和协作图都是交互图。二者在语义上等价，可以相互转化。但是侧重点不同：序列图侧重<strong>时间顺序</strong>，协作图侧重<strong>对象间的关系</strong>，协作图强调<strong>交互的空间结构</strong>。</p>
+<p><strong>共同点</strong>：时序图与协作图均显示了对象间的交互。</p>
+<p><strong>不同点</strong>：时序图强调交互的时间次序。</p>
+<p>如以下例子：</p>
+<p><strong>序列图：</strong><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/27.png" class=""></p>
+<p><strong>协作图：</strong><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/28.png" class=""></p>
+<h2 id="11-2-状态图VS活动图"><a href="#11-2-状态图VS活动图" class="headerlink" title="11.2 状态图VS活动图"></a>11.2 状态图VS活动图</h2><p>状态图和活动图都是行为图。</p>
+<p>状态图侧重从行为的结果来描述，活动图侧重从行为的动作来描述。</p>
+<p>状态图描述了一个具体对象的可能状态以及他们之间的转换。</p>
+<p>在实际的项目中，活动图并不是必须的，需要满足以下条件：1、出现并行过程&amp;行为；2、描述算法；3、跨越多个用例的活动图。</p>
+<h2 id="11-3-活动图VS交互图"><a href="#11-3-活动图VS交互图" class="headerlink" title="11.3 活动图VS交互图"></a>11.3 活动图VS交互图</h2><p>二者都涉及到对象和他们之间传递的关系。区别在于交互图观察的是传送消息的对象，而活动图观察的1是对象之间传递的消息。看似语义相同，但是他们是从不同的角度来观察整个系统的。</p>
+<h1 id="UML与软件工程"><a href="#UML与软件工程" class="headerlink" title=" UML与软件工程"></a><span id="2"> UML与软件工程</span></h1><p>UML图是软件工程的组成部分，软件工程从宏观的角度保证了软件开发的各个过程的质量。而UML作为一种建模语言，更加有效的实现了软件工程的要求。</p>
+<h2 id="1-在软件的各个开发阶段需要的UML图："><a href="#1-在软件的各个开发阶段需要的UML图：" class="headerlink" title="1 在软件的各个开发阶段需要的UML图："></a>1 在软件的各个开发阶段需要的UML图：</h2><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/24.png" class="">
+
+<h2 id="2-UML使用人员图示："><a href="#2-UML使用人员图示：" class="headerlink" title="2 UML使用人员图示："></a>2 UML使用人员图示：</h2><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/25.png" class="">
+
+<h1 id="UML语法"><a href="#UML语法" class="headerlink" title=" UML语法"></a><span id="3"> UML语法</span></h1><img src="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/UML%E8%AF%AD%E6%B3%95.png" class="">
+
+<hr>
+<p>参考:<a href="https://www.cnblogs.com/jiangds/p/6596595.html" target="_blank" rel="noopener">https://www.cnblogs.com/jiangds/p/6596595.html</a></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A9%E9%92%9F%E5%9B%BE-%E5%8C%85%E5%9B%BE%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/03/26/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%A1%B9%E7%9B%AE%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            软件项目管理（第八章：项目人力资源管理）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/21/UML%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80UML%E6%A6%82%E8%BF%B0%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">UML（第二章：统一建模语言UML概述）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+	<ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+	
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+   
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://oss.zhy-goindex.workers.dev" target="_blank" rel="noopener">网盘</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Python（程序控制1） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/styles/a11y-dark.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+	
+	
+	<!-- 百度自动推送 -->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+</script>
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-Python（程序控制1）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Python（程序控制1）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/15/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B61%EF%BC%89/" class="article-date">
+  <time datetime="2020-04-15T10:46:42.000Z" itemprop="datePublished">2020-04-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p><a href="/2020/04/15/Python（程序控制1）/#1">1 选择结构</a></p>
+<p><a href="/2020/04/15/Python（程序控制1）/#2">2 while循环结构</a></p>
+<p><a href="/2020/04/15/Python（程序控制1）/#3">3 水仙花、百鸡</a></p>
+</blockquote>
+<p><strong>计算机程序的三种基本结构</strong></p>
+<p>　　按照计算机程序执行的逻辑流程，可以将计算机程序分为三种基本结构，即：顺序结构、选择结构、循环结构。</p>
+<h1 id="1-选择结构"><a href="#1-选择结构" class="headerlink" title="1 选择结构"></a><span id="1">1 选择结构</span></h1><p>分为：单分支结构（if语句）、分支结构（if_else语句）、多分支结构（if_elif_else语句）</p>
+<h2 id="1-1-单分支结构（if语句）"><a href="#1-1-单分支结构（if语句）" class="headerlink" title="1.1 单分支结构（if语句）"></a>1.1 单分支结构（if语句）</h2><p>if语句是Python语言中实现单分支判断的专用语句，其基本语法格式如下：</p>
+<p><strong>注意：if条件后要有<font color="red">冒号 ：</font></strong></p>
+<pre><code>if 表达式:
+    语句块        #必须缩进，一般缩进4个空格</code></pre><a id="more"></a>
+
+<p>例：如果程序代码中的语法错误数目为0，就输出“程序开始运行”；否则，什么也不执行。</p>
+<pre><code class="python">errro=int(input(&quot;请输入语法错误的数目：&quot;))
+if error==0:
+    print(&quot;程序开始运行！&quot;)</code></pre>
+<h2 id="1-2-分支结构（if-else语句）"><a href="#1-2-分支结构（if-else语句）" class="headerlink" title="1.2 分支结构（if_else语句）"></a>1.2 分支结构（if_else语句）</h2><p>if_else语句是Python语言中实现二分支判断的专用语句，其基本语法格式如下：</p>
+<pre><code>if 表达式: 
+    语句块 1     #语句块1和语句块2缩进要“相同”
+else: 
+    语句块 2    #语句块1和语句块2缩进要“相同”</code></pre><p>例：如果输入的年龄大于等于18岁，就输出“你是成年人啦！”；否则，输出“你还是未成年人！”。</p>
+<pre><code>age=int(input(&quot;请输入你的年龄：&quot;))
+if age&gt;=18:
+    print(&quot;你是成年人啦！&quot;)
+else:
+    print(&quot;你还是未成年人！&quot;)</code></pre><p>例：火车站行李的收费标准：50Kg及以内为0.95元/kg，超过50Kg部分为1.9元/kg。编程实现根据行李重量计算对应的行李费</p>
+<pre><code>weight=eval(input(&quot;请输入行李的重量：&quot;))#eval根据输入转换相应数据类型
+if weight&gt;=50:
+    pay=50*0.95+(weight-50)*1.9
+else:
+    pay=weight*0.95
+print(&quot;行李重量：{0},行李费：{1}&quot;.format(weight,pay))</code></pre><h2 id="1-3-多分支结构（if-elif-else语句）"><a href="#1-3-多分支结构（if-elif-else语句）" class="headerlink" title="1.3 多分支结构（if_elif_else语句）"></a>1.3 多分支结构（if_elif_else语句）</h2><p>if_elif_else语句是Python语言中实现多分支判断的专用语句，其基本语法格式如下：　　</p>
+<pre><code>if 表达式 1: 
+    语句块 1 
+elif 表达式 2:   
+    语句块 2 
+elif 表达式 3:     
+    语句块 3
+……
+else:             #（可以省略）若没有else，且没有满足条件，则输出0个语句。
+    语句块 n </code></pre><p>例：输入一个学生的成绩x（百分制），输出对应的等级（五级制）。</p>
+<pre><code>x=eval(input(&quot;请输入学生成绩：&quot;))
+if x&gt;=90:
+    level=&quot;优秀&quot;
+elif x&gt;=80:
+    level=&quot;良好&quot;
+elif x&gt;=70:
+    level=&quot;中等&quot;
+elif x&gt;=60:
+    level=&quot;及格&quot;
+else:
+    level=&quot;不及格&quot;
+print(&quot;学生的等级是：&quot;,level)</code></pre><h2 id="1-4-if的嵌套"><a href="#1-4-if的嵌套" class="headerlink" title="1.4 if的嵌套"></a>1.4 if的嵌套</h2><pre><code>if 表达式1: 
+    if 表达式2: 
+        语句块 1 
+    else: 
+        语句块 2 
+else: 
+    if 表达式3: 
+        语句块 3 
+    else: 
+        语句块 4 </code></pre><p>例：快递公司计算快递收费标砖：首重1kg,12元。续重1.3元/公斤，不足1公斤按1公斤计算。</p>
+<pre><code>weight=eval(input(&quot;请输入快递的重量：&quot;))
+if weight&lt;=1:
+    pay=12
+else:
+    weight=weight-1
+    if int(weight)==weight:
+        pay=12+weight*1.3
+    else:
+        pay=12+(int(weight)+1)*1.3
+print(&quot;快递的重量：%0.2f，快递费用：%0.2f&quot;%(weight+1,pay))</code></pre><h1 id="2-while循环结构"><a href="#2-while循环结构" class="headerlink" title="2 while循环结构"></a><span id="2">2 while循环结构</span></h1><p>如果需要在满足条件的情况下重复执行一段代码，此时可以借助循环。在Python语言中，常用的循环语句有while循环和for循环。</p>
+<h2 id="2-1-while循环语句"><a href="#2-1-while循环语句" class="headerlink" title="2.1 while循环语句"></a>2.1 while循环语句</h2><pre><code>while 表达式:    #任何表达式
+    语句块        #任何非零、非空串、非None的值都认为为True</code></pre><p>说明：作为while循环判断条件的表达式，可以是任何形式的Python语言表达式，当表达式的结果为True或者相当为True时，条件成立且可以执行循环；当表达式的结果为False或者相当为False时，条件不成立且循环终止。另外，任何非零、或非空串、非None的表达式的值均为True。</p>
+<p>例：计算1+2+3+…+100的值</p>
+<pre><code>n=1;s=0
+while n&lt;=100:
+    s=s+n
+    n=n+1
+print(&quot;1+2+3+...+100=%d&quot;%(s))</code></pre><p>例：假设我国现在有人口14亿，如果年增长率为1.5%，几年后我国人口增加到或超过20亿？</p>
+<pre><code>p=14;n=0
+while p&lt;20:
+    p=p*(1.15)
+    n=n+1
+print(&quot;%d年后，我国人口将达到%f亿&quot;%(n,p))</code></pre><p>例：猜数字游戏，猜对输出“恭喜你，猜对了！”，猜错了输出猜大了还是猜小了，直到猜对。</p>
+<pre><code>import random
+number=random.randint(1,10) #生成[1,10]的随机数，
+finished=0
+print(&quot;欢迎玩《猜字游戏》&quot;)
+while not finished:
+    guess=int(input(&quot;请输入你猜的数字：&quot;))
+    if guess==number:
+        print(&quot;恭喜你，猜对了！&quot;)
+        finished=1
+    elif guess&lt;number:
+        print(&quot;猜小了&quot;)
+    else:
+        print(&quot;猜大了&quot;)</code></pre><h2 id="2-2-循环控制语句"><a href="#2-2-循环控制语句" class="headerlink" title="2.2 循环控制语句"></a>2.2 循环控制语句</h2><p>While循环除了可以利用循环条件控制循环体是否执行之外，在循环体内还可以利用循环控制语句提前结束一次或整个循环。常用的循环控制语句有：</p>
+<ul>
+<li>break</li>
+<li>continue</li>
+<li>sys.exit(0)        表示无异常正常结束，需要 import sys</li>
+</ul>
+<h2 id="2-3-无限循环"><a href="#2-3-无限循环" class="headerlink" title="2.3 无限循环"></a>2.3 无限循环</h2><p>如果While循环的条件表达式恒为True，则循环体在不受其他条件控制的情况下，将会无限次重复执行下去，此时的while循环即为循环。</p>
+<p>常见的无限循环用法为：通常情况下，无限循环需要与循环控制语句联合使用，避免出现“死循环”。　</p>
+<pre><code>while True:
+    语句块</code></pre><p>例：</p>
+<pre><code>a=0
+while True:
+    a=a+1
+    if a==5:
+        continue
+    print(a,end=&quot;&quot;) #用一个空字符串，能使print不换行
+    if a==10:
+        break
+
+结果：1234678910</code></pre><h2 id="2-4-while循环的嵌套"><a href="#2-4-while循环的嵌套" class="headerlink" title="2.4 while循环的嵌套"></a>2.4 while循环的嵌套</h2><p>如果while循环体里还有while循环，就称为while循环嵌套。</p>
+<p>说明：</p>
+<p>1）while循环嵌套一般适用于外层循环一次内层循环N次的情况；</p>
+<p>（2）最内层循环体执行的次数等于每一层循环执行次数的乘积——N=N1*N2*..*Nn。</p>
+<pre><code>i=1
+while i&lt;=5:
+    j=1
+    while j&lt;=3:
+        print(j,end=&#39;&#39;) #用一个空字符串，能使print不换行
+        j=j+1
+    print()
+    i=i+1
+结果：
+123
+123
+123
+123
+123</code></pre><h1 id="3-循环经典问题"><a href="#3-循环经典问题" class="headerlink" title="3 循环经典问题"></a><span id="3">3 循环经典问题</span></h1><h2 id="3-1-水仙花数"><a href="#3-1-水仙花数" class="headerlink" title="3.1 水仙花数"></a>3.1 水仙花数</h2><p>定义：一个三位数，如果个位、十位、百位三次方的和正好等于该数本身</p>
+<p>思路：关键是求出该三位数的个、十、百位数</p>
+<pre><code>n=100
+while n&lt;=999:
+    temp=n
+    sum=0
+    while temp&gt;0:
+        a=temp%10
+        sum=sum+a**3
+        temp=temp//10
+    if n==sum:
+        print(&quot;%d是一个水仙花数&quot;%(n))
+    n=n+1
+结果：
+153是一个水仙花数
+370是一个水仙花数
+371是一个水仙花数
+407是一个水仙花数</code></pre><h2 id="3-2-阿姆斯特朗数"><a href="#3-2-阿姆斯特朗数" class="headerlink" title="3.2 阿姆斯特朗数"></a>3.2 阿姆斯特朗数</h2><pre><code>n=1
+while n&lt;=999999:  #1到100万
+    k=len(str(n))   #计算n的位数 
+    temp=n
+    sum=0
+    while temp&gt;0:
+        a=temp%10
+        sum=sum+a**k
+        temp=temp//10
+    if n==sum:
+        print(&quot;%d是一个阿姆斯特朗数&quot;%(n))
+    n=n+1
+
+结果：
+1是一个阿姆斯特朗数
+2是一个阿姆斯特朗数
+3是一个阿姆斯特朗数
+4是一个阿姆斯特朗数
+5是一个阿姆斯特朗数
+6是一个阿姆斯特朗数
+7是一个阿姆斯特朗数
+8是一个阿姆斯特朗数
+9是一个阿姆斯特朗数
+153是一个阿姆斯特朗数
+370是一个阿姆斯特朗数
+371是一个阿姆斯特朗数
+407是一个阿姆斯特朗数
+1634是一个阿姆斯特朗数
+8208是一个阿姆斯特朗数
+9474是一个阿姆斯特朗数
+54748是一个阿姆斯特朗数
+92727是一个阿姆斯特朗数
+93084是一个阿姆斯特朗数
+548834是一个阿姆斯特朗数</code></pre><h2 id="百鸡问题"><a href="#百鸡问题" class="headerlink" title="百鸡问题"></a>百鸡问题</h2><p>定义：古代有一老汉想用100文钱买100只鸡。公鸡5文钱1只，母鸡3文钱1只，小鸡3只1文钱</p>
+<p>分析：公鸡数目x：[0,20]；母鸡数目y：[0,33]；小鸡数目z：[0,100]；</p>
+<pre><code>x=0
+while x&lt;=20:
+    y=0
+    z=0
+    while y&lt;=33:
+        z=0
+        while z&lt;=100:
+            if x+y+z==100 and 5*x+3*y+z/3==100:
+                print(&quot;公鸡%d只，母鸡%d只，小鸡%d只&quot;%(x,y,z))
+            z=z+1
+        y=y+1
+    x=x+1
+
+结果：
+公鸡0只，母鸡25只，小鸡75只
+公鸡4只，母鸡18只，小鸡78只
+公鸡8只，母鸡11只，小鸡81只
+公鸡12只，母鸡4只，小鸡84只</code></pre>
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/04/15/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B61%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/04/16/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B62%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Python（程序控制2）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/15/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">软件项目管理（第四章：IT项目范围管理）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+	<ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+	
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+   
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://oss.zhy-goindex.workers.dev" target="_blank" rel="noopener">网盘</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

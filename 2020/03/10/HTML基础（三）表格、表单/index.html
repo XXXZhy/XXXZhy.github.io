@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    HTML基础（三）表格、表单 |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/styles/a11y-dark.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+	
+	
+	<!-- 百度自动推送 -->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+</script>
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-HTML基础（三）表格、表单" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  HTML基础（三）表格、表单
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/" class="article-date">
+  <time datetime="2020-03-10T14:23:21.000Z" itemprop="datePublished">2020-03-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="/2020/03/10/HTML基础（三）表格、表单/#1"><strong>表格</strong></a></p>
+<p>​        <a href="/2020/03/10/HTML基础（三）表格、表单/#1.1"><em>基础表格——学生信息表</em></a></p>
+<p>​        <a href="/2020/03/10/HTML基础（三）表格、表单/#1.2"><em>表格的跨行跨列——课程表</em></a></p>
+<p>​        <a href="/2020/03/10/HTML基础（三）表格、表单/#1.3"><em>表格练习——年终工资表</em></a></p>
+<p><a href="/2020/03/10/HTML基础（三）表格、表单/#2"><strong>表单</strong></a></p>
+<p>​        <a href="/2020/03/10/HTML基础（三）表格、表单/#2.1"><em>登录表单</em></a></p>
+<p>​        <a href="/2020/03/10/HTML基础（三）表格、表单/#2.2"><em>注册表单</em></a></p>
+<hr>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a><span id="1">表格</span></h1><h2 id="基础表格——学生信息表"><a href="#基础表格——学生信息表" class="headerlink" title="基础表格——学生信息表"></a><span id="1.1">基础表格——学生信息表</span></h2><pre><code class="HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;表格——学生信息表&lt;/title&gt;
+        &lt;style&gt;
+            table{/*标签选择器*/
+                width: 500px;
+                text-align: center; /*设置字体居中*/ /*css备注*/
+                margin: 0 auto;/*表格根据body的大小左右居中*/
+                border: none;/*表格边框设置无*/
+            }
+            table,th,td{/*增幅选择器*/
+                border-collapse: collapse;/*把所有的table,th,td标签边框合并*/
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!--
+            tabe：表格标签
+            th：表头标签，相当于加了&lt;strong&gt;&lt;/strong&gt;
+            tr：行标签
+            td：单元标签
+            border属性：边框样式
+        --&gt;
+        &lt;table border=&quot;1&quot;&gt;
+            &lt;!--
+                caption：标题HTML5标签
+                thead：表格的表头标签
+                tbodt：表格的主体内容标签
+                tfoot：表格的表尾标签
+            --&gt;
+            &lt;caption&gt;&lt;h3&gt;学生信息表&lt;/h3&gt;&lt;/caption&gt;
+            &lt;thead style=&quot;background-color: #FF0000;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;姓名&lt;/th&gt;
+                    &lt;th&gt;学校&lt;/th&gt;
+                    &lt;th&gt;性别&lt;/th&gt;
+                    &lt;th&gt;班级&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody style=&quot;background-color: #CCFF00;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;张三&lt;/td&gt;
+                    &lt;td&gt;邻中&lt;/td&gt;
+                    &lt;td&gt;男&lt;/td&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;张三&lt;/td&gt;
+                    &lt;td&gt;邻中&lt;/td&gt;
+                    &lt;td&gt;男&lt;/td&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;tfoot style=&quot;background-color: antiquewhite;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tfoot&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<a id="more"></a>
+
+<p><strong>效果图：</strong> <img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/1.png" class=""></p>
+<h2 id="表格的跨行跨列——课程表"><a href="#表格的跨行跨列——课程表" class="headerlink" title="表格的跨行跨列——课程表"></a><span id="1.2">表格的跨行跨列——课程表</span></h2><pre><code class="HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;表格——课程表&lt;/title&gt;
+        &lt;style&gt;
+            table{/*标签选择器*/
+                width: 500px;
+                text-align: center; /*设置字体居中*/ /*css备注*/
+                margin: 0 auto;/*表格根据body的大小左右居中*/
+                border: none;/*表格边框设置无*/
+            }
+            table,th,td{/*增幅选择器*/
+                border-collapse: collapse;/*把所有的table,th,td标签边框合并*/
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!--
+            tabe：表格标签
+            th：表头标签，相当于加了&lt;strong&gt;&lt;/strong&gt;
+            tr：行标签
+            td：单元标签
+            border属性：边框样式
+        --&gt;
+        &lt;table border=&quot;1&quot;&gt;
+            &lt;!--
+                caption：标题HTML5标签
+                thead：表格的表头标签
+                tbodt：表格的主体内容标签
+                tfoot：表格的表尾标签
+            --&gt;
+            &lt;caption&gt;&lt;h3&gt;学生信息表&lt;/h3&gt;&lt;/caption&gt;
+            &lt;thead style=&quot;background-color: #FF0000;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;姓名&lt;/th&gt;
+                    &lt;th&gt;学校&lt;/th&gt;
+                    &lt;th&gt;性别&lt;/th&gt;
+                    &lt;th&gt;班级&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody style=&quot;background-color: #CCFF00;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;张三&lt;/td&gt;
+                    &lt;td&gt;邻中&lt;/td&gt;
+                    &lt;td&gt;男&lt;/td&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;张三&lt;/td&gt;
+                    &lt;td&gt;邻中&lt;/td&gt;
+                    &lt;td&gt;男&lt;/td&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;tfoot style=&quot;background-color: antiquewhite;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                    &lt;td&gt;解释&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tfoot&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><strong>效果图：</strong><img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/2.png" class=""></p>
+<h2 id="表格练习——年终工资表"><a href="#表格练习——年终工资表" class="headerlink" title="表格练习——年终工资表"></a><span id="1.3">表格练习——年终工资表</span></h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;表格练习&lt;/title&gt;
+        &lt;style&gt;
+            table{
+                width: 500px;
+                margin: 0 auto;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!--
+            cellpadding 设置内容和单元格的距离
+            cellspacing 设置单元格与单元格之间的距离
+        --&gt;
+        &lt;table border=&quot;1&quot; cellpadding=&quot;20&quot;&gt;
+            &lt;caption&gt;&lt;strong&gt;年终工资表&lt;/strong&gt;&lt;/caption&gt;
+            &lt;tr style=&quot;background-color: green;&quot;&gt;
+                &lt;th&gt;区域办事处&lt;/th&gt;
+                &lt;th&gt;岗位&lt;/th&gt;
+                &lt;th&gt;姓名&lt;/th&gt;
+                &lt;th&gt;工资&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td rowspan=&quot;3&quot;&gt;华东区&lt;/td&gt;
+                    &lt;td rowspan=&quot;2&quot;&gt;人事专员&lt;/td&gt;
+                    &lt;td&gt;王红&lt;/td&gt;
+                    &lt;td&gt;1500&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;张民&lt;/td&gt;
+                    &lt;td&gt;1500&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td rowspan=&quot;3&quot;&gt;软件开发工程师&lt;/td&gt;
+                    &lt;td&gt;李远帆&lt;/td&gt;
+                    &lt;td&gt;6000&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td rowspan=&quot;2&quot;&gt;中南区&lt;/td&gt;
+                    &lt;td&gt;杨涛&lt;/td&gt;
+                    &lt;td&gt;5000&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;粮草&lt;/td&gt;
+                    &lt;td&gt;5000&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+                &lt;tr&gt;
+                    &lt;td colspan=&quot;3&quot;&gt;总计&lt;/td&gt;
+                    &lt;td&gt;总计&lt;/td&gt;
+                &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><p><strong>效果图：</strong><img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/3.png" class=""></p>
+<h1 id="表单"><a href="#表单" class="headerlink" title="表单"></a><span id="2">表单</span></h1><h2 id="登录表单"><a href="#登录表单" class="headerlink" title="登录表单"></a><span id="2.1">登录表单</span></h2><pre><code class="HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;表单&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!--
+            form:表单标签
+            属性：
+                method:表单的提交方式，有两种常用取值：get/post
+                    get:1.默认值（不安全）账号密码会在地址栏显示出来，数据通过地址栏传递
+                        2.速度快，用于查寻
+                        3.不能传递海量信息，每次只能传递1024个字节
+                        4.不能上传附件
+                    post：1.不显示账号密码，即不通过地址栏传递数据，而是以文件
+                        2.速度慢，（安全）用于关于用户敏感信息
+                        3.能传递海量数据
+                        4。能上传附件
+                action:把表单数据提交给？进行处理表单数据的地址
+                input：输入框
+        --&gt;
+        &lt;form action=&quot;../html表格/2 html_表格的跨行跨列.html&quot; method=&quot;get&quot;&gt;
+            用户名：&lt;input type=&quot;text&quot; id=&quot;userName&quot; name=&quot;userName&quot; /&gt;
+            &lt;br /&gt;
+            密码：&lt;input type=&quot;password&quot; id=&quot;pwd&quot; name=&quot;pwd&quot; /&gt;
+            &lt;br /&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;登录&quot;/&gt;
+            &lt;h1 style=&quot;vertical-align:middle ;&quot;&gt;&lt;/h1&gt;
+            &lt;div&gt;&lt;/div&gt;
+            &lt;a style=&quot;vertical-align: ;&quot;&gt;&lt;/a&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;HTM</code></pre>
+<p><strong>效果图：</strong><img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/4.png" class=""></p>
+<h2 id="注册表单"><a href="#注册表单" class="headerlink" title="注册表单"></a><span id="2.2">注册表单</span></h2><pre><code class="HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;注册&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form action=&quot;#&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;!--
+                form的重要作用，获取用户输入的信息，需要在表单中加入 表单项
+                application/x-www-form-urlencoded 默认编码形式
+                使用上传，必须改变表单的enctype属性的值改为multipart/form-data
+
+                语法:&lt;input type=&quot;类型&quot;&gt;
+                常用type值：    
+                    text:单行文本框
+                    paswword:密码框
+                    imge:图片框（提交）
+                span:行内标签，没有任何样式
+                image：图片按钮，提交图标按钮
+                radio:单选按钮
+                checkbox:多选框
+                file:上传按钮
+                select:下拉框
+                textarea:多行文本
+                submit:提交按钮
+                reset:重置按钮
+                button:普通按钮
+                hidden:隐藏域
+
+                常用属性：
+                checked=&quot;checked&quot; ：单选按钮钟的默认选中
+                value:初始值
+                sizi:设置初始宽度
+                maxlength：设置可输入最多多少个字符
+                selected=&quot;selected&quot;:下拉框设置默认选项
+                readonly=&quot;readonly&quot;：只读属性
+            --&gt;
+
+            &lt;input type=&quot;hidden&quot; value=&quot;666&quot; name=&quot;hidden&quot; /&gt;
+
+            &lt;span&gt;账号：&lt;/span&gt;
+            &lt;input type=&quot;text&quot; name=&quot;userName&quot; id=&quot;userName&quot; size=&quot;10&quot; maxlength=&quot;10&quot; readonly=&quot;readonly&quot; value=&quot;username&quot;/&gt;
+            &lt;br /&gt;
+            &lt;span&gt;密码：&lt;/span&gt;
+            &lt;input type=&quot;password&quot; name=&quot;pwd&quot; id=&quot;pwd&quot; /&gt;
+            &lt;br /&gt;
+            &lt;input type=&quot;image&quot; src=&quot;../img/logo.jpg&quot; name=&quot;img&quot; id=&quot;img&quot; /&gt;
+            &lt;br /&gt;    
+            &lt;!--单选--&gt;
+            &lt;span&gt;性别：&lt;/span&gt;
+            &lt;!--checked 默认选中--&gt;
+            &lt;input type=&quot;radio&quot; name=&quot;boy&quot; id=&quot;boy&quot; checked=&quot;checked&quot;/&gt;男  
+            &lt;input type=&quot;radio&quot; name=&quot;girl&quot; id=&quot;girl&quot;/&gt;女
+            &lt;br /&gt;
+
+            &lt;!--多选按钮--&gt;
+            &lt;span&gt;爱好：&lt;/span&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;1&quot;/&gt;看书
+            &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;2&quot;/&gt;唱歌
+            &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;3&quot;/&gt;跳舞
+            &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;4&quot;/&gt;上网
+            &lt;br /&gt;
+
+            &lt;!--上传--&gt;
+            &lt;span&gt;上传：&lt;/span&gt;
+            &lt;input type=&quot;file&quot; name=&quot;file&quot; id=&quot;file&quot; /&gt;
+            &lt;br /&gt;
+
+            &lt;!--下拉框--&gt;
+            &lt;span&gt;颜色：&lt;/span&gt;
+            &lt;select name=&quot;color&quot; id=&quot;color&quot;&gt;
+                &lt;option value=&quot;rad&quot;&gt;红色&lt;/option&gt;
+                &lt;option value=&quot;black&quot;&gt;黑色&lt;/option&gt;
+                &lt;option value=&quot;blue&quot;&gt;蓝色&lt;/option&gt;
+                &lt;option value=&quot;——请选择——&quot; selected=&quot;selected&quot;&gt;——请选择——&lt;/option&gt;
+                &lt;!--若不加selected属性，那就放在第一行--&gt;
+            &lt;/select&gt;
+            &lt;br /&gt;
+
+            &lt;!--多行文本--&gt;
+            &lt;span&gt;备注：&lt;/span&gt;
+            &lt;textarea name=&quot;desc&quot; id=&quot;desc&quot; rows=&quot;10&quot; cols=&quot;5&quot;&gt;&lt;/textarea&gt;
+            &lt;br /&gt;
+            &lt;!--提交按钮--&gt;
+            &lt;input type=&quot;submit&quot; /&gt;
+            &lt;!--重置按钮--&gt;
+            &lt;input type=&quot;reset&quot; /&gt;
+            &lt;!--普通按钮--&gt;
+            &lt;!--设置按钮为禁用的：disabled=&quot;disabled&quot;--&gt;
+            &lt;input type=&quot;button&quot; value=&quot;普通按钮&quot; disabled=&quot;disabled&quot;/&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><strong>效果图：</strong><img src="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/5.png" class=""></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/03/10/CSS%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%E6%A0%B7%E5%BC%8F%E5%88%86%E7%B1%BB-%E9%80%89%E6%8B%A9%E5%99%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            CSS基础（一）样式分类+选择器
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/10/HTML%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E5%9F%BA%E6%9C%AC%E6%A0%87%E7%AD%BE/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">HTML基础（二）基本标签</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+	<ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+	
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+   
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://oss.zhy-goindex.workers.dev" target="_blank" rel="noopener">网盘</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

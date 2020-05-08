@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    UML（第三章：参与者、用例） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/styles/a11y-dark.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+	
+	
+	<!-- 百度自动推送 -->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+</script>
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-UML（第三章：参与者、用例）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  UML（第三章：参与者、用例）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/" class="article-date">
+  <time datetime="2020-03-26T02:58:29.000Z" itemprop="datePublished">2020-03-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UML/">UML</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p><a href="/2020/03/26/UML（第三章：参与者、用例）/#1"><strong>3.1</strong>  <strong>参与者</strong> </a></p>
+<p><a href="/2020/03/26/UML（第三章：参与者、用例）/#2"><strong>3.2</strong>  <strong>用例</strong></a></p>
+<p><a href="/2020/03/26/UML（第三章：参与者、用例）/#3"><strong>3.3</strong>  <strong>用例描述</strong></a></p>
+<p><a href="/2020/03/26/UML（第三章：参与者、用例）/#4"><strong>3.4</strong>  <strong>用例建模</strong></a></p>
+</blockquote>
+<h2 id="3-1-参与者-actor"><a href="#3-1-参与者-actor" class="headerlink" title="3.1 参与者 actor"></a><span id="1">3.1 参与者 actor</span></h2><h3 id="3-1-1-参与者的概念"><a href="#3-1-1-参与者的概念" class="headerlink" title="3.1.1 参与者的概念"></a>3.1.1 参与者的概念</h3><p><strong>参与者</strong> actor，指系统以外的、需要使用系统或与系统交互的外部实体</p>
+<p>可以分为：人、外部设备、外部系统</p>
+<p><strong>注意：参与者是一个集合概念。一个具体的外部实体仅代表同一类参与者的一个实例</strong></p>
+<blockquote>
+<p>*<em>例 *</em>:在一个银行业务系统中，可能会有以下参与者</p>
+<p><strong>客户：</strong>在银行业务系统中办理了账户的居民。他们通过银行业务系统进行金融交易</p>
+<p><strong>管理人员：</strong>负责银行业务系统具体操作事务的办事人员。他们为客户办理存款、取款等金融交易</p>
+<p><strong>Mail系统：</strong>负责银行业务系统向个人发送电子邮件的软件系统</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="3-1-2-参与者之间的关系"><a href="#3-1-2-参与者之间的关系" class="headerlink" title="3.1.2 参与者之间的关系"></a>3.1.2 参与者之间的关系</h3><p><font color="red"><strong>泛化关系</strong></font>：一般参与者与特殊参与者之间的关系</p>
+<p>把某些参与者的共同行为提取出来表示成通用行为，并描述成超类。</p>
+<p>参与者之间的：<strong>泛化关系</strong>，用带空心三角形箭头的实线表示，箭头指向父参与者。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/1.png" class="">
+
+<h3 id="3-1-3-泛化关系的作用"><a href="#3-1-3-泛化关系的作用" class="headerlink" title="3.1.3 泛化关系的作用"></a>3.1.3 泛化关系的作用</h3><p><strong>作用</strong>：有效地减少了参与者与用例之间的关联关系的个数，简化了用例模型</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/4.png" class="">
+
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/5.png" class="">
+
+<h3 id="3-1-4-参与者与用例之间的关系"><a href="#3-1-4-参与者与用例之间的关系" class="headerlink" title="3.1.4 参与者与用例之间的关系"></a>3.1.4 参与者与用例之间的关系</h3><p><font color="red"><strong>关联关系</strong></font>：又称为通信关联，表明哪个参与者与用例通信。</p>
+<p><strong>关联关系</strong>：一个参与者完成系统的一项功能</p>
+<p><strong>关联关系</strong>用带箭头或不带箭头的实线表示，箭头表示在这一关系中哪一方是对话的主动发起者，箭头所指方式对话的被动接受者。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/2.png" class="">
+
+<p><strong>例 ：</strong><img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/3.png" class=""></p>
+<h2 id="3-2-用例-use-case"><a href="#3-2-用例-use-case" class="headerlink" title="3.2 用例 use case"></a><span id="2">3.2 用例 use case</span></h2><h3 id="3-2-1-用例的概念"><a href="#3-2-1-用例的概念" class="headerlink" title="3.2.1 用例的概念"></a>3.2.1 用例的概念</h3><p>是对一个参与者使用系统的一项功能时所进行的交互过程的一个文字描述序列</p>
+<p>是参与者可以感受到的系统服务或功能单元</p>
+<p>是系统、子系统或类和外部的参与者交互的动作序列的说明，包括可选的动作序列和会出现异常的动作序列。</p>
+<p>是代表系统中各个项目相关人员之间就系统的行为所达成的契约。</p>
+<p><strong>定义</strong>了系统如何被参与者使用，描述了参与者为了使用系统所提供的某一完整功能而与系统之间发生的一段对话。</p>
+<p><font color="red"><strong>用例</strong></font>使用椭圆图标来表示。<font color="red"><strong>用例名</strong></font>往往用动宾结构或主谓结构命名。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/6.png" class="">
+
+<h3 id="3-2-2-用例的特征"><a href="#3-2-2-用例的特征" class="headerlink" title="3.2.2 用例的特征"></a>3.2.2 用例的特征</h3><p>用例从系统的角度描述系统中的信息，即站在系统外部，看到的系统功能</p>
+<p>总是被参与者启动</p>
+<p>描述一个功能的交互场景</p>
+<p>用例分析本质上是一种<strong>功能分解技术</strong></p>
+<p>交互过程的描述中，可以发现<strong>类</strong>（类的特征，类的行为</p>
+<h3 id="3-2-3-用例之间的关系"><a href="#3-2-3-用例之间的关系" class="headerlink" title="3.2.3 用例之间的关系"></a>3.2.3 用例之间的关系</h3><p><strong>用例之间的关系：</strong><font color="red">泛化关系，包含关系，扩展关系</font></p>
+<p><strong>包含关系</strong>和<strong>扩展关系是</strong>两种特殊的<font color="red"><strong>依赖关系</strong></font></p>
+<h4 id="1-泛化关系"><a href="#1-泛化关系" class="headerlink" title="1. 泛化关系"></a>1. 泛化关系</h4><p><strong>泛化关系</strong>：特殊用例继承、覆盖、增加一般用例的行为</p>
+<p><strong>父用例</strong>表示通用的行为序列。</p>
+<p><strong>子用例</strong>继承父用例的行为和含义，也可以增加新的行为和含义或覆盖父用例中的行为和含义。</p>
+<p>通过插入额外的步骤或定义步骤，<strong>子用例特例化父用例</strong></p>
+<p><strong>泛化关系</strong>：用带<font color="red">空心三角形箭头</font>的实线表示，箭头指向父用例。</p>
+<p><strong>当发现系统中有多个用例在行为、结构和目的方面存在共性时，可以使用泛化关系。用一个新用例描述公有部分。这个新用例就是父用例。</strong></p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/7.png" class="">
+
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/8.png" class="">
+
+<h4 id="2-包含关系"><a href="#2-包含关系" class="headerlink" title="2.包含关系"></a>2.包含关系</h4><p>包含关系：两个用例之间，其中一个用例（<strong>基本用例</strong>）的行为包含了另一个用例（<strong>包含用例</strong>）的行为。是依赖关系的版型，比一般的依赖关系多了一些语义。</p>
+<p><strong>包含关系</strong>：当系统中在两个或多个用例中有某些相同的动作，则可以把这些相同的动作提取出来，单独构成一个用例。</p>
+<p>基本用例的行为<font color="red">必然执行</font>包含用例的行为</p>
+<p><strong>包含关系</strong>用<font color="red">带箭头的虚线</font>表示，箭头指向包含用例。同时，必须用<font color="red">&lt;&lt;include&gt;&gt;</font>标记附加在虚线旁，作为特殊依赖关系的语义。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/9.png" class="">
+
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/10.png" class="">
+
+<h4 id="3-扩展关系"><a href="#3-扩展关系" class="headerlink" title="3.扩展关系"></a>3.扩展关系</h4><p><strong>扩展关系</strong>：<strong>基本用例</strong>的行为条件执行<strong>扩展用例</strong>的行为，一个用例（<strong>基本用例</strong>）的行为包含了另一个用例（<strong>扩展用例</strong>）的行为。扩展关系也是特殊的依赖关系。</p>
+<p>在<strong>扩展关系</strong>中，用更多的规则限制：基本用例必须声明若干<strong>“扩展点”</strong>，而扩展用例只能在扩展点上增加新的行为和含义。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/11.png" class="">
+
+<blockquote>
+<p><strong>扩展点</strong>：指用例中的一个或一组位置。可以插入其他用例的完整动作序列或其中的片段</p>
+<p>多数情况下，扩展关系有一个<strong>附加条件*</strong>。只有当控制到达插入位置时且条件为真，才会发生扩展行为。</p>
+<p>一个用例中，各扩展点的名字是<strong>唯一</strong>的。可以把扩展点列在用例图形符号中的一个题头为“扩展点”的分栏中，并以一种适当的方式给出扩展点的位置描述，作为基本用例中的标号。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/12.png" class="">
+</blockquote>
+<h3 id="3-2-4-包含关系与扩展关系的-对比"><a href="#3-2-4-包含关系与扩展关系的-对比" class="headerlink" title="3.2.4 包含关系与扩展关系的 对比"></a>3.2.4 包含关系与扩展关系的 对比</h3><p><strong>共同点</strong>：<strong>包含用例</strong>和<strong>扩展用例</strong>都补充了<strong>基本用例</strong>的行为</p>
+<p><strong>不同点</strong>：包含用例<font color="red">必然被执行</font>，扩展用例<font color="red">条件被执行</font></p>
+<p><strong>性质</strong>：因为基本用例的行为被包含用例或扩展用例的行为延伸了，所以基本用例的行为依赖于包含用例或扩展用例的行为。所以，包含关系和扩展关系都是<font color="red">依赖关系</font>的特例</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/13.png" class="">
+
+<hr>
+<p>需要重复处理两个或多个用例时，可以考虑使用<strong>包含关系</strong>，实现一个基本用例对另一个用例的引用。</p>
+<p>当处理正常行为的变形且只是偶尔描述时，可以考虑只用<strong>泛化关系</strong>。</p>
+<p>当处理正常行为的变形且希望采用更多的<strong>控制方式</strong>时，可以在基本用例中<strong>设置扩展点</strong>，使用<strong>扩展关系</strong>。</p>
+<h2 id="3-3-用例描述"><a href="#3-3-用例描述" class="headerlink" title="3.3 用例描述"></a><span id="3">3.3 用例描述</span></h2><p>在用例图中用一个<strong>命名的椭圆</strong>表示</p>
+<p>仅用图形符号表示的用例本身并不能提供该用例所具备的全部信息，必须通过文本的方式描述该用例的完整功能。</p>
+<p><strong>用例的描述</strong>才是用例的主要部分。</p>
+<p><strong>用例描述：</strong>是一个关于参与者与系统如何交互的规范说明，该规范说明要清晰明了，没有歧义性。</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/14.png" class="">
+
+<blockquote>
+<p><font color="blue">例:</font>在银行ATM系统的ATM机上“登录”用例</p>
+<p><font color="red">用例名称：</font>登录</p>
+<p><font color="red">用例描述：</font>在储户银行卡有效且储户输入密码正确的情况下，为储户提供后续的服务。</p>
+<p><font color="red">参与者：</font>储户</p>
+<p><font color="red">前置条件：</font>ATM机正常工作</p>
+<p><font color="red">后置调剂：</font>正常进入界面</p>
+<p><font color="red">主事件流如下：</font></p>
+<p>（1）储户将银行卡插入ATM机，开始用例。</p>
+<p>（2）ATM机提示储户输入密码。</p>
+<p>（3）储户输入密码。</p>
+<p>（4）ATM机确认密码是否有效。如果无效，则执行子事件流a。如果与主机连接有问题，则执行异常事件流e。</p>
+<p>（5）如果输入的密码正确，进入主界面。ATM机提示一下选项：存款、取款、查询、转账。用例结束。</p>
+<p><font color="red">子事件流a：</font></p>
+<p>a1.提示储户输入的密码无效，请求再次输入。</p>
+<p>a2.如果三次输入无效密码，则系统自动关闭，退出储户银行卡，用例结束。</p>
+<p><font color="red">异常事件流e:</font></p>
+<p>e1.提示储户主机连接不上。</p>
+<p>e2.系统自动关闭，退出储户银行卡，用例结束。</p>
+</blockquote>
+<h2 id="3-4-用例建模"><a href="#3-4-用例建模" class="headerlink" title="3.4 用例建模"></a><span id="4">3.4 用例建模</span></h2><p><strong>用例模型</strong>主要应用在需求分析时使用。</p>
+<p>建立<strong>用例模型</strong>，使开发人员明确系统的功能有哪些，方便用户和系统分析师进行沟通。</p>
+<p><strong>用例建模</strong>直接面向用户，主要以需求陈述为基本依据，确定有关系统的边界、参与者、用例、通信关系等。</p>
+<blockquote>
+<p>用例建模步骤：</p>
+<p>1.找出系统外部的参与者和外部系统，确定系统的边界和范围</p>
+<p>2.确定每个参与者所期望的系统行为，即参与者对系统的基本业务需求</p>
+<p>3.把这些系统行为作为基本用例</p>
+<p>4.区分用例的优先次序</p>
+<p>5.细化每个用例</p>
+<p>6.编写每个用例的用例描述</p>
+<p>7.绘制用例图</p>
+<p>8.编写项目词汇表</p>
+</blockquote>
+<h3 id="3-4-1-确定系统边界"><a href="#3-4-1-确定系统边界" class="headerlink" title="3.4.1 确定系统边界"></a>3.4.1 确定系统边界</h3><p>系统边界是<strong>指系统与系统之间的界限</strong></p>
+<p>系统可以认为是由一系列的相互作用的元素形成的具有特定功能的有机整体</p>
+<p>系统边界定义了由谁或什么来使用系统，能够为参与者提供什么特定服务</p>
+<p>系统边界<strong>用实线方框图形符号</strong>表示，同时附上<strong>系统的名称</strong>作为标签。</p>
+<blockquote>
+<p>用例绘制在方框里面，参与者绘制在方框外面</p>
+<img src="/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/15.png" class="">
+</blockquote>
+<h3 id="3-4-2-确定参与者"><a href="#3-4-2-确定参与者" class="headerlink" title="3.4.2 确定参与者"></a>3.4.2 确定参与者</h3><p><strong>用系统边界决定参与者。</strong></p>
+<p>系统边界规划不一，参与者和用例也会发生变化。</p>
+<blockquote>
+<p><font color="red"><strong>以下问题可以帮助识别参与者：</strong></font></p>
+<p>谁将使用系统的主要功能？</p>
+<p>谁将需要系统的支持来完成他们的日常工作？</p>
+<p>谁必须维护、管理和确保系统正常工作？</p>
+<p>谁将给系统提供信息、使用信息和维护信息</p>
+<p>系统需要处理哪些硬件设备？</p>
+<p>系统使用外部资源吗</p>
+<p>系统需要与其它系统交互吗？</p>
+<p>谁对系统产生的结果感兴趣</p>
+</blockquote>
+<blockquote>
+<p><font color="red"><strong>确定参与者时，需要注意：</strong></font></p>
+<p>参与者对于系统而言总是外部的。</p>
+<p>参与者直接同系统交互。</p>
+<p>参与者表示人或事物同系统发生交互时所扮演的角色，而不是特定的人或事物。</p>
+<p>一个人或事物在与系统发生关系时，同时或不同时扮演多种角色。</p>
+<p>一个参与者可以包含多个不同的具体用户。</p>
+</blockquote>
+<h3 id="3-4-3-确定用例"><a href="#3-4-3-确定用例" class="headerlink" title="3.4.3 确定用例"></a>3.4.3 确定用例</h3><p>识别用例最好的方法是从参与者列表开始，然后考虑每个参与者如何使用系统，需要系统提供什么样的服务。还需要弄清楚系统的题域、业务流程、系统功能需求。</p>
+<blockquote>
+<p><font color="red"><strong>以下问题能够帮助识别用例：</strong></font></p>
+<p>参与者要向系统请求什么功能？</p>
+<p>每个参与者的特定任务是什么？</p>
+<p>参与者需要读取、创建、撤销、修改或存储系统的某些信息</p>
+<p>是否任何一个参与者都要向系统通知有关突发性的、外部的改变？或者必须通知参与者关于系统中发生的事件？</p>
+<p>这些事件代表了哪些功能？</p>
+<p>系统需要哪些输入输出？</p>
+<p>是否所有的功能需要都被用例使用了？</p>
+</blockquote>
+<blockquote>
+<p><font color="red"><strong>在确定用例时，要注意：</strong></font></p>
+<p>每个用例至少应该涉及一个参与者。</p>
+<p>如果存在不与参与者进行交互的用例，则应该检查是否遗漏了该用例的参与者。如果确实没有与参与者进行交互，则可考虑将其并入到其他用例中。</p>
+<p>每个参与者也必须至少涉及一个用例。</p>
+<p>如果存在不与用例进行交互的参与者，则应该考虑该参与者是如何与系统发生联系的，或者由参与者确定一个新的用例，或者该参与者是一个多余的模型元素。</p>
+</blockquote>
+<h3 id="3-4-4-区分用例的优先次序"><a href="#3-4-4-区分用例的优先次序" class="headerlink" title="3.4.4 区分用例的优先次序"></a>3.4.4 区分用例的优先次序</h3><p><strong>哪些用例是最关键的，最复杂的，最艰巨的，哪些用例必须在其他用例之前完成。</strong></p>
+<p>规划好后续系统功能的分析与设计阶段的任务展开的先后次序，确定出哪个用例可以为其他用例所重用，从长远的角度节省时间。</p>
+<h3 id="3-4-5-细化每个用例"><a href="#3-4-5-细化每个用例" class="headerlink" title="3.4.5 细化每个用例"></a>3.4.5 细化每个用例</h3><p>分析基本用例要完成的功能，将基本用例中具有一定独立性的功能，特别是具有公共为特征的功能分解出来，将其作为<font color="red">包含用例</font>。</p>
+<p>分析基本用例功能以外的其他功能，将其作为<font color="red">扩展用例</font>。</p>
+<p>对用例进行细化，有助于弄清楚用例的行为中哪些是手工操作的，哪些是可以编程实现的。</p>
+<p>细化用例<font color="red">本质上是对原有用例进行分解</font>，其结果会导致<font color="red">用例个数的增加</font>和每个用例的<font color="red">动作步骤的简化</font>。</p>
+<p>过多的用例个数会增加用例间的通信关系，增加系统耦合度和通信开支。</p>
+<h3 id="3-4-6-编写每个用例描述"><a href="#3-4-6-编写每个用例描述" class="headerlink" title="3.4.6 编写每个用例描述"></a>3.4.6 编写每个用例描述</h3><p>详细说明参与者和用例进行交互时，用例所执行的一系列的动作序列。</p>
+<h3 id="3-4-7-绘制用例图"><a href="#3-4-7-绘制用例图" class="headerlink" title="3.4.7 绘制用例图"></a>3.4.7 绘制用例图</h3><p>用例图的主要作用是描述参与者和用例之间的关系。</p>
+<p>可以有一个或多个用例图。</p>
+<h3 id="3-4-8-编写项目词汇表"><a href="#3-4-8-编写项目词汇表" class="headerlink" title="3.4.8 编写项目词汇表"></a>3.4.8 编写项目词汇表</h3><p>项目词汇表是最重要的项目制品之一。</p>
+<p>词汇表提供了主要业务术语和定义的字典。它应该被项目中的所有人员理解，包括所有的利益相关人员。</p>
+<p><strong>同音异义词：</strong>相同的单词对不同的人表示不同的事物。</p>
+<p><strong>同义异音词：</strong>相同的事物不同的词。OOA必须挑选其中之一并坚持用它。其他变体必须完全从用例模型中剔除。</p>
+<p>UML没有为项目词汇表设置任何标准。尽可能简单和简要。</p>
+<p>采用像字典字母表那样的形式，对单词和定义进行排序。简单的基于文本的文档就可以了。</p>
+<p>大的项目可能需要基于在线HTML或XML的词汇表或者甚至是一个简单的数据库。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/03/26/UML%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%8F%82%E4%B8%8E%E8%80%85%E3%80%81%E7%94%A8%E4%BE%8B%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/03/30/UML%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E7%B1%BB%E5%9B%BE%E3%80%81%E5%AF%B9%E8%B1%A1%E5%9B%BE%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            UML（第四章：类图、对象图）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/26/JSP%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%AF%AD%E6%B3%95%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">JSP（第二章：语法）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+	<ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+	
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+   
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://oss.zhy-goindex.workers.dev" target="_blank" rel="noopener">网盘</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

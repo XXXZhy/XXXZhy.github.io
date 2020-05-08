@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="生活,笔记,思考,代码,博客" />
+   
+  <meta name="description" content="ZhyBlog,朱厚宇的博客,BlogZhy" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Python（程序设计入门2） |  Zhy丶Blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon1.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+  
+  
+	<!-- Highlight.js -->
+	<link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/styles/a11y-dark.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<!-- 封面标闪烁 -->
+	<link rel="stylesheet" href="/css/zhyBlogTitle.css">
+	
+	
+	<!-- 百度自动推送 -->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+</script>
+<link rel="alternate" href="/atom.xml" title="Zhy丶Blog" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-Python（程序设计入门2）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Python（程序设计入门2）
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/07/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A82%EF%BC%89/" class="article-date">
+  <time datetime="2020-04-07T09:16:34.000Z" itemprop="datePublished">2020-04-07</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="/2020/04/07/Python（程序设计入门2）/#1">1 基本输入/输出</a></p>
+<p><a href="/2020/04/07/Python（程序设计入门2）/#2">2 字符串操作</a></p>
+<p><a href="/2020/04/07/Python（程序设计入门2）/#3">3 内置函数</a></p>
+<h1 id="1-基本输入-输出"><a href="#1-基本输入-输出" class="headerlink" title="1 基本输入/输出"></a><span id="1">1 基本输入/输出</span></h1><h2 id="1-1-基本输入函数-input"><a href="#1-1-基本输入函数-input" class="headerlink" title="1.1 基本输入函数 input"></a>1.1 基本输入函数 input</h2><p>input用法：</p>
+<p><font color="red">变量=input（提示字符串）</font></p>
+<p>Python会显示提示字符串后等待用户输入，用户输入完毕（键入回车）后，将用户输入的内容以<font color="red">字符串的类型</font>给变量赋值。</p>
+<h2 id="1-2-基本输出函数-print"><a href="#1-2-基本输出函数-print" class="headerlink" title="1.2 基本输出函数 print"></a>1.2 基本输出函数 print</h2><p>1、字符串原样输出</p>
+<pre><code>print（&#39;字符串&#39;）</code></pre><p>2、可以使用 逗号 和 加号 使得print输出多个字符串</p>
+<pre><code>&gt;&gt;&gt;print（字符串1，字符串2，字符串3）
+字符串1 字符串2 字符串3</code></pre><pre><code>&gt;&gt;&gt;print（字符串1+字符串2+字符串3）
+字符串1字符串2字符串3</code></pre><a id="more"></a>
+
+<p>键盘运算输入</p>
+<pre><code class="python">&gt;&gt;&gt;x=input(&quot;请输入x：&quot;)
+&gt;&gt;&gt;y=input(&quot;请输入y：&quot;)
+&gt;&gt;&gt;z=x+y
+&gt;&gt;&gt;print(&#39;x+y=&#39;,z)
+请输入x：10
+请输入y：20
+x+y= 1020
+#输入内容默认字符串，需要int转型或float
+&gt;&gt;&gt;x=int(input(&quot;请输入x：&quot;))
+&gt;&gt;&gt;y=int(input(&quot;请输入y：&quot;))
+&gt;&gt;&gt;z=x+y
+&gt;&gt;&gt;print(&#39;x+y=&#39;,z)
+请输入x：10
+请输入y：20
+x+y= 30</code></pre>
+<p>3、对3.1415926保留四位小数输出</p>
+<pre><code>&gt;&gt;&gt;print(&quot;%.4f&quot;%3.1415926)
+&gt;&gt;&gt;print(&quot;{:.4f}&quot;.format(3.1415926))</code></pre><p>4、r/R</p>
+<pre><code>原始字符串 - 原始字符串：所有的字符串都是直接按照字面的意思来使用，没有转义特殊或不能打印的字符。 原始字符串除在字符串的第一个引号前加上字母 r（可以大小写）以外，与普通字符串有着几乎完全相同的语法。</code></pre><pre><code>&gt;&gt;&gt;print(&#39;hello\nworld&#39;)#转移符原样输出
+hello
+world
+&gt;&gt;&gt;print(r&#39;hello\nworld&#39;)#r或R原样输出
+hello\nworld
+&gt;&gt;&gt;print(R&#39;hello\nworld&#39;)#R原样输出
+hello\nworld</code></pre><h2 id="1-3-使用占位符进行格式化"><a href="#1-3-使用占位符进行格式化" class="headerlink" title="1.3 使用占位符进行格式化"></a>1.3 使用占位符进行格式化</h2><p><font color="red">set=”分隔符”，end=”结束符”</font></p>
+<pre><code>&gt;&gt;&gt;print（字符串1，字符串2，字符串3，sep=&quot;&quot;,end=&#39;\n&#39;）
+字符串1字符串2字符串3
+
+&gt;&gt;&gt;print（字符串1，字符串2，字符串3，sep=&quot;;&quot;,end=&#39;@@&#39;）
+字符串1；字符串2；字符串3@@</code></pre><p><font color="red"><strong>%c</strong>字符及其ASCII码 <strong>%s</strong>字符串 <strong>%d</strong>整数 <strong>%u</strong>无符号整型 <strong>%f</strong>浮点数字 <strong>%e</strong>科学技术法浮点数</font></p>
+<p><font color="blue">%%输出一个%</font></p>
+<pre><code>&gt;&gt;&gt;name=&quot;TOM&quot;
+&gt;&gt;&gt;age=18
+&gt;&gt;&gt;print=(&quot;学生%s,今年%d岁&quot;%(name,age))#模板字符后用%作分隔符
+学生TOM，今年18岁
+
+&gt;&gt;&gt;pirnt(&quot;%.4f&quot;%3.1415926)
+3.1416</code></pre><p><font color="red">format方法进行格式化</font></p>
+<pre><code>&gt;&gt;&gt;print(&quot;学生{},今年{}岁&quot;.format(name,age))
+学生TOM，今年18岁
+
+&gt;&gt;&gt;str1=&quot;{}{}{}{}&quot;.format(&quot;交通&quot;,&quot;学院&quot;,&quot;信电&quot;,&quot;学院&quot;)#不指定位置
+&gt;&gt;&gt;print(str1)
+交通学院信电学院
+&gt;&gt;&gt;str2=&quot;{0}{1}{2}{1}&quot;.format(&quot;交通&quot;,&quot;学院&quot;,&quot;信电&quot;)#指定位置
+&gt;&gt;&gt;print(str2)
+交通学院信电学院
+#设置参数输出
+&gt;&gt;&gt;print(&quot;姓名：{name},邮箱{email}&quot;.format(name=&quot;李四&quot;,email=&quot;111@qq.com&quot;))
+姓名：李四，邮箱111@qq.com
+&gt;&gt;&gt;pirnt(&quot;{:.4f}&quot;.format(3.1415926))
+3.1416</code></pre><img src="/2020/04/07/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A82%EF%BC%89/1.png" class="">
+
+<img src="/2020/04/07/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A82%EF%BC%89/2.png" class="">
+
+<h2 id="1-4-函数"><a href="#1-4-函数" class="headerlink" title="1.4 函数"></a>1.4 函数</h2><h1 id="2-字符串操作"><a href="#2-字符串操作" class="headerlink" title="2 字符串操作"></a><span id="2">2 字符串操作</span></h1><p>字符串的存储方式：每个字符对应一个下标（索引或序号）从0开始增，倒数从-1开始减</p>
+<h2 id="2-1-切片"><a href="#2-1-切片" class="headerlink" title="2.1 切片"></a>2.1 切片</h2><p>格式：s<font color="red">[m:n]</font>,实质是：<font color="red">[m:n)左闭右开</font></p>
+<p>格式：s<font color="red">[star​：end：step]</font></p>
+<p>表示从start提取到end-1,每间隔step（又称步长，不能为0）个字符提取一个字符</p>
+<pre><code>&gt;&gt;&gt;s=&quot;a+b+c+d&quot;
+&gt;&gt;&gt;print(s[::2])
+abcd</code></pre><pre><code>&gt;&gt;&gt;s=&quot;abcde&quot;
+&gt;&gt;&gt;print(s[1])        #第二个字符
+&gt;&gt;&gt;print(s[1:3])    #s[1]~s[2]，但不含有s[3]
+&gt;&gt;&gt;print(s[1:])        #从s[1]开始的后面所有子串
+&gt;&gt;&gt;print(s[1:-1])    #从s[1]~[-2]子串，最后一个[-1]不包括
+&gt;&gt;&gt;print(s[:])        #整个字符串
+&gt;&gt;&gt;print(s[::])        #整个字符串(step=1)
+b
+bc
+bcde
+bcd
+abcde
+abcde</code></pre><h2 id="2-2-运算符"><a href="#2-2-运算符" class="headerlink" title="2.2 运算符"></a>2.2 运算符</h2><pre><code>&gt;&gt;&gt;a=&quot;hello&quot;
+&gt;&gt;&gt;b=&quot;Python&quot;
+
+&gt;&gt;&gt;a+b            
+&#39;helloPython&#39;
+&gt;&gt;&gt;a*2            
+&#39;hellohello&#39;
+&gt;&gt;&gt;a[1]        
+&#39;e&#39;
+&gt;&gt;&gt;a[1:4]
+&#39;ell&#39;
+&gt;&gt;&gt;&#39;H&#39; in a
+False
+&gt;&gt;&gt;&#39;H&#39; not in a
+True</code></pre><h1 id="3-内置函数"><a href="#3-内置函数" class="headerlink" title="3 内置函数"></a><span id="3">3 内置函数</span></h1><h2 id="3-1-数学函数"><a href="#3-1-数学函数" class="headerlink" title="3.1 数学函数"></a>3.1 数学函数</h2><pre><code>&gt;&gt;&gt;print(abs(-2))            #求数值的绝对值
+&gt;&gt;&gt;print(max(1,6,3))        #取较大者
+&gt;&gt;&gt;print(min(7,2,3))        #取较小者
+&gt;&gt;&gt;print(pow(2,3))            #返回两个数值的幂运算
+&gt;&gt;&gt;print(round(65.32451,3))    #对浮点数进行四舍五入，小数第3位
+&gt;&gt;&gt;print(sum([1,2,3]))        #求和
+2
+6
+2
+8
+65.325
+6</code></pre><p>divmod(a,b) 分别取商和余数，注意，整数、浮点型都可以。</p>
+<pre><code>&gt;&gt;&gt;print(divmod(5,2))
+&gt;&gt;&gt;print(divmod(5.0,2))
+&gt;&gt;&gt;print(divmod(5.5,2))
+(2,1)
+(2.0,1.0)
+(2.0,1.5)</code></pre><p>eval函数</p>
+<pre><code class="python">&gt;&gt;&gt;x=input(&quot;表达式：&quot;)
+&gt;&gt;&gt;y=eval(x)    #直接得出表达式结果
+&gt;&gt;&gt;print(x,&#39;=&#39;,y)
+表达式：2+7+(1*8)
+2+7+(1*8) = 17</code></pre>
+<p>交换数值</p>
+<pre><code>&gt;&gt;&gt;x,y=y,x</code></pre><h2 id="3-2-字符串函数"><a href="#3-2-字符串函数" class="headerlink" title="3.2 字符串函数"></a>3.2 字符串函数</h2><pre><code>&gt;&gt;&gt;s=&#39;hello world hello!&#39;
+
+&gt;&gt;&gt;print(s.replace(&#39;he&#39;,&#39;HE&#39;,1))#replace:不写1就全部替换
+HEllo world hello!
+&gt;&gt;&gt;print(s.find(&quot;or&quot;))            #find:找
+7
+&gt;&gt;&gt;print(s.count(&quot;he&quot;))            #count:数
+2
+&gt;&gt;&gt;print(s.split())                #split:分
+[&#39;hello&#39;, &#39;world&#39;, &#39;hello!&#39;]</code></pre><p><strong>所有内置函数查询：</strong><a href="https://www.runoob.com/python/python-built-in-functions.html" target="_blank" rel="noopener">https://www.runoob.com/python/python-built-in-functions.html</a></p>
+<h2 id="3-3-转换函数"><a href="#3-3-转换函数" class="headerlink" title="3.3 转换函数"></a>3.3 转换函数</h2><pre><code>&gt;&gt;&gt;int()    #转换为整型
+&gt;&gt;&gt;float()    #转换为小数
+&gt;&gt;&gt;str()    #数字转换为String
+&gt;&gt;&gt;chr()    #(0-255)返回对应字符
+&gt;&gt;&gt;ord()    #返回对应的ASCII
+
+&gt;&gt;&gt;bin(8)    #二进制
+&#39;0b1000&#39;
+&gt;&gt;&gt;oct(9)    #八进制
+&#39;0o11&#39;
+&gt;&gt;&gt;hex(15)    #十六进制
+&#39;0xf&#39;
+
+&gt;&gt;&gt;help()    #查看函数功能，如help(bin)</code></pre><pre><code>&gt;&gt;&gt;int(&#39;11&#39;,2)    #二进制11变成十进制
+&gt;&gt;&gt;int(&#39;11&#39;,8)    #八进制11变成十进制
+&gt;&gt;&gt;int(&#39;11&#39;,16)    #十六进制11变成十进制
+3
+9
+17</code></pre><pre><code>&gt;&gt;&gt;chr(65)
+&#39;A&#39;
+&gt;&gt;&gt;chr(97)
+&#39;a&#39;</code></pre>
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.blogzhy.top/2020/04/07/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A82%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/04/08/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E6%95%B4%E4%BD%93%E7%AE%A1%E7%90%86%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            软件项目管理（第三章：IT项目整体管理）
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/05/CSS%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CSS实用代码</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'ViDJCBqInKxH4NQJYCCbWoyd-gzGzoHsz',
+        app_key: 'brVPSoOCpo3mVt1TelhkVKzW',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'robohash',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Zhy
+      </li>
+    </ul>
+	<ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black">蜀ICP备20004979号</a>
+        </li>
+        
+		<li>&emsp;|&emsp;</li>
+		<li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s4.cnzz.com/z_stat.php?id=1278647739&amp;web_id=1278647739'></script>
+        
+		</li>
+    </ul>
+	
+	
+	<ul>
+      <li>
+        
+      </li>
+    </ul>
+   
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer.png" alt="Zhy丶Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://oss.zhy-goindex.workers.dev" target="_blank" rel="noopener">网盘</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="https://zhy1030310.lofter.com" target="_blank" rel="noopener">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/WebNav.html">导航</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friendlink">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/musicList">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/02/20/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['人生就像一盒巧克力，你永远不知道下一颗是什么味道。', '连绵不绝的城市，什么都有，除了尽头，没有尽头。', '我甚至连他的一张照片都没有，他只活在我的记忆里。'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"left","width":150,"height":300,"hOffset":80,"vOffset":-70},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>
