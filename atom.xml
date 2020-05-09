@@ -62,14 +62,14 @@
     <link href="https://www.blogzhy.top/2020/05/08/Python%EF%BC%88%E5%AD%97%E5%85%B8%E3%80%81%E9%9B%86%E5%90%88%EF%BC%89/"/>
     <id>https://www.blogzhy.top/2020/05/08/Python%EF%BC%88%E5%AD%97%E5%85%B8%E3%80%81%E9%9B%86%E5%90%88%EF%BC%89/</id>
     <published>2020-05-08T02:57:34.000Z</published>
-    <updated>2020-05-09T02:28:06.256Z</updated>
+    <updated>2020-05-09T02:37:35.919Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#1&quot;&gt;字典&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#2&quot;&gt;集合&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#3&quot;&gt;组合数据类型总结&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#1&quot;&gt;1 字典&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#2&quot;&gt;2 集合&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#3&quot;&gt;3 组合数据类型总结&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;1-字典&quot;&gt;&lt;a href=&quot;#1-字典&quot; class=&quot;headerlink&quot; title=&quot;1 字典&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1 字典&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;1-1-字典的定义&quot;&gt;&lt;a href=&quot;#1-1-字典的定义&quot; class=&quot;headerlink&quot; title=&quot;1.1 字典的定义&quot;&gt;&lt;/a&gt;1.1 字典的定义&lt;/h2&gt;&lt;p&gt;&lt;font color=&quot;red&quot;&gt;字典：映射类型，dict  &lt;/font&gt;&lt;/p&gt;
 &lt;p&gt; 元素是键值对（key : value）&lt;/p&gt;
