@@ -16,7 +16,7 @@
 </ul>
 <p>得到邮箱后，直接可以邮箱登录Google Drive：<a href="https://drive.google.com" target="_blank" rel="noopener">https://drive.google.com</a></p>
 <p>不能访问谷歌的，浏览器安装<a href="http://googlehelper.net/" target="_blank" rel="noopener">Ghelper</a></p>
-<img src="/2020/05/09/Google%20Drive%E6%97%A0%E9%99%90%E5%AE%B9%E9%87%8F%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95%E7%BD%91%E7%9B%98/2.png" class="">
+
 
 <h1 id="3-目录索引网盘"><a href="#3-目录索引网盘" class="headerlink" title="3 目录索引网盘"></a>3 目录索引网盘</h1><p>开源项目：</p>
 <ul>
@@ -66,7 +66,7 @@
 <p>复制【refresh_token】将其填入CF中的对应位置，并填写【client_id】和【client_secret】。</p>
 <img src="/2020/05/09/Google%20Drive%E6%97%A0%E9%99%90%E5%AE%B9%E9%87%8F%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95%E7%BD%91%E7%9B%98/13.png" class="">
 
-<h2 id="3-5-填写目录id"><a href="#3-5-填写目录id" class="headerlink" title="3.5 填写目录id"></a>3.5 填写目录id</h2><img src="/2020/05/09/Google%20Drive%E6%97%A0%E9%99%90%E5%AE%B9%E9%87%8F%E7%9B%AE%E5%BD%95%E7%B4%A2%E5%BC%95%E7%BD%91%E7%9B%98/14.png" class="">
+<h2 id="3-5-填写目录id"><a href="#3-5-填写目录id" class="headerlink" title="3.5 填写目录id"></a>3.5 填写目录id</h2>
 
 <p>每一个{    } 就是一个目录，不需要可以删，需要更多可以加。</p>
 <p>【团队盘id获取】</p>
