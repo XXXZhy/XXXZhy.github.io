@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-05-08T03:05:54.483Z</updated>
+  <updated>2020-05-09T02:36:30.192Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -17,21 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python（函数）</title>
+    <link href="https://www.blogzhy.top/2020/05/09/Python%EF%BC%88%E5%87%BD%E6%95%B0%EF%BC%89/"/>
+    <id>https://www.blogzhy.top/2020/05/09/Python%EF%BC%88%E5%87%BD%E6%95%B0%EF%BC%89/</id>
+    <published>2020-05-09T02:30:00.000Z</published>
+    <updated>2020-05-09T02:36:30.192Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#1&quot;&gt;1 函数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#2&quot;&gt;2 定义函数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#3&quot;&gt;3 函数调用&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#4&quot;&gt;4 函数的返回值&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#5&quot;&gt;5 函数的参数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#6&quot;&gt;6 匿名函数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#7&quot;&gt;7 局部变量和全局变&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/09/Python（函数）/#8&quot;&gt;8 内置函数&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-函数&quot;&gt;&lt;a href=&quot;#1-函数&quot; class=&quot;headerlink&quot; title=&quot;1 函数&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1 函数&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。&lt;/p&gt;
+&lt;p&gt;函数能提高应用的模块性，和代码的重复利用率。&lt;/p&gt;
+&lt;p&gt;你已经知道 Python 提供了许多内置函数，比如 print().range()函数等等。当然也可以自己创建实现某个预设功能的函数，这被叫做用户自定义函数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内置函数&lt;/li&gt;
+&lt;li&gt;自定义函数&lt;/li&gt;
+&lt;li&gt;标准库函数&lt;/li&gt;
+&lt;li&gt;第三方库函数&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.blogzhy.top/categories/Python/"/>
+    
+    
+      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python" scheme="https://www.blogzhy.top/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python（字典、集合）</title>
     <link href="https://www.blogzhy.top/2020/05/08/Python%EF%BC%88%E5%AD%97%E5%85%B8%E3%80%81%E9%9B%86%E5%90%88%EF%BC%89/"/>
     <id>https://www.blogzhy.top/2020/05/08/Python%EF%BC%88%E5%AD%97%E5%85%B8%E3%80%81%E9%9B%86%E5%90%88%EF%BC%89/</id>
     <published>2020-05-08T02:57:34.000Z</published>
-    <updated>2020-05-08T03:05:54.483Z</updated>
+    <updated>2020-05-09T02:28:06.256Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#1&quot;&gt;字典&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#2&quot;&gt;集合&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/05/08/Python（字典、集合）/#3&quot;&gt;组合数据类型总结&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-字典&quot;&gt;&lt;a href=&quot;#1-字典&quot; class=&quot;headerlink&quot; title=&quot;1 字典&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1 字典&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;1-1-字典的定义&quot;&gt;&lt;a href=&quot;#1-1-字典的定义&quot; class=&quot;headerlink&quot; title=&quot;1.1 字典的定义&quot;&gt;&lt;/a&gt;1.1 字典的定义&lt;/h2&gt;&lt;p&gt;&lt;font color=&quot;red&quot;&gt;字典：映射类型，dict  &lt;/font&gt;&lt;/p&gt;
+&lt;p&gt; 元素是键值对（key : value）&lt;/p&gt;
+&lt;p&gt; 多个元素放在{ }中，用逗号隔开。&lt;/p&gt;
+&lt;p&gt; {  key1：value1  , key2：value2 ,…… }&lt;/p&gt;
+&lt;p&gt;键（key）是唯一的，必须是不可变类型，比如整数、实数、字符串、元组等；&lt;/p&gt;
+&lt;p&gt;键值（value）是任意是，也可以是字典、列表、元祖等；&lt;/p&gt;
+&lt;p&gt;字典是&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;无序&lt;/strong&gt;&lt;/font&gt;的，只能通过‘键’访问元素&lt;/p&gt;
     
     </summary>
     
@@ -667,44 +713,6 @@ filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
     
     
       <category term="CSS" scheme="https://www.blogzhy.top/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python（程序设计入门1）</title>
-    <link href="https://www.blogzhy.top/2020/04/02/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A81%EF%BC%89/"/>
-    <id>https://www.blogzhy.top/2020/04/02/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A81%EF%BC%89/</id>
-    <published>2020-04-02T02:59:45.000Z</published>
-    <updated>2020-04-02T08:26:04.452Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#1&quot;&gt;1.标识符命名规则及变量的定义&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#2&quot;&gt;2.数据类型基本知识&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#3&quot;&gt;3.判断变量数据类型并输出&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#4&quot;&gt;4.数据类型转换&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#5&quot;&gt;5.正确写出表达式&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#6&quot;&gt;6.华氏度转摄氏度和进制转换&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#7&quot;&gt;7.注释&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#8&quot;&gt;8.缩进&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/02/Python（程序设计入门1）/#9&quot;&gt;9.多变量赋值-交换两个变量的值&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;1-标识符命名规则及变量的定义&quot;&gt;&lt;a href=&quot;#1-标识符命名规则及变量的定义&quot; class=&quot;headerlink&quot; title=&quot;1.标识符命名规则及变量的定义&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1.标识符命名规则及变量的定义&lt;/span&gt;&lt;/h2&gt;&lt;h5 id=&quot;Python标识符命名规则&quot;&gt;&lt;a href=&quot;#Python标识符命名规则&quot; class=&quot;headerlink&quot; title=&quot;Python标识符命名规则&quot;&gt;&lt;/a&gt;Python标识符命名规则&lt;/h5&gt;&lt;ol&gt;
-&lt;li&gt;标识符只能由字母、数字和下划线三种字符组成；&lt;/li&gt;
-&lt;li&gt;第一个字符必须为字母或下划线；&lt;/li&gt;
-&lt;li&gt;不可使用关键字；&lt;/li&gt;
-&lt;li&gt;区分大小写。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://www.blogzhy.top/categories/Python/"/>
-    
-    
-      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Python" scheme="https://www.blogzhy.top/tags/Python/"/>
     
   </entry>
   
