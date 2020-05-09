@@ -110,6 +110,104 @@
     
     
     
+    <article id="post-CSS实用代码" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/05/CSS%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/"
+    >CSS实用代码</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/05/CSS%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/" class="article-date">
+  <time datetime="2020-04-05T09:36:04.000Z" itemprop="datePublished">2020-04-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="网页全局“黑白滤镜”"><a href="#网页全局“黑白滤镜”" class="headerlink" title="网页全局“黑白滤镜”"></a>网页全局“黑白滤镜”</h2><pre><code class="css">&lt;style type=&quot;text/css&quot;&gt;
+/*全局黑白字体*/
+html {
+filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+-webkit-filter: grayscale(1);
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="字体闪烁"><a href="#字体闪烁" class="headerlink" title="字体闪烁"></a>字体闪烁</h2><h1 class="center-text glitch" data-text="Zhy丶Blog" style="background-color: black;" >Zhy丶Blog</h1>
+
+
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+/*网站标题鼠标停留闪烁*/    
+.center-text{margin:auto;font-family:&#39;Ubuntu&#39;,sans-serif;font-size:80px;}
+.glitch{position:relative;color:#fff;mix-blend-mode:lighten}
+.glitch:before,.glitch:after{content:attr(data-text);position:absolute;top:0;width:100%;background:rgba(0,0,0,0);clip:rect(0,0,0,0)}
+.glitch:before{left:-1px;text-shadow:1px 0 #ff3f1a}
+.glitch:after{left:1px;text-shadow:-1px 0 #00a7e0}
+.glitch:hover:before{text-shadow:4px 0 #ff3f1a;animation:glitch-loop-1 .8s infinite ease-in-out alternate-reverse}
+.glitch:hover:after{text-shadow:-5px 0 #00a7e0;animation:glitch-loop-2 .8s infinite ease-in-out alternate-reverse}
+@-webkit-keyframes glitch-loop-1{0%{clip:rect(36px,9999px,9px,0)}25%{clip:rect(25px,9999px,99px,0)}50%{clip:rect(50px,9999px,102px,0)}75%{clip:rect(30px,9999px,92px,0)}100%{clip:rect(91px,9999px,98px,0)}}
+@keyframes glitch-loop-1{0%{clip:rect(36px,9999px,9px,0)}25%{clip:rect(25px,9999px,99px,0)}50%{clip:rect(50px,9999px,102px,0)}75%{clip:rect(30px,9999px,92px,0)}100%{clip:rect(91px,9999px,98px,0)}}
+@-webkit-keyframes glitch-loop-2{0%{top:-1px;left:1px;clip:rect(65px,9999px,119px,0)}25%{top:-6px;left:4px;clip:rect(79px,9999px,19px,0)}50%{top:-3px;left:2px;clip:rect(68px,9999px,11px,0)}75%{top:0;left:-4px;clip:rect(95px,9999px,53px,0)}100%{top:-1px;left:-1px;clip:rect(31px,9999px,149px,0)}}
+@keyframes glitch-loop-2{0%{top:-1px;left:1px;clip:rect(65px,9999px,119px,0)}25%{top:-6px;left:4px;clip:rect(79px,9999px,19px,0)}50%{top:-3px;left:2px;clip:rect(68px,9999px,11px,0)}75%{top:0;left:-4px;clip:rect(95px,9999px,53px,0)}100%{top:-1px;left:-1px;clip:rect(31px,9999px,149px,0)}}
+&lt;/style&gt;</code></pre><pre><code class="html">&lt;h1 class=&quot;center-text glitch&quot; data-text=&quot;Zhy丶Blog&quot;&gt;Zhy丶Blog&lt;/h1&gt;</code></pre>
+      
+      <a class="article-more-link" href="/2020/04/05/CSS%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/">More</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-Python（程序设计入门1）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -886,102 +984,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-软件项目管理（ 第二章：组织环境与项目管理过程）" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/03/20/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%BB%84%E7%BB%87%E7%8E%AF%E5%A2%83%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%BF%87%E7%A8%8B%EF%BC%89/"
-    >软件项目管理（第二章：组织环境与项目管理过程）</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/03/20/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%BB%84%E7%BB%87%E7%8E%AF%E5%A2%83%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%BF%87%E7%A8%8B%EF%BC%89/" class="article-date">
-  <time datetime="2020-03-20T04:15:52.000Z" itemprop="datePublished">2020-03-20</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">软件项目管理</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p><a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.1"><strong>2.1 IT项目管理的环境</strong></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.1.1"><em>2.1.1 项目环境</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.1.2"><em>2.1.2 项目与组织战略</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.1.3"><em>2.1.3 项目相关利益者主要包括的以下方面</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.1.4"><em>2.1.4 组织结构</em></a></p>
-<p><a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.2"><strong>2.2 IT项目生命周期</strong></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.2.1"><em>2.2.1 生命周期</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.2.2"><em>2.2.2 IT项目各阶段内容</em></a></p>
-<p><a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.3"><strong>2.3 IT项目的管理过程</strong></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.3.1"><em>2.3.1 项目管理过程</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.3.2"><em>2.3.2 IT项目的管理过程</em></a></p>
-<p><a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.4"><strong>2.4 项目经理的责任和权利</strong></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.4.1"><em>2.4.1 项目经理的地位和作用</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.4.2"><em>2.4.2 项目经理的职责</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.4.3"><em>2.4.3 项目经理的权力</em></a></p>
-<p>​    <a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.4.4"><em>2.4.4 项目经理的能力</em></a></p>
-<p><a href="/2020/03/20/软件项目管理（%20第二章：组织环境与项目管理过程）/#2.5"><strong>2.5 作业</strong></a></p>
-</blockquote>
-<hr>
-<h2 id="2-1-IT项目管理的环境"><a href="#2-1-IT项目管理的环境" class="headerlink" title="2.1 IT项目管理的环境"></a><span id="2.1">2.1 IT项目管理的环境</span></h2><h3 id="2-1-1-项目环境："><a href="#2-1-1-项目环境：" class="headerlink" title="2.1.1 项目环境："></a><span id="2.1.1">2.1.1 项目环境：</span></h3><p>​    1.经济环境对IT项目的影响</p>
-<p>​    2.社会人文、政策法律对IT项目的影响</p>
-<p>​    3.企业文化对IT项目的影响</p>
-      
-      <a class="article-more-link" href="/2020/03/20/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%20%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%BB%84%E7%BB%87%E7%8E%AF%E5%A2%83%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%BF%87%E7%A8%8B%EF%BC%89/">More</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">软件项目管理</a></li></ul>
 
 
     </footer>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-05-09T02:36:30.192Z</updated>
+  <updated>2020-05-09T17:21:48.333Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Google Drive无限容量目录索引网盘</title>
+    <link href="https://www.blogzhy.top/2020/05/09/Google-Drive%E6%97%A0%E9%99%90%E5%AE%B9%E9%87%8F%E7%BD%91%E7%9B%98/"/>
+    <id>https://www.blogzhy.top/2020/05/09/Google-Drive%E6%97%A0%E9%99%90%E5%AE%B9%E9%87%8F%E7%BD%91%E7%9B%98/</id>
+    <published>2020-05-09T15:09:22.000Z</published>
+    <updated>2020-05-09T17:21:48.333Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1-效果&quot;&gt;&lt;a href=&quot;#1-效果&quot; class=&quot;headerlink&quot; title=&quot;1 效果&quot;&gt;&lt;/a&gt;1 效果&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://oss.zhy-goindex.workers.dev/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://oss.zhy-goindex.workers.dev/&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="个人博客" scheme="https://www.blogzhy.top/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="软件推荐" scheme="https://www.blogzhy.top/categories/%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/"/>
+    
+    
+      <category term="Google Drive" scheme="https://www.blogzhy.top/tags/Google-Drive/"/>
+    
+  </entry>
   
   <entry>
     <title>Python（函数）</title>
@@ -668,51 +691,6 @@
       <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="Python" scheme="https://www.blogzhy.top/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS实用代码</title>
-    <link href="https://www.blogzhy.top/2020/04/05/CSS%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/"/>
-    <id>https://www.blogzhy.top/2020/04/05/CSS%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/</id>
-    <published>2020-04-05T09:36:04.000Z</published>
-    <updated>2020-04-05T12:06:21.330Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;网页全局“黑白滤镜”&quot;&gt;&lt;a href=&quot;#网页全局“黑白滤镜”&quot; class=&quot;headerlink&quot; title=&quot;网页全局“黑白滤镜”&quot;&gt;&lt;/a&gt;网页全局“黑白滤镜”&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;css&quot;&gt;&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
-/*全局黑白字体*/
-html {
-filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
--webkit-filter: grayscale(1);
-}
-&amp;lt;/style&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;字体闪烁&quot;&gt;&lt;a href=&quot;#字体闪烁&quot; class=&quot;headerlink&quot; title=&quot;字体闪烁&quot;&gt;&lt;/a&gt;字体闪烁&lt;/h2&gt;&lt;h1 class=&quot;center-text glitch&quot; data-text=&quot;Zhy丶Blog&quot; style=&quot;background-color: black;&quot; &gt;Zhy丶Blog&lt;/h1&gt;
-
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
-/*网站标题鼠标停留闪烁*/    
-.center-text{margin:auto;font-family:&amp;#39;Ubuntu&amp;#39;,sans-serif;font-size:80px;}
-.glitch{position:relative;color:#fff;mix-blend-mode:lighten}
-.glitch:before,.glitch:after{content:attr(data-text);position:absolute;top:0;width:100%;background:rgba(0,0,0,0);clip:rect(0,0,0,0)}
-.glitch:before{left:-1px;text-shadow:1px 0 #ff3f1a}
-.glitch:after{left:1px;text-shadow:-1px 0 #00a7e0}
-.glitch:hover:before{text-shadow:4px 0 #ff3f1a;animation:glitch-loop-1 .8s infinite ease-in-out alternate-reverse}
-.glitch:hover:after{text-shadow:-5px 0 #00a7e0;animation:glitch-loop-2 .8s infinite ease-in-out alternate-reverse}
-@-webkit-keyframes glitch-loop-1{0%{clip:rect(36px,9999px,9px,0)}25%{clip:rect(25px,9999px,99px,0)}50%{clip:rect(50px,9999px,102px,0)}75%{clip:rect(30px,9999px,92px,0)}100%{clip:rect(91px,9999px,98px,0)}}
-@keyframes glitch-loop-1{0%{clip:rect(36px,9999px,9px,0)}25%{clip:rect(25px,9999px,99px,0)}50%{clip:rect(50px,9999px,102px,0)}75%{clip:rect(30px,9999px,92px,0)}100%{clip:rect(91px,9999px,98px,0)}}
-@-webkit-keyframes glitch-loop-2{0%{top:-1px;left:1px;clip:rect(65px,9999px,119px,0)}25%{top:-6px;left:4px;clip:rect(79px,9999px,19px,0)}50%{top:-3px;left:2px;clip:rect(68px,9999px,11px,0)}75%{top:0;left:-4px;clip:rect(95px,9999px,53px,0)}100%{top:-1px;left:-1px;clip:rect(31px,9999px,149px,0)}}
-@keyframes glitch-loop-2{0%{top:-1px;left:1px;clip:rect(65px,9999px,119px,0)}25%{top:-6px;left:4px;clip:rect(79px,9999px,19px,0)}50%{top:-3px;left:2px;clip:rect(68px,9999px,11px,0)}75%{top:0;left:-4px;clip:rect(95px,9999px,53px,0)}100%{top:-1px;left:-1px;clip:rect(31px,9999px,149px,0)}}
-&amp;lt;/style&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&amp;lt;h1 class=&amp;quot;center-text glitch&amp;quot; data-text=&amp;quot;Zhy丶Blog&amp;quot;&amp;gt;Zhy丶Blog&amp;lt;/h1&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-      <category term="前端开发" scheme="https://www.blogzhy.top/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="CSS" scheme="https://www.blogzhy.top/tags/CSS/"/>
     
   </entry>
   
