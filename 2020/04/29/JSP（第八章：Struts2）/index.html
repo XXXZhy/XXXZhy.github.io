@@ -268,7 +268,11 @@ public class UserAction {
 <pre><code class="jsp"> error!!!&lt;br&gt;</code></pre>
 <hr>
 <p>浏览器运行 <a href="http://localhost:8080/JSPStruts2/login.jsp" target="_blank" rel="noopener">http://localhost:8080/JSPStruts2/login.jsp</a></p>
-{% asset_img 2.png %}{% asset_img 3.png %}{% asset_img 4.png %}
+<img src="/2020/04/29/JSP（第八章：Struts2）/2.png">
+
+<img src="/2020/04/29/JSP（第八章：Struts2）/3.png">
+
+<img src="/2020/04/29/JSP（第八章：Struts2）/4.png">
 
 <h1 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h1><h2 id="2-1-web-xml文件"><a href="#2-1-web-xml文件" class="headerlink" title="2.1 web.xml文件"></a>2.1 web.xml文件</h2><p><strong>struts2实质就是过滤器实现</strong>，按例子中再web.xml添加struts2的过滤器</p>
 <h2 id="2-2-struts-xml文件"><a href="#2-2-struts-xml文件" class="headerlink" title="2.2 struts.xml文件"></a>2.2 struts.xml文件</h2><p>在struts2框架中使用包来管理Action，包的作用和java中的类包是非常类似的，它主要用于管理一组业务功能相关的action.在实际应用中，我们应该把一组业务功能相关的Action放在同一个包下。<br>配置包时必须指定name属性，该name属性值可以任意取名，但必须唯一，如果其他包要继承该包，必须通过该属性进行引用。包的namespace属性用于定义该包的命名空间，命名空间作为访问该包下Action路径的一部分。Namespace属性可以不配置，如果不指定该属性，默认的命名空间为“”<br>通常每个包都应该继承struts-default包，因为struts2很多核心的功能都是拦截器来实现。当包继承了struts-default才能使用struts2提供的核心功能。Struts-default包是在struts2-core-2.x.x.jar文件中的struts-default.xml中定义。</p>
@@ -277,7 +281,7 @@ public class UserAction {
 <p>POJO（Plain Old Java Objects）简单的Java对象，实际就是普通JavaBeans，是为了避免和EJB混淆所创造的简称。是它通指没有使用Entity Beans的普通java对象，可以把POJO作为支持业务逻辑的协助类。</p>
 <p><strong>Struts2中actions的唯一要求是必须有一个无参数方法返回String或Result对象，并且必须是POJO。如果没有指定no-argument方法，则<font color="red">默认是使用execute()方法</font>。</strong></p>
 <h2 id="3-2-基类ActionSupport"><a href="#3-2-基类ActionSupport" class="headerlink" title="3.2 基类ActionSupport"></a>3.2 基类ActionSupport</h2><p>框架还提供了一个Action组件的基类ActionSupport，它在实现了Action接口的同时实现了execute()方法。</p>
-{% asset_img 5.png %}
+<img src="/2020/04/29/JSP（第八章：Struts2）/5.png">
 
 <h2 id="3-3-让Action处理多个请求——通配符"><a href="#3-3-让Action处理多个请求——通配符" class="headerlink" title="3.3 让Action处理多个请求——通配符"></a>3.3 让Action处理多个请求——通配符</h2><p>【src/struts.xml】：<font color="red">_* 代表方法名，action 添加 {1} 表示第一个 * 的内容</font></p>
 <pre><code class="xml">&lt;struts&gt;
@@ -290,7 +294,7 @@ public class UserAction {
 &lt;/action&gt;
 &lt;/package&gt;
 &lt;/struts&gt;</code></pre>
-<p>【src/my.example/User.java】：继承ActionSupport并增加方法</p>
+<p>【src/my.example/User.java】：继承ActionSupport并增加方法，execute（）返回值为<font color="red">常量<strong>SUCCESS</strong>和<strong>ERROR</strong></font></p>
 <pre><code class="java">package my.example;
 
 import com.opensymphony.xwork2.ActionSupport;
