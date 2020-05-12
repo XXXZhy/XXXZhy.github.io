@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-05-10T03:35:14.150Z</updated>
+  <updated>2020-05-12T02:07:31.135Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UML（第七章：组件图、部署图）</title>
+    <link href="https://www.blogzhy.top/2020/05/12/UML%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E7%BB%84%E4%BB%B6%E5%9B%BE%E3%80%81%E9%83%A8%E7%BD%B2%E5%9B%BE%EF%BC%89/"/>
+    <id>https://www.blogzhy.top/2020/05/12/UML%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E7%BB%84%E4%BB%B6%E5%9B%BE%E3%80%81%E9%83%A8%E7%BD%B2%E5%9B%BE%EF%BC%89/</id>
+    <published>2020-05-12T00:44:25.000Z</published>
+    <updated>2020-05-12T02:07:31.135Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;2020/05/12/UML（第七章：组件图、部署图）/#1&quot;&gt;7.1 组件图&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;2020/05/12/UML（第七章：组件图、部署图）/#2&quot;&gt;7.2 部署图&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;2020/05/12/UML（第七章：组件图、部署图）/#3&quot;&gt;7.3 组件图、部署图综合例子&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;7-1-组件图&quot;&gt;&lt;a href=&quot;#7-1-组件图&quot; class=&quot;headerlink&quot; title=&quot;7.1 组件图&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;7.1 组件图&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;7-1-1-概念&quot;&gt;&lt;a href=&quot;#7-1-1-概念&quot; class=&quot;headerlink&quot; title=&quot;7.1.1 概念&quot;&gt;&lt;/a&gt;7.1.1 概念&lt;/h2&gt;&lt;p&gt;分析与设计软件系统时，不仅要考虑系统的逻辑部分，也要考虑系统的物理部分。&lt;br&gt;&lt;strong&gt;逻辑部分&lt;/strong&gt;需要描述类、对象、接口、交互、活动、状态机等。&lt;br&gt;&lt;strong&gt;物理部分&lt;/strong&gt;需要定义组件和结点。&lt;br&gt;类、对象、接口组织在组件中，组件部署在结点上。&lt;/p&gt;
+&lt;p&gt;软件系统&lt;strong&gt;分析阶段的主要任务：&lt;/strong&gt;是对系统的功能需求进行静态模型和动态模型的建模，并且通过迭代方式对静态模型和动态模型进行细化和补充。&lt;br&gt;软件系统&lt;strong&gt;设计阶段的主要任务：&lt;/strong&gt;是确定系统的体系结构，确定哪些类需要放在一个组件中，考虑如何对系统的组件进行构造和组织，以及组件如何在结点上进行分布。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="UML" scheme="https://www.blogzhy.top/categories/UML/"/>
+    
+    
+      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="UML" scheme="https://www.blogzhy.top/tags/UML/"/>
+    
+  </entry>
   
   <entry>
     <title>Google Drive无限容量目录索引网盘</title>
@@ -660,39 +689,6 @@
       <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="软件项目管理" scheme="https://www.blogzhy.top/tags/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python（程序设计入门2）</title>
-    <link href="https://www.blogzhy.top/2020/04/07/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A82%EF%BC%89/"/>
-    <id>https://www.blogzhy.top/2020/04/07/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%85%A5%E9%97%A82%EF%BC%89/</id>
-    <published>2020-04-07T09:16:34.000Z</published>
-    <updated>2020-04-09T07:03:11.712Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;/2020/04/07/Python（程序设计入门2）/#1&quot;&gt;1 基本输入/输出&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/07/Python（程序设计入门2）/#2&quot;&gt;2 字符串操作&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;/2020/04/07/Python（程序设计入门2）/#3&quot;&gt;3 内置函数&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;1-基本输入-输出&quot;&gt;&lt;a href=&quot;#1-基本输入-输出&quot; class=&quot;headerlink&quot; title=&quot;1 基本输入/输出&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1 基本输入/输出&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;1-1-基本输入函数-input&quot;&gt;&lt;a href=&quot;#1-1-基本输入函数-input&quot; class=&quot;headerlink&quot; title=&quot;1.1 基本输入函数 input&quot;&gt;&lt;/a&gt;1.1 基本输入函数 input&lt;/h2&gt;&lt;p&gt;input用法：&lt;/p&gt;
-&lt;p&gt;&lt;font color=&quot;red&quot;&gt;变量=input（提示字符串）&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;Python会显示提示字符串后等待用户输入，用户输入完毕（键入回车）后，将用户输入的内容以&lt;font color=&quot;red&quot;&gt;字符串的类型&lt;/font&gt;给变量赋值。&lt;/p&gt;
-&lt;h2 id=&quot;1-2-基本输出函数-print&quot;&gt;&lt;a href=&quot;#1-2-基本输出函数-print&quot; class=&quot;headerlink&quot; title=&quot;1.2 基本输出函数 print&quot;&gt;&lt;/a&gt;1.2 基本输出函数 print&lt;/h2&gt;&lt;p&gt;1、字符串原样输出&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;print（&amp;#39;字符串&amp;#39;）&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2、可以使用 逗号 和 加号 使得print输出多个字符串&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;print（字符串1，字符串2，字符串3）
-字符串1 字符串2 字符串3&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;print（字符串1+字符串2+字符串3）
-字符串1字符串2字符串3&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://www.blogzhy.top/categories/Python/"/>
-    
-    
-      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Python" scheme="https://www.blogzhy.top/tags/Python/"/>
     
   </entry>
   
