@@ -110,6 +110,90 @@
     
     
     
+    <article id="post-JSP（第六章：EL）" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/28/JSP%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9AEL%EF%BC%89/"
+    >JSP（第六章：EL）</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/28/JSP%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9AEL%EF%BC%89/" class="article-date">
+  <time datetime="2020-04-28T11:43:57.000Z" itemprop="datePublished">2020-04-28</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JSP/">JSP</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p><a href="/2020/04/28/JSP（第六章：EL）/#1">1 EL概述</a></p>
+<p><a href="/2020/04/28/JSP（第六章：EL）/#2">2 EL运算符</a></p>
+<p><a href="/2020/04/28/JSP（第六章：EL）/#3">3 EL的隐含对象</a></p>
+<p><a href="/2020/04/28/JSP（第六章：EL）/#4">4 定义和使用EL函数</a></p>
+</blockquote>
+<p>JSTL(JSP Standard Tag Library) 是JSP标准标签库，不依赖于哪个框架。在Servlet2.4以上容器使用。由两部分组成：标签库+EL表达式(表达式语言)。EL表达式可以单独使用，不用引入任何包，要求容器是2.4以上，JSP2.0支持或J2EE1.4要支持。</p>
+<h1 id="1-EL概述"><a href="#1-EL概述" class="headerlink" title="1 EL概述"></a><span id="1">1 EL概述</span></h1><p>EL是表达式语言，通过EL可以简化在JSP开发中对对象的引用。EL为不熟悉Java语言页面开发的人员提供了一个开发Java Web应用的新途径。目的:为了使JSP写起来更加简单。它提供了在 JSP 中简化表达式的方法。</p>
+<h2 id="1-1-EL基本的语法"><a href="#1-1-EL基本的语法" class="headerlink" title="1.1 EL基本的语法"></a>1.1 EL基本的语法</h2><p>EL表达式必须以“ ${expression} ”来表示，其中“ expression ”部分就是具体表达式内容，“ ${} ”将这个表达式内容包含在其中作为 EL 表达式的定义。</p>
+<p>EL存取变量数据的方法很简单，例如:${username}。它的意思是取出某一范围中名称为username的变量。</p>
+<p>因为我们并没有指定哪一个范围的username，所以它会依序从<strong>Page、Request、Session、Application</strong>范围查找。假如途中找到username，就直接回传，不再继续找下去，但是假如全部的范围都没有找到时，就回传null。</p>
+      
+      <a class="article-more-link" href="/2020/04/28/JSP%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9AEL%EF%BC%89/">More</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-JSP（第五章：Servlet）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -865,100 +949,13 @@
 
 </article>
     
-    <article id="post-软件项目管理（第四章：IT项目范围管理）" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/15/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86%EF%BC%89/"
-    >软件项目管理（第四章：IT项目范围管理）</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/15/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86%EF%BC%89/" class="article-date">
-  <time datetime="2020-04-15T00:34:21.000Z" itemprop="datePublished">2020-04-15</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">软件项目管理</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p><a href="/2020/04/15/软件项目管理（第四章：IT项目范围管理）/#1">4.1 项目范围管理概述</a></p>
-<p><a href="/2020/04/15/软件项目管理（第四章：IT项目范围管理）/#2">4.2 项目范围规划与范围定义</a></p>
-<p><a href="/2020/04/15/软件项目管理（第四章：IT项目范围管理）/#3">4.3 项目工作分解结构技术</a></p>
-<p><a href="/2020/04/15/软件项目管理（第四章：IT项目范围管理）/#4">4.4 项目范围核实与控制</a></p>
-</blockquote>
-<h1 id="4-1-项目范围管理概述"><a href="#4-1-项目范围管理概述" class="headerlink" title="4.1 项目范围管理概述"></a><span id="1">4.1 项目范围管理概述</span></h1><h2 id="4-1-1-项目范围与范围管理"><a href="#4-1-1-项目范围与范围管理" class="headerlink" title="4.1.1 项目范围与范围管理"></a>4.1.1 项目范围与范围管理</h2><p>项目范围管理的过程包括以下内容：</p>
-<ol>
-<li>收集需求</li>
-<li>范围定义</li>
-<li>创建工作分解结构<strong>(Work Breakdown Structure，WBS)</strong></li>
-<li>范围核实</li>
-<li>范围变更控制</li>
-</ol>
-      
-      <a class="article-more-link" href="/2020/04/15/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9AIT%E9%A1%B9%E7%9B%AE%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86%EF%BC%89/">More</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">软件项目管理</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>
