@@ -103,7 +103,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.9k</span>
+            <span class="post-count">5.1k</span>
         </span>
     </span>
 
@@ -112,7 +112,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">9 分钟</span>
+            <span class="post-count">27 分钟</span>
         </span>
     </span>
 </div>
@@ -376,7 +376,549 @@ public class UserAction extends ActionSupport{
 &lt;/action&gt;
 &lt;/package&gt;
 &lt;/struts&gt;</code></pre>
+<h1 id="4-校验机制"><a href="#4-校验机制" class="headerlink" title="4 校验机制"></a><span id="4">4 校验机制</span></h1><h2 id="4-1-手动校验"><a href="#4-1-手动校验" class="headerlink" title="4.1 手动校验"></a>4.1 手动校验</h2><p>【src/struts.xml】：<font color="red">校验不成功返回字符串input</font></p>
+<pre><code class="jsp">&lt;/package&gt;
+&lt;package name=&quot;mylogin&quot; extends=&quot;struts-default&quot;&gt; 
+    &lt;action name=&quot;loginUser_*&quot; class=&quot;my.example.UserAction&quot; method=&quot;execute &quot;&gt;
+    &lt;result name=&quot;success&quot;&gt;success.jsp&lt;/result&gt;
+    &lt;result name=&quot;error&quot;&gt;error.jsp&lt;/result&gt;
+    &lt;result name=&quot;input&quot;&gt;login.jsp&lt;/result&gt;&lt;!-- 校验不成功时跳转 --&gt;
+&lt;/action&gt;
+&lt;/package&gt;</code></pre>
+<p>【src/my.example/UserAction.java】：<font color="red">validate()校验方法</font></p>
+<pre><code class="java">package my.example;
 
+import com.opensymphony.xwork2.ActionSupport;
+
+public class UserAction extends ActionSupport{ 
+    private String username;
+    private String password;
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    @Override
+    public String execute() throws Exception {
+        return SUCCESS;
+    }
+    //重写父类ActionSupport的校验的方法validate()
+    @Override
+    public void validate() {
+        if(username.equals(&quot;admin&quot;)) {
+            //提示信息username is invalid出现在username字段附近
+            this.addFieldError(&quot;username&quot;, &quot;username is invalid&quot;);
+        }
+        if(password.equals(&quot;111&quot;)) {
+            this.addFieldError(&quot;password&quot;, &quot;username is invalid&quot;);
+        }
+        if(username.equals(&quot;root&quot;)&amp;&amp;password.equals(&quot;root&quot;)) {
+            //多个字符串时候，不能指定错误信息提示在哪个字段的附近
+            //而是直接出现在&lt;s:actionerror/&gt;处
+            this.addActionError(&quot;information is invalid&quot;);
+        }
+    }
+}</code></pre>
+<p>【WebContent/login.jsp】：</p>
+<pre><code class="jsp">&lt;body&gt;
+&lt;s:form action=&quot;loginUser&quot;&gt; &lt;!-- 执行action中的默认方法execute() --&gt;
+    &lt;s:textfield name=&quot;username&quot; label=&quot;用户名&quot;&gt;&lt;/s:textfield&gt; 
+    &lt;s:password name=&quot;password&quot; label=&quot;密码&quot;&gt;&lt;/s:password&gt; 
+    &lt;s:submit value=&quot;确定&quot;/&gt;&lt;s:reset value=&quot;重置&quot;/&gt; 
+&lt;/s:form&gt; 
+&lt;s:actionerror/&gt;&lt;!-- this.addActionError()报错信息位置 --&gt;
+&lt;/body&gt;</code></pre>
+<p>【结果】:错误提示出现在字段的附件提示错误信息</p>
+<p>账号admin密码111：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/8.png" class="">
+
+<p>账号root密码root：</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/9.png" class="">
+
+<h2 id="4-2-自动校验"><a href="#4-2-自动校验" class="headerlink" title="4.2 自动校验"></a>4.2 自动校验</h2><h3 id="4-2-1-基本数据类型时"><a href="#4-2-1-基本数据类型时" class="headerlink" title="4.2.1 基本数据类型时"></a>4.2.1 基本数据类型时</h3><p>【src/my.example/UserAction-validation.xml】：<font color="red">UserAction-validation.xml和UserAction.java放在同一个包下</font></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--  --&gt;
+&lt;!DOCTYPE validators PUBLIC 
+ &quot;-//Apache Struts//XWork Validator 1.0.2//EN&quot; 
+ &quot;http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd&quot;&gt;
+
+&lt;validators&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;username&lt;/param&gt;
+&lt;message&gt;用户名不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;password&lt;/param&gt;
+&lt;message&gt;密码不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;repassword&lt;/param&gt;
+&lt;message&gt;再次输入密码不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;required&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;height&lt;/param&gt;
+&lt;message&gt;身高不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;email&lt;/param&gt;
+&lt;message&gt;邮箱不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;required&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;birthday&lt;/param&gt;
+&lt;message&gt;生日不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;blogurl&lt;/param&gt;
+&lt;message&gt;博客不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;regex&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;username&lt;/param&gt;
+&lt;param name=&quot;expression&quot;&gt;&lt;![CDATA[(\w{4,20})]]&gt;&lt;/param&gt;
+&lt;message&gt;用户名长度必须在4到20之间且必须是数字和字母&lt;/message&gt;
+&lt;/validator&gt;
+
+
+&lt;validator type=&quot;stringlength&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;password&lt;/param&gt;
+&lt;param name=&quot;minLength&quot;&gt;6&lt;/param&gt;
+&lt;message&gt;密码不得小于${minLength}位&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;url&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;blogurl&lt;/param&gt;
+&lt;message&gt;博客地址不正确&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;email&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;email&lt;/param&gt;
+&lt;message&gt;邮箱地址不正确&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;double&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;height&lt;/param&gt;
+&lt;param name=&quot;minInclusive&quot;&gt;0.7&lt;/param&gt;
+&lt;param name=&quot;maxInclusive&quot;&gt;2.5&lt;/param&gt;
+&lt;message&gt;身高必须在${minInclusive}和${maxInclusive}之间&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;date&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;birthday&lt;/param&gt;
+&lt;param name=&quot;min&quot;&gt;1900-01-01&lt;/param&gt;
+&lt;param name=&quot;max&quot;&gt;2010-01-01&lt;/param&gt;
+&lt;message&gt;出生日期必须在${min}和${max}之间&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;fieldexpression&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;password&lt;/param&gt;
+&lt;param name=&quot;fieldName&quot;&gt;repassword&lt;/param&gt;
+&lt;param name=&quot;expression&quot;&gt;&lt;![CDATA[(password==repassword)]]&gt;&lt;/param&gt;
+&lt;message&gt;两次输入的密码必须一致&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;fieldexpression&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;username&lt;/param&gt;
+&lt;param name=&quot;expression&quot;&gt;&lt;![CDATA[(username!=&#39;admin&#39;)]]&gt;&lt;/param&gt;
+&lt;message&gt;用户名不允许设为admin&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;/validators&gt;</code></pre>
+<p>【WebContent/login.jsp】：</p>
+<pre><code class="jsp">&lt;body&gt;
+     &lt;s:fielderror cssStyle=&quot;color:red;&quot;/&gt;&lt;!-- 校检信息提示处 --&gt;
+
+       &lt;s:form action=&quot;loginUser&quot; method=&quot;POST&quot; theme=&quot;simple&quot;&gt;
+       &lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+       &lt;tr&gt;
+           &lt;td&gt;用户名&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;username&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;密  码&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:password name=&quot;password&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;再次输入密码&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:password name=&quot;repassword&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;出生日期&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;birthday&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;身高(米)&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;height&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;电子邮箱&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;email&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;博客&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;blogurl&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:submit value=&quot;注册&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;/table&gt;
+    &lt;/s:form&gt;
+&lt;/body&gt;</code></pre>
+<p>【src/my.example/UserAction.java】：</p>
+<pre><code class="java">package my.example;
+
+import java.util.Date;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class UserAction extends ActionSupport{ 
+    private String username;
+    private String password;
+    private String repassword;
+    private double height;
+    private Date birthday;
+    private String email;
+    private String blogurl;
+
+    public Date getBirthday() {
+
+        return birthday;
+
+    }
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getRepassword() {
+        return repassword;
+    }
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getBlogurl() {
+        return blogurl;
+    }
+    public void setBlogurl(String blogurl) {
+        this.blogurl = blogurl;
+    }
+    public String execute(){
+        System.out.println(birthday);
+        return SUCCESS;
+    }
+}</code></pre>
+<p>【src/struts.xml】：<font color="red">校验不成功返回字符串input</font></p>
+<pre><code class="jsp">&lt;/package&gt;
+&lt;package name=&quot;mylogin&quot; extends=&quot;struts-default&quot;&gt; 
+    &lt;action name=&quot;loginUser_*&quot; class=&quot;my.example.UserAction&quot; method=&quot;execute &quot;&gt;
+    &lt;result name=&quot;success&quot;&gt;success.jsp&lt;/result&gt;
+    &lt;result name=&quot;error&quot;&gt;error.jsp&lt;/result&gt;
+    &lt;result name=&quot;input&quot;&gt;login.jsp&lt;/result&gt;&lt;!-- 校验不成功时跳转 --&gt;
+&lt;/action&gt;
+&lt;/package&gt;</code></pre>
+<p>【结果：】<strong>校验器默认的执行顺序是按照在配置文件中由上到下的顺序执行的。</strong>框架默认非字段校验器的执行顺序是优于字段校验器的。非字段校验器的执行与字段校验器的执行是分离的，非字段校验器的短路只会影响到与此字段相关的非字段校验器。</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/10.png" class="">
+
+<h3 id="4-2-2-复杂数据类型"><a href="#4-2-2-复杂数据类型" class="headerlink" title="4.2.2 复杂数据类型"></a>4.2.2 复杂数据类型</h3><img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/12.png" class="">
+
+<p>【src/my.example/User.java】：新建User.java类，把基本数据剪切过来封装。</p>
+<pre><code class="java">package my.example;
+
+import java.util.Date;
+
+public class User {
+    private String username;
+    private String password;
+    private String repassword;
+    private double height;
+    private Date birthday;
+    private String email;
+    private String blogurl;
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getRepassword() {
+        return repassword;
+    }
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    public Date getBirthday() {
+        return birthday;
+    }
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getBlogurl() {
+        return blogurl;
+    }
+    public void setBlogurl(String blogurl) {
+        this.blogurl = blogurl;
+    }
+}</code></pre>
+<p>【src/my.example/UserAction.java】：添加User复杂数据类型</p>
+<pre><code class="java">package my.example;
+
+import java.util.Date;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class UserAction extends ActionSupport{ 
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String execute(){
+        return SUCCESS;
+    }
+}</code></pre>
+<p>【src/my.example/UserAction-validation.xml】：<font color="red">UserAction-validation.xml和UserAction.java放在同一个包下</font></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE validators PUBLIC 
+ &quot;-//Apache Struts//XWork Validator 1.0.2//EN&quot; 
+ &quot;http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd&quot;&gt;
+
+&lt;validators&gt;
+&lt;field name=&quot;user&quot;&gt;
+&lt;field-validator type=&quot;visitor&quot;&gt;
+&lt;param name=&quot;context&quot;&gt;Reg&lt;/param&gt;&lt;!-- 名字：要和文件名中间相同 --&gt;
+&lt;param name=&quot;appendPrefix&quot;&gt;true&lt;/param&gt;&lt;!-- 是否加前缀 --&gt;
+&lt;message&gt;用户注册：&lt;/message&gt;&lt;!-- 前缀描述 --&gt;
+&lt;/field-validator&gt;
+&lt;/field&gt;
+&lt;/validators&gt;</code></pre>
+<p>【src/my.example/User-Reg-validation.xml】：<font color="red">User-Reg-validation.xml和User.java放在同一个包下,并且文件名-两横杠中字符串与<strong>“context”的值对应</strong>-</font>，对基本数据的校检放进新validation</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE validators PUBLIC 
+ &quot;-//Apache Struts//XWork Validator 1.0.2//EN&quot; 
+ &quot;http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd&quot;&gt;
+
+&lt;validators&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;username&lt;/param&gt;
+&lt;message&gt;用户名不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;password&lt;/param&gt;
+&lt;message&gt;密码不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;repassword&lt;/param&gt;
+&lt;message&gt;再次输入密码不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;required&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;height&lt;/param&gt;
+&lt;message&gt;身高不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;email&lt;/param&gt;
+&lt;message&gt;邮箱不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;required&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;birthday&lt;/param&gt;
+&lt;message&gt;生日不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;requiredstring&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;blogurl&lt;/param&gt;
+&lt;message&gt;博客不可为空&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;regex&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;username&lt;/param&gt;
+&lt;param name=&quot;expression&quot;&gt;&lt;![CDATA[(\w{4,20})]]&gt;&lt;/param&gt;
+&lt;message&gt;用户名长度必须在4到20之间且必须是数字和字母&lt;/message&gt;
+&lt;/validator&gt;
+
+
+&lt;validator type=&quot;stringlength&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;password&lt;/param&gt;
+&lt;param name=&quot;minLength&quot;&gt;6&lt;/param&gt;
+&lt;message&gt;密码不得小于${minLength}位&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;url&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;blogurl&lt;/param&gt;
+&lt;message&gt;博客地址不正确&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;email&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;email&lt;/param&gt;
+&lt;message&gt;邮箱地址不正确&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;double&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;height&lt;/param&gt;
+&lt;param name=&quot;minInclusive&quot;&gt;0.7&lt;/param&gt;
+&lt;param name=&quot;maxInclusive&quot;&gt;2.5&lt;/param&gt;
+&lt;message&gt;身高必须在${minInclusive}和${maxInclusive}之间&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;date&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;birthday&lt;/param&gt;
+&lt;param name=&quot;min&quot;&gt;1900-01-01&lt;/param&gt;
+&lt;param name=&quot;max&quot;&gt;2010-01-01&lt;/param&gt;
+&lt;message&gt;出生日期必须在${min}和${max}之间&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;fieldexpression&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;password&lt;/param&gt;
+&lt;param name=&quot;fieldName&quot;&gt;repassword&lt;/param&gt;
+&lt;param name=&quot;expression&quot;&gt;&lt;![CDATA[(password==repassword)]]&gt;&lt;/param&gt;
+&lt;message&gt;两次输入的密码必须一致&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;validator type=&quot;fieldexpression&quot;&gt;
+&lt;param name=&quot;fieldName&quot;&gt;username&lt;/param&gt;
+&lt;param name=&quot;expression&quot;&gt;&lt;![CDATA[(username!=&#39;admin&#39;)]]&gt;&lt;/param&gt;
+&lt;message&gt;用户名不允许设为admin&lt;/message&gt;
+&lt;/validator&gt;
+
+&lt;/validators&gt;</code></pre>
+<p>【WebContent/login.jsp】：name中参数加上对象<strong>user.</strong></p>
+<pre><code class="html">&lt;body&gt;
+     &lt;s:fielderror cssStyle=&quot;color:red;&quot;/&gt;&lt;!-- 校检信息提示处 --&gt;
+
+       &lt;s:form action=&quot;loginUser&quot; method=&quot;POST&quot; theme=&quot;simple&quot;&gt;
+       &lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;
+       &lt;tr&gt;
+           &lt;td&gt;用户名&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;user.username&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;密  码&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:password name=&quot;user.password&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;再次输入密码&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:password name=&quot;user.repassword&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;出生日期&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;user.birthday&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;身高(米)&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;user.height&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;电子邮箱&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;user.email&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;博客&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:textfield name=&quot;user.blogurl&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+           &lt;td&gt;
+             &lt;s:submit value=&quot;注册&quot;/&gt;
+           &lt;/td&gt;
+       &lt;/tr&gt;
+       &lt;/table&gt;
+    &lt;/s:form&gt;
+&lt;/body&gt;</code></pre>
+<p>【结果】：当不同的Action调用同一个封装类时，设置不同的<strong>前缀信息</strong>，就能知道是哪个Action校检有问题。</p>
+<img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/11.png" class="">
       
       <!-- reward -->
       
