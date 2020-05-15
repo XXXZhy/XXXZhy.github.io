@@ -112,7 +112,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">27 分钟</span>
+            <span class="post-count">28 分钟</span>
         </span>
     </span>
 </div>
@@ -137,9 +137,15 @@
       
 
       
-      <p>Struts官方网站：<a href="https://struts.apache.org/" target="_blank" rel="noopener">https://struts.apache.org/</a></p>
+      <blockquote>
+<p><a href="/2020/04/29/JSP（第八章：Struts2）/#1">1 第一个Struts2页面</a></p>
+<p><a href="/2020/04/29/JSP（第八章：Struts2）/#2">2 配置文件</a></p>
+<p><a href="/2020/04/29/JSP（第八章：Struts2）/#3">3 Action</a></p>
+<p><a href="/2020/04/29/JSP（第八章：Struts2）/#4">4 校验机制</a></p>
+</blockquote>
+<p>Struts官方网站：<a href="https://struts.apache.org/" target="_blank" rel="noopener">https://struts.apache.org/</a></p>
 <p>入门资源：<a href="https://www.w3cschool.cn/struts_2/" target="_blank" rel="noopener">W3Cschool Strtus2</a></p>
-<h1 id="1-第一个Struts2页面"><a href="#1-第一个Struts2页面" class="headerlink" title="1 第一个Struts2页面"></a>1 第一个Struts2页面</h1><h2 id="1-1-简单例子1"><a href="#1-1-简单例子1" class="headerlink" title="1.1 简单例子1"></a>1.1 简单例子1</h2><p>【导入jar包】:</p>
+<h1 id="1-第一个Struts2页面"><a href="#1-第一个Struts2页面" class="headerlink" title="1 第一个Struts2页面"></a><span id="1">1 第一个Struts2页面</span></h1><h2 id="1-1-简单例子1"><a href="#1-1-简单例子1" class="headerlink" title="1.1 简单例子1"></a>1.1 简单例子1</h2><p>【导入jar包】:</p>
 <img src="/2020/04/29/JSP%EF%BC%88%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9AStruts2%EF%BC%89/1.png" class="">
 
 <p>【WebContent/WEB-INF/web.xml】：<strong>struts2实质就是过滤器实现</strong></p>
@@ -274,10 +280,10 @@ public class UserAction {
 
 <img src="/2020/04/29/JSP（第八章：Struts2）/4.png">
 
-<h1 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h1><h2 id="2-1-web-xml文件"><a href="#2-1-web-xml文件" class="headerlink" title="2.1 web.xml文件"></a>2.1 web.xml文件</h2><p><strong>struts2实质就是过滤器实现</strong>，按例子中再web.xml添加struts2的过滤器</p>
+<h1 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a><span id="2">2 配置文件</span></h1><h2 id="2-1-web-xml文件"><a href="#2-1-web-xml文件" class="headerlink" title="2.1 web.xml文件"></a>2.1 web.xml文件</h2><p><strong>struts2实质就是过滤器实现</strong>，按例子中再web.xml添加struts2的过滤器</p>
 <h2 id="2-2-struts-xml文件"><a href="#2-2-struts-xml文件" class="headerlink" title="2.2 struts.xml文件"></a>2.2 struts.xml文件</h2><p>在struts2框架中使用包来管理Action，包的作用和java中的类包是非常类似的，它主要用于管理一组业务功能相关的action.在实际应用中，我们应该把一组业务功能相关的Action放在同一个包下。<br>配置包时必须指定name属性，该name属性值可以任意取名，但必须唯一，如果其他包要继承该包，必须通过该属性进行引用。包的namespace属性用于定义该包的命名空间，命名空间作为访问该包下Action路径的一部分。Namespace属性可以不配置，如果不指定该属性，默认的命名空间为“”<br>通常每个包都应该继承struts-default包，因为struts2很多核心的功能都是拦截器来实现。当包继承了struts-default才能使用struts2提供的核心功能。Struts-default包是在struts2-core-2.x.x.jar文件中的struts-default.xml中定义。</p>
 <p><strong>一个package中可以有多个action</strong></p>
-<h1 id="3-Action"><a href="#3-Action" class="headerlink" title="3 Action"></a>3 Action</h1><h2 id="3-1-基本概念"><a href="#3-1-基本概念" class="headerlink" title="3.1 基本概念"></a>3.1 基本概念</h2><p>Action有一下特点：Struts2框架中Action是一个POJO，没有被代码污染。 </p>
+<h1 id="3-Action"><a href="#3-Action" class="headerlink" title="3 Action"></a><span id="3">3 Action</span></h1><h2 id="3-1-基本概念"><a href="#3-1-基本概念" class="headerlink" title="3.1 基本概念"></a>3.1 基本概念</h2><p>Action有一下特点：Struts2框架中Action是一个POJO，没有被代码污染。 </p>
 <p>POJO（Plain Old Java Objects）简单的Java对象，实际就是普通JavaBeans，是为了避免和EJB混淆所创造的简称。是它通指没有使用Entity Beans的普通java对象，可以把POJO作为支持业务逻辑的协助类。</p>
 <p><strong>Struts2中actions的唯一要求是必须有一个无参数方法返回String或Result对象，并且必须是POJO。如果没有指定no-argument方法，则<font color="red">默认是使用execute()方法</font>。</strong></p>
 <h2 id="3-2-基类ActionSupport"><a href="#3-2-基类ActionSupport" class="headerlink" title="3.2 基类ActionSupport"></a>3.2 基类ActionSupport</h2><p>框架还提供了一个Action组件的基类ActionSupport，它在实现了Action接口的同时实现了execute()方法。</p>
