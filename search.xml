@@ -99,11 +99,6 @@
       </tags>
   </entry>
   <entry>
-    <title>coding</title>
-    <url>/2020/05/17/coding/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-  </entry>
-  <entry>
     <title>UML（案例：作业批改系统）</title>
     <url>/2020/05/16/UML%EF%BC%88%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BD%9C%E4%B8%9A%E6%89%B9%E6%94%B9%E7%B3%BB%E7%BB%9F%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="1-作业批改系统需求："><a href="#1-作业批改系统需求：" class="headerlink" title="1 作业批改系统需求："></a>1 作业批改系统需求：</h1><p>（1）教师用户登录后可以创建一门课程，设置作业，设置作业截止时间。<br>（2）教师用可以创建一门课程，添加学生选课信息。<br>（3）教师可以批改学生的作业，导出学生的成绩。统计本门课程的总成绩。<br>（4）学生用户登录后，可以对自己的课程下的作业进行提交。<br>（5）管理员设置教师、学生用户信息。</p>

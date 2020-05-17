@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
-  <updated>2020-05-17T10:58:10.992Z</updated>
+  <updated>2020-05-16T04:41:48.922Z</updated>
   <id>https://www.blogzhy.top/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>coding</title>
-    <link href="https://www.blogzhy.top/2020/05/17/coding/"/>
-    <id>https://www.blogzhy.top/2020/05/17/coding/</id>
-    <published>2020-05-17T10:58:10.000Z</published>
-    <updated>2020-05-17T10:58:10.992Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>UML（案例：作业批改系统）</title>
@@ -678,6 +655,36 @@
       <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="软件项目管理" scheme="https://www.blogzhy.top/tags/%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python（程序控制2）</title>
+    <link href="https://www.blogzhy.top/2020/04/16/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B62%EF%BC%89/"/>
+    <id>https://www.blogzhy.top/2020/04/16/Python%EF%BC%88%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B62%EF%BC%89/</id>
+    <published>2020-04-16T02:32:57.000Z</published>
+    <updated>2020-04-16T04:23:13.114Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/16/Python（程序控制2）/#1&quot;&gt;1 for循环结构&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/16/Python（程序控制2）/#1&quot;&gt;2 break、continue、pass&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2020/04/16/Python（程序控制2）/#3&quot;&gt;3 循环嵌套&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-for循环结构&quot;&gt;&lt;a href=&quot;#1-for循环结构&quot; class=&quot;headerlink&quot; title=&quot;1 for循环结构&quot;&gt;&lt;/a&gt;&lt;span id=&quot;1&quot;&gt;1 for循环结构&lt;/span&gt;&lt;/h1&gt;&lt;h2 id=&quot;1-1-for循环语句&quot;&gt;&lt;a href=&quot;#1-1-for循环语句&quot; class=&quot;headerlink&quot; title=&quot;1.1 for循环语句&quot;&gt;&lt;/a&gt;1.1 for循环语句&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;for 变量 in 序列：
+    循环体&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;形如以上格式的&lt;code&gt;for&lt;/code&gt;语句可以遍历（逐个访问）序列中的元素。每次循环调取序列中的一个元素分配给变量并执行一次循环体（语句块），直到遍历整个序列中的所有元素为止。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;序列&lt;/strong&gt;是指一种基本的数据结构，序列可以是一个&lt;font color=&quot;red&quot;&gt;字符串、列表、元组、文件等&lt;/font&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://www.blogzhy.top/categories/Python/"/>
+    
+    
+      <category term="笔记" scheme="https://www.blogzhy.top/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python" scheme="https://www.blogzhy.top/tags/Python/"/>
     
   </entry>
   
