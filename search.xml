@@ -10192,8 +10192,8 @@ jsp:forward 发生在服务器端，客户端并不知道已经跳转到别的�
 <p> 特殊符前加 ：  <strong>\</strong>   （转义符） </p>
 ]]></content>
       <categories>
-        <category>BUG</category>
         <category>个人博客</category>
+        <category>BUG</category>
       </categories>
       <tags>
         <tag>HTML</tag>
