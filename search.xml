@@ -10954,23 +10954,4 @@ hexo.on(&#39;new&#39;, function(data){
         <tag>Hexo插件</tag>
       </tags>
   </entry>
-  <entry>
-    <title>About Me</title>
-    <url>/2020/02/20/about/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Zhy🐷🐵🐟"><a href="#Zhy🐷🐵🐟" class="headerlink" title="Zhy🐷🐵🐟"></a>Zhy🐷🐵🐟</h1><blockquote>
-<p>职业：学生</p>
-<p>家乡：四川广安</p>
-<p>现居：山东济南</p>
-<p>大学：山东交通学院</p>
-<p>爱好：瞎捣鼓、电影、单机</p>
-</blockquote>
-<blockquote>
-<p>GitHub：<a href="https://github.com/ZhuHouYu" target="_blank" rel="noopener">ZhuHouYu</a></p>
-<p>Gitee：<a href="https://gitee.com/ZhuHouYu" target="_blank" rel="noopener">ZhuHouYu</a></p>
-<p>QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=773645614&site=qq&menu=yes" target="_blank" rel="noopener">773645614</a></p>
-<p>微信：ForeverBestZhy</p>
-<p>Steam：<a href="https://steamcommunity.com/profiles/76561198327243133" target="_blank" rel="noopener">Zhy</a></p>
-</blockquote>
-<img src="/2020/02/20/about/about.png" class="" title="自我介绍头像">]]></content>
-  </entry>
 </search>
