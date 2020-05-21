@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Zhy丶Blog</title>
+  <title>XXXZhy丶Blog</title>
   
-  <subtitle>ZhyBlog</subtitle>
+  <subtitle>Zhy丶Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blogzhy.top/"/>
@@ -10,7 +10,7 @@
   <id>https://www.blogzhy.top/</id>
   
   <author>
-    <name>Zhy</name>
+    <name>XXXZhy</name>
     
   </author>
   
